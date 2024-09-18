@@ -4,8 +4,8 @@ hunter venturing into a village corrupted by Cthulu and his minions. Slay your w
 waves of enemies, collect power-ups, and ultimately defeat the horrific Cthulu himself!
 
 ## Project Overview
-**Genre:** Hack and Slash, Roguelike
-**Style:** 2D Top-Down, Pixel Art
+**Genre:** Hack and Slash, Roguelike <br>
+**Style:** 2D Top-Down, Pixel Art<br>
 **Core Mechanic:** Slash and shoot your way through waves of enemies to progress through the
 corrupted village and defeat Cthulu. Upon death, the game restarts.
 
