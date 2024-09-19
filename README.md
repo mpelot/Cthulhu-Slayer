@@ -14,12 +14,15 @@ corrupted village and defeat Cthulu. Upon death, the game restarts.
 - 3 enemy types
 - 1 Cthulu boss
 - 1 power-up.
+- Two weapon types: melee and mid-range
 
 ### Stretch Goals:
 - Extended boss fight.
 - Extra polish.
 - 1 additional power-up.
 - 1 additional enemy type.
+- Additional weapon types
+- Different difficulties 
 
 ## Development Schedule
 
