@@ -118,5 +118,3 @@ corrupted village and defeat Cthulu. Upon death, the game restarts.
 - Completion & Release:
 	- Finalize the game and ensure a polished experience.
 	- Prepare for presentation
-
-
