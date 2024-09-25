@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bws2ji5ixto81"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_vj332"]
-[ext_resource type="FontFile" uid="uid://cabwwc8lnsbe7" path="res://pixel-dead.italic.ttf" id="2_rr3bx"]
+[ext_resource type="Script" path="res://UI/Scene/Menu/menu.gd" id="1_vj332"]
+[ext_resource type="FontFile" uid="uid://cabwwc8lnsbe7" path="res://UI/Common/pixel-dead.italic.ttf" id="2_rr3bx"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_iqg46"]
 content_margin_left = 20.0

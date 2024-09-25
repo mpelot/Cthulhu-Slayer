@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cabwwc8lnsbe7"
-path="res://.godot/imported/pixel-dead.italic.ttf-0bbfc64e1c4d66fa4378ff675a60dab6.fontdata"
+path="res://.godot/imported/pixel-dead.italic.ttf-9197930a875cbcd9f80b5dcb9b7bd1da.fontdata"
 
 [deps]
 
-source_file="res://pixel-dead.italic.ttf"
-dest_files=["res://.godot/imported/pixel-dead.italic.ttf-0bbfc64e1c4d66fa4378ff675a60dab6.fontdata"]
+source_file="res://UI/Common/pixel-dead.italic.ttf"
+dest_files=["res://.godot/imported/pixel-dead.italic.ttf-9197930a875cbcd9f80b5dcb9b7bd1da.fontdata"]
 
 [params]
 
