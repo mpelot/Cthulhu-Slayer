@@ -2,7 +2,7 @@
 extends Node2D
 class_name StateMachine
 
-@export var initial_state: String
+@export var initial_state: State
 var current_state: State
 var states: Dictionary
 
@@ -11,8 +11,8 @@ func _ready():
 	for child in children:
 		if(child is State):
 			states[child.name.to_lower()] = child
-			child.transitioned.connect(self, "handle_transitioned")
-			if(child.name.to_lower() == initial_state):
+			child.transitioned.connect(handle_transitioned)
+			if(child == initial_state):
 				current_state = child
 				current_state.enter()
 	on_ready()

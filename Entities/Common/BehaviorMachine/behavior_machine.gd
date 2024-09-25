@@ -15,7 +15,7 @@ func _ready():
 		enter()
 	
 
-func enter(args = {}):
+func enter(_args = {}):
 	for behavior in behaviors:
 		behavior.enter()
 	

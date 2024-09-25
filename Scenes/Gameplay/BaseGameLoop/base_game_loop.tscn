@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3u70b0nlr22v"]
+
+[ext_resource type="PackedScene" uid="uid://cnb72lqryhhy5" path="res://Entities/Player/player.tscn" id="1_vac0s"]
+
+[sub_resource type="Gradient" id="Gradient_gko02"]
+colors = PackedColorArray(0.344076, 0.344076, 0.344076, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kn1y2"]
+gradient = SubResource("Gradient_gko02")
+fill_from = Vector2(0, 0.00917431)
+
+[node name="BaseGameLoop" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="ReplaceThisFloor!" type="Sprite2D" parent="Environment"]
+position = Vector2(-3.99997, 29.0001)
+scale = Vector2(50.125, 37.8711)
+texture = SubResource("GradientTexture2D_kn1y2")
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Player" parent="Entities" instance=ExtResource("1_vac0s")]

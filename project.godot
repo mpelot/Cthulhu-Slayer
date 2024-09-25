@@ -21,6 +21,14 @@ MemorySystem="*res://Autoload/memory_system.gd"
 Transition="*res://Autoload/transition.tscn"
 Global="*res://Autoload/global.gd"
 
+[file_customization]
+
+folder_colors={
+"res://Autoload/": "gray",
+"res://Entities/": "orange",
+"res://Scenes/": "blue"
+}
+
 [input]
 
 Up={
