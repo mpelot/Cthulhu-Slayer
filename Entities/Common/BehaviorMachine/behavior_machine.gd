@@ -2,8 +2,6 @@
 extends State
 class_name BehaviorMachine
 
-
-
 var is_in_state_machine: bool = false
 var behaviors : Array[Behavior]
 

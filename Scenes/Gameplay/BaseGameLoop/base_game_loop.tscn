@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3u70b0nlr22v"]
 
-[ext_resource type="PackedScene" uid="uid://cnb72lqryhhy5" path="res://Entities/Player/player.tscn" id="1_y0qr7"]
+[ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="1_y0qr7"]
 
 [sub_resource type="Gradient" id="Gradient_gko02"]
 colors = PackedColorArray(0.344076, 0.344076, 0.344076, 1, 1, 1, 1, 1)

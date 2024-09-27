@@ -16,7 +16,7 @@ func _ready():
 				current_state = child
 				current_state.enter()
 	on_ready()
-
+	
 func on_ready():
 	pass
 

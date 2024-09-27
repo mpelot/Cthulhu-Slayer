@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://brcgjfbjarm58"]
+
+[sub_resource type="Gradient" id="Gradient_nisec"]
+offsets = PackedFloat32Array(0.00909091, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ta60u"]
+gradient = SubResource("Gradient_nisec")
+width = 1
+height = 1
+use_hdr = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulccy"]
+bg_color = Color(0, 0.715688, 0.404726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi14x"]
+bg_color = Color(0.265793, 0.264237, 0.198379, 1)
+
+[resource]
+HSlider/icons/grabber = null
+HSlider/icons/grabber_disabled = SubResource("GradientTexture2D_ta60u")
+HSlider/icons/grabber_highlight = null
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ulccy")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_vi14x")

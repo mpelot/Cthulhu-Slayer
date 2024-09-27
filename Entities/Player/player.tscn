@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnb72lqryhhy5"]
+[gd_scene load_steps=8 format=3 uid="uid://clwh62jtlg5t8"]
 
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_60xw4"]
 [ext_resource type="Script" path="res://Entities/Common/BehaviorMachine/behavior_machine.gd" id="2_kjgyc"]
 [ext_resource type="Script" path="res://Entities/Player/Script/movement.gd" id="3_0ckey"]
 [ext_resource type="Script" path="res://Entities/Common/HierarchicalMachine/hierarchy_state.gd" id="3_j5e3g"]
 [ext_resource type="Texture2D" uid="uid://cdvpci3o4ehot" path="res://icon.svg" id="4_dqxyr"]
+[ext_resource type="PackedScene" uid="uid://btf6lpn8oxjdx" path="res://Entities/Player/UI/player_stats.tscn" id="6_w7yuo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eby2n"]
 size = Vector2(120, 118)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 
 [node name="StateMachine (FSM)" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_60xw4")
@@ -45,3 +46,5 @@ texture = ExtResource("4_dqxyr")
 shape = SubResource("RectangleShape2D_eby2n")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PlayerStats" parent="." instance=ExtResource("6_w7yuo")]
