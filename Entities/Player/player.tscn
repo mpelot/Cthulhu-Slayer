@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnb72lqryhhy5"]
+[gd_scene load_steps=7 format=3 uid="uid://cnb72lqryhhy5"]
 
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_60xw4"]
 [ext_resource type="Script" path="res://Entities/Common/BehaviorMachine/behavior_machine.gd" id="2_kjgyc"]
+[ext_resource type="Script" path="res://Entities/Player/Script/movement.gd" id="3_0ckey"]
 [ext_resource type="Script" path="res://Entities/Common/HierarchicalMachine/hierarchy_state.gd" id="3_j5e3g"]
 [ext_resource type="Texture2D" uid="uid://cdvpci3o4ehot" path="res://icon.svg" id="4_dqxyr"]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eby2n"]
+size = Vector2(120, 118)
+
+[node name="Player" type="CharacterBody2D"]
 
 [node name="StateMachine (FSM)" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_60xw4")
@@ -15,6 +19,7 @@ initial_state = NodePath("Control (BM)")
 script = ExtResource("2_kjgyc")
 
 [node name="Movement" type="Node2D" parent="StateMachine (FSM)/Control (BM)"]
+script = ExtResource("3_0ckey")
 
 [node name="Skill (HSM)" type="Node2D" parent="StateMachine (FSM)/Control (BM)"]
 script = ExtResource("3_j5e3g")
@@ -35,5 +40,8 @@ script = ExtResource("3_j5e3g")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite"]
 texture = ExtResource("4_dqxyr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eby2n")
 
 [node name="Camera2D" type="Camera2D" parent="."]

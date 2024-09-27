@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=3 uid="uid://hlyxriuk5bep"]
+
+[ext_resource type="Texture2D" uid="uid://cdvpci3o4ehot" path="res://icon.svg" id="1_07glm"]
+[ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="2_ncbfr"]
+[ext_resource type="Script" path="res://Entities/RandomEntity/Script/green.gd" id="3_8lp4s"]
+[ext_resource type="Script" path="res://Entities/RandomEntity/Script/red.gd" id="3_ytpkx"]
+[ext_resource type="Script" path="res://Entities/Common/BehaviorMachine/behavior_machine.gd" id="5_cn6xx"]
+[ext_resource type="Script" path="res://Entities/RandomEntity/Script/ahh.gd" id="6_jqlnp"]
+[ext_resource type="Script" path="res://Entities/RandomEntity/Script/ohh.gd" id="7_eb32l"]
+[ext_resource type="Script" path="res://Entities/Common/HierarchicalMachine/hierarchy_state.gd" id="8_hrylu"]
+[ext_resource type="Script" path="res://Entities/RandomEntity/Script/orange.gd" id="9_snykp"]
+[ext_resource type="Script" path="res://Entities/RandomEntity/Script/blue.gd" id="10_jv1vq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iaqeg"]
+
+[node name="RandomEntity" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_iaqeg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_07glm")
+
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_ncbfr")
+initial_state = NodePath("Red")
+
+[node name="Green" type="Node2D" parent="StateMachine"]
+script = ExtResource("3_8lp4s")
+
+[node name="Red" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("sprite", "entity")]
+script = ExtResource("3_ytpkx")
+sprite = NodePath("../../Sprite2D")
+entity = NodePath("../..")
+
+[node name="BehaviorMachine" type="Node2D" parent="StateMachine"]
+script = ExtResource("5_cn6xx")
+
+[node name="Ahh" type="Node2D" parent="StateMachine/BehaviorMachine"]
+script = ExtResource("6_jqlnp")
+
+[node name="Ohh" type="Node2D" parent="StateMachine/BehaviorMachine"]
+script = ExtResource("7_eb32l")
+
+[node name="HierachyMachine" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("8_hrylu")
+initial_state = NodePath("Orange")
+
+[node name="Orange" type="Node2D" parent="StateMachine/HierachyMachine" node_paths=PackedStringArray("sprite")]
+script = ExtResource("9_snykp")
+sprite = NodePath("../../../Sprite2D")
+
+[node name="Blue" type="Node2D" parent="StateMachine/HierachyMachine" node_paths=PackedStringArray("sprite")]
+script = ExtResource("10_jv1vq")
+sprite = NodePath("../../../Sprite2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
