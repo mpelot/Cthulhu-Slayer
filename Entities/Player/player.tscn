@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://clwh62jtlg5t8"]
+[gd_scene load_steps=22 format=3 uid="uid://clwh62jtlg5t8"]
 
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_60xw4"]
 [ext_resource type="Script" path="res://Entities/Common/BehaviorMachine/behavior_machine.gd" id="2_kjgyc"]
@@ -13,6 +13,46 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eby2n"]
 size = Vector2(120, 118)
+
+[sub_resource type="Animation" id="Animation_1vty4"]
+resource_name = "down"
+
+[sub_resource type="Animation" id="Animation_rqlro"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_yvaph"]
+resource_name = "left"
+
+[sub_resource type="Animation" id="Animation_7hum6"]
+resource_name = "melee"
+
+[sub_resource type="Animation" id="Animation_kiupv"]
+resource_name = "ranged"
+
+[sub_resource type="Animation" id="Animation_1kwe3"]
+resource_name = "right"
+
+[sub_resource type="Animation" id="Animation_oxcwe"]
+resource_name = "up"
+
+[sub_resource type="Animation" id="Animation_bl5y3"]
+resource_name = "Hurt"
+
+[sub_resource type="Animation" id="Animation_od1ch"]
+resource_name = "Stunt"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wdi3n"]
+_data = {
+"Down": SubResource("Animation_1vty4"),
+"Hurt": SubResource("Animation_bl5y3"),
+"Idle": SubResource("Animation_rqlro"),
+"Left": SubResource("Animation_yvaph"),
+"Melee": SubResource("Animation_7hum6"),
+"Ranged": SubResource("Animation_kiupv"),
+"Right": SubResource("Animation_1kwe3"),
+"Stunt": SubResource("Animation_od1ch"),
+"Up": SubResource("Animation_oxcwe")
+}
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 
@@ -58,3 +98,8 @@ shape = SubResource("RectangleShape2D_eby2n")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="PlayerStats" parent="." instance=ExtResource("6_w7yuo")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wdi3n")
+}
