@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://clwh62jtlg5t8"]
+[gd_scene load_steps=12 format=3 uid="uid://clwh62jtlg5t8"]
 
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_60xw4"]
 [ext_resource type="Script" path="res://Entities/Common/BehaviorMachine/behavior_machine.gd" id="2_kjgyc"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" path="res://Entities/Common/HierarchicalMachine/hierarchy_state.gd" id="3_j5e3g"]
 [ext_resource type="Texture2D" uid="uid://cdvpci3o4ehot" path="res://icon.svg" id="4_dqxyr"]
 [ext_resource type="Script" path="res://Entities/Player/Script/idle.gd" id="5_2uwg8"]
+[ext_resource type="Script" path="res://Entities/Player/melee.gd" id="5_cjxl6"]
 [ext_resource type="Script" path="res://Entities/Player/Script/hurt.gd" id="5_hc0dp"]
+[ext_resource type="Script" path="res://Entities/Player/Script/ranged.gd" id="6_51a3w"]
 [ext_resource type="PackedScene" uid="uid://btf6lpn8oxjdx" path="res://Entities/Player/UI/player_stats.tscn" id="6_w7yuo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eby2n"]
@@ -30,8 +32,10 @@ script = ExtResource("3_j5e3g")
 initial_state = NodePath("Idle")
 
 [node name="Melee" type="Node2D" parent="StateMachine (FSM)/Control (BM)/Skill (HSM)"]
+script = ExtResource("5_cjxl6")
 
 [node name="Ranged" type="Node2D" parent="StateMachine (FSM)/Control (BM)/Skill (HSM)"]
+script = ExtResource("6_51a3w")
 
 [node name="Idle" type="Node2D" parent="StateMachine (FSM)/Control (BM)/Skill (HSM)"]
 script = ExtResource("5_2uwg8")
