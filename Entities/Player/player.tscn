@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://clwh62jtlg5t8"]
+[gd_scene load_steps=10 format=3 uid="uid://clwh62jtlg5t8"]
 
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_60xw4"]
 [ext_resource type="Script" path="res://Entities/Common/BehaviorMachine/behavior_machine.gd" id="2_kjgyc"]
 [ext_resource type="Script" path="res://Entities/Player/Script/movement.gd" id="3_0ckey"]
 [ext_resource type="Script" path="res://Entities/Common/HierarchicalMachine/hierarchy_state.gd" id="3_j5e3g"]
 [ext_resource type="Texture2D" uid="uid://cdvpci3o4ehot" path="res://icon.svg" id="4_dqxyr"]
+[ext_resource type="Script" path="res://Entities/Player/Script/idle.gd" id="5_2uwg8"]
 [ext_resource type="Script" path="res://Entities/Player/Script/hurt.gd" id="5_hc0dp"]
 [ext_resource type="PackedScene" uid="uid://btf6lpn8oxjdx" path="res://Entities/Player/UI/player_stats.tscn" id="6_w7yuo"]
 
@@ -24,14 +25,16 @@ script = ExtResource("2_kjgyc")
 [node name="Movement" type="Node2D" parent="StateMachine (FSM)/Control (BM)"]
 script = ExtResource("3_0ckey")
 
-[node name="Skill (HSM)" type="Node2D" parent="StateMachine (FSM)/Control (BM)"]
+[node name="Skill (HSM)" type="Node2D" parent="StateMachine (FSM)/Control (BM)" node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_j5e3g")
+initial_state = NodePath("Idle")
 
 [node name="Melee" type="Node2D" parent="StateMachine (FSM)/Control (BM)/Skill (HSM)"]
 
 [node name="Ranged" type="Node2D" parent="StateMachine (FSM)/Control (BM)/Skill (HSM)"]
 
 [node name="Idle" type="Node2D" parent="StateMachine (FSM)/Control (BM)/Skill (HSM)"]
+script = ExtResource("5_2uwg8")
 
 [node name="Hurt" type="Node2D" parent="StateMachine (FSM)"]
 script = ExtResource("5_hc0dp")
