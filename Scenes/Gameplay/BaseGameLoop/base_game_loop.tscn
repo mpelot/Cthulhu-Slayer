@@ -24,3 +24,4 @@ metadata/_edit_lock_ = true
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Player" parent="Entities" instance=ExtResource("1_y0qr7")]
+position = Vector2(489, 252)

@@ -1,12 +1,15 @@
 extends State
 
 
+@onready var animation_player: AnimationPlayer = $"../../../../AnimationPlayer"
+
 func enter(_args={}):
-	pass
+	# Spawn some colliding object
+	animation_player.play("Melee")
+	transitioned.emit("Idle")
 	
 func exit():
 	pass
-
 
 #Called every frame
 func update(_delta):
