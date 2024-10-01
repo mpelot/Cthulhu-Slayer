@@ -17,6 +17,9 @@ size = Vector2(120, 118)
 [sub_resource type="Animation" id="Animation_1vty4"]
 resource_name = "down"
 
+[sub_resource type="Animation" id="Animation_bl5y3"]
+resource_name = "Hurt"
+
 [sub_resource type="Animation" id="Animation_rqlro"]
 resource_name = "idle"
 
@@ -32,14 +35,11 @@ resource_name = "ranged"
 [sub_resource type="Animation" id="Animation_1kwe3"]
 resource_name = "right"
 
-[sub_resource type="Animation" id="Animation_oxcwe"]
-resource_name = "up"
-
-[sub_resource type="Animation" id="Animation_bl5y3"]
-resource_name = "Hurt"
-
 [sub_resource type="Animation" id="Animation_od1ch"]
 resource_name = "Stunt"
+
+[sub_resource type="Animation" id="Animation_oxcwe"]
+resource_name = "up"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wdi3n"]
 _data = {

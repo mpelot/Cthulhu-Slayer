@@ -6,6 +6,7 @@ extends Behavior
 
 func update(delta):
 	var collision: KinematicCollision2D = move(delta)
+	#Collision can return null 
 	handle_collision(collision)
 
 func move(delta) -> KinematicCollision2D:
@@ -15,6 +16,8 @@ func move(delta) -> KinematicCollision2D:
 	
 #Handling the collision here
 func handle_collision(collision: KinematicCollision2D):
+	if(collision == null):
+		return #Or a different way to handle collision from here
 	var collider := collision.get_collider()
 	if(collider is Damagable):
 		control_state.transitioned.emit(control_state, {"damage": collider.damage})
