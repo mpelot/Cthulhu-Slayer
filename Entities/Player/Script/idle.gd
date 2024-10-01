@@ -2,7 +2,7 @@ extends State
 
 
 func enter(_args={}):
-	pass
+	print("I am now Idle")
 	
 func exit():
 	pass
@@ -10,7 +10,10 @@ func exit():
 
 #Called every frame
 func update(_delta):
-	pass
+	if Input.is_action_just_pressed("Melee"):
+		transitioned.emit(self, "Melee")
+	elif Input.is_action_just_pressed("Shoot"):
+		transitioned.emit(self, "Ranged")
 
 #Called every physic frame
 func physic_update(_delta):

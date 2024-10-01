@@ -1,8 +1,13 @@
 extends State
 
 
+@onready var animation_player: AnimationPlayer = $"../../../../AnimationPlayer"
+
 func enter(_args={}):
-	pass
+	# Spawn some colliding object
+	print("Range Attack")
+	animation_player.play("Ranged")
+	transitioned.emit(self, "Idle")
 	
 func exit():
 	pass

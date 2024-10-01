@@ -5,8 +5,9 @@ extends State
 
 func enter(_args={}):
 	# Spawn some colliding object
+	print("Melee Attack")
 	animation_player.play("Melee")
-	transitioned.emit("Idle")
+	transitioned.emit(self, "Idle")
 	
 func exit():
 	# Maybe despawn colliding object
