@@ -9,6 +9,7 @@ func enter(_args={}):
 	transitioned.emit("Idle")
 	
 func exit():
+	# Maybe despawn colliding object
 	pass
 
 #Called every frame
