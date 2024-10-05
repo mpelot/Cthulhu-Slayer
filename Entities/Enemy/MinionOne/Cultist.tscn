@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://cabjye6mltep3"]
+
+[ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_2dv02"]
+[ext_resource type="Texture2D" uid="uid://dtd1764cfq33s" path="res://Temp/LumiStoryMode.png" id="1_sjo7p"]
+[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/cultist.gd" id="1_snr00"]
+[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/idle.gd" id="3_6fp4c"]
+[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/chase_player.gd" id="4_2gjtk"]
+[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/attack.gd" id="5_a8trx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cetrn"]
+
+[node name="Cultist" type="CharacterBody2D"]
+script = ExtResource("1_snr00")
+
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_2dv02")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node2D" parent="StateMachine"]
+script = ExtResource("3_6fp4c")
+
+[node name="ChasePlayer" type="Node2D" parent="StateMachine"]
+script = ExtResource("4_2gjtk")
+
+[node name="Dead" type="Node2D" parent="StateMachine"]
+
+[node name="Attack" type="Node2D" parent="StateMachine"]
+script = ExtResource("5_a8trx")
+
+[node name="Sprite" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+texture = ExtResource("1_sjo7p")
+hframes = 16
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cetrn")
