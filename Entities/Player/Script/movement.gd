@@ -12,7 +12,8 @@ func update(delta):
 func move(delta) -> KinematicCollision2D:
 	var x_input : float = Input.get_action_raw_strength("Right") - Input.get_action_raw_strength("Left")
 	var y_input: float = Input.get_action_raw_strength("Down") - Input.get_action_raw_strength("Up")
-	return (player.move_and_collide(Vector2(x_input, y_input) * movement_speed * delta))
+	var direction = Vector2(x_input, y_input).normalized()
+	return (player.move_and_collide(direction * movement_speed * delta))
 	
 #Handling the collision here
 func handle_collision(collision: KinematicCollision2D):

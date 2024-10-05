@@ -12,9 +12,11 @@ use_hdr = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulccy"]
 bg_color = Color(0, 0.715688, 0.404726, 1)
+corner_detail = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi14x"]
 bg_color = Color(0.265793, 0.264237, 0.198379, 1)
+border_color = Color(0, 0, 0, 1)
 
 [resource]
 HSlider/icons/grabber = null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://clwh62jtlg5t8"]
+[gd_scene load_steps=25 format=3 uid="uid://clwh62jtlg5t8"]
 
 [ext_resource type="Script" path="res://Entities/Player/Script/player.gd" id="1_5phih"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_60xw4"]
@@ -14,13 +14,27 @@
 [ext_resource type="Texture2D" uid="uid://c5bajmv1r7knp" path="res://Temp/Guy.png" id="11_24gwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eby2n"]
-size = Vector2(120, 118)
+size = Vector2(17, 20)
 
 [sub_resource type="Animation" id="Animation_1vty4"]
 resource_name = "down"
 
 [sub_resource type="Animation" id="Animation_bl5y3"]
 resource_name = "Hurt"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Sprite2D2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.09),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.00999999, 0.00999999, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_rqlro"]
 resource_name = "idle"
@@ -43,6 +57,21 @@ resource_name = "Stunt"
 [sub_resource type="Animation" id="Animation_oxcwe"]
 resource_name = "up"
 
+[sub_resource type="Animation" id="Animation_2353w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Sprite2D2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wdi3n"]
 _data = {
 "Down": SubResource("Animation_1vty4"),
@@ -50,6 +79,7 @@ _data = {
 "Idle": SubResource("Animation_rqlro"),
 "Left": SubResource("Animation_yvaph"),
 "Melee": SubResource("Animation_7hum6"),
+"RESET": SubResource("Animation_2353w"),
 "Ranged": SubResource("Animation_kiupv"),
 "Right": SubResource("Animation_1kwe3"),
 "Stunt": SubResource("Animation_od1ch"),
@@ -105,7 +135,7 @@ scale = Vector2(0.088, 0.088)
 texture = ExtResource("11_24gwf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
+position = Vector2(0.5, -3)
 shape = SubResource("RectangleShape2D_eby2n")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -119,3 +149,5 @@ position_smoothing_enabled = true
 libraries = {
 "": SubResource("AnimationLibrary_wdi3n")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine (FSM)/Hurt" method="handle_animation_finishes"]

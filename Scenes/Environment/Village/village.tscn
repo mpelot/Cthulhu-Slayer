@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://dgf3y7d0he3na"]
+[gd_scene load_steps=5 format=4 uid="uid://dgf3y7d0he3na"]
 
 [ext_resource type="TileSet" uid="uid://di8palb3act4f" path="res://Scenes/Environment/Village/tilemap/village_tile_set.tres" id="1_lnc07"]
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="2_k3pbb"]
 [ext_resource type="Script" path="res://Scenes/Environment/Village/Script/foreground.gd" id="2_mntsy"]
+[ext_resource type="PackedScene" uid="uid://cabjye6mltep3" path="res://Entities/Enemy/MinionOne/cultist.tscn" id="4_7rwyg"]
 
 [node name="Village" type="Node2D"]
 
@@ -47,3 +48,6 @@ tile_set = ExtResource("1_lnc07")
 
 [node name="Player" parent="." instance=ExtResource("2_k3pbb")]
 position = Vector2(-80, 112)
+
+[node name="Cultist" parent="." instance=ExtResource("4_7rwyg")]
+position = Vector2(114, 112)

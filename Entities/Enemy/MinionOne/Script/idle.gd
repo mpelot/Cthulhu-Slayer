@@ -1,12 +1,16 @@
 extends EnemyState
 
 @onready var cultist: Cultist = $"../.."
-var detect_distance: float = 200
+var detect_distance: float = 100
+
+func enter(args = {}):
+	print("culist idling")
 
 func update(delta):
-	if(distance_to_player() < detect_distance):
+	if(distance_to_player(cultist.position) < detect_distance):
 		transitioned.emit(self, "chaseplayer")
-		
-	
-func distance_to_player():
-	return (player.position - cultist.position).length()
+	else:
+		wander()		
+
+func wander():
+	pass

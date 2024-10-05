@@ -14,9 +14,11 @@ var health: float = 100 :
 			on_health_empty()
 		health = clamp(value, 0, 100)
 
+signal on_camera_shake
 
 func on_health_full():
 	pass
 	
 func on_health_empty():
 	pass
+	
