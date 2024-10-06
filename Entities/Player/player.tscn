@@ -45,18 +45,6 @@ resource_name = "left"
 [sub_resource type="Animation" id="Animation_7hum6"]
 resource_name = "melee"
 
-[sub_resource type="Animation" id="Animation_kiupv"]
-resource_name = "ranged"
-
-[sub_resource type="Animation" id="Animation_1kwe3"]
-resource_name = "right"
-
-[sub_resource type="Animation" id="Animation_od1ch"]
-resource_name = "Stunt"
-
-[sub_resource type="Animation" id="Animation_oxcwe"]
-resource_name = "up"
-
 [sub_resource type="Animation" id="Animation_2353w"]
 length = 0.001
 tracks/0/type = "value"
@@ -71,6 +59,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+
+[sub_resource type="Animation" id="Animation_kiupv"]
+resource_name = "ranged"
+
+[sub_resource type="Animation" id="Animation_1kwe3"]
+resource_name = "right"
+
+[sub_resource type="Animation" id="Animation_od1ch"]
+resource_name = "Stunt"
+
+[sub_resource type="Animation" id="Animation_oxcwe"]
+resource_name = "up"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wdi3n"]
 _data = {
