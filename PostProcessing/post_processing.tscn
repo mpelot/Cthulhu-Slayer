@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqaxhjp4uxia2"]
+
+[ext_resource type="Shader" path="res://PostProcessing/Script/vignette.gdshader" id="1_fnidg"]
+[ext_resource type="Shader" path="res://PostProcessing/Script/noise.gdshader" id="2_h0yqn"]
+[ext_resource type="Texture2D" uid="uid://b3a0n5trhikpk" path="res://PostProcessing/Texture/noise_texture.png" id="3_2qgvr"]
+[ext_resource type="Script" path="res://PostProcessing/Script/noise_controller.gd" id="3_d45pj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lakv6"]
+shader = ExtResource("2_h0yqn")
+shader_parameter/magnitude_threshold = 0.8
+shader_parameter/noise_offset = null
+shader_parameter/noise_texture = ExtResource("3_2qgvr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wjqe8"]
+shader = ExtResource("1_fnidg")
+shader_parameter/outerRadius = 1.0
+shader_parameter/MainAlpha = 1.0
+
+[node name="PostProcessing" type="CanvasLayer"]
+
+[node name="Noise" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Noise"]
+material = SubResource("ShaderMaterial_lakv6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_d45pj")
+
+[node name="Vignette" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Vignette"]
+material = SubResource("ShaderMaterial_wjqe8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorCorrection" type="CanvasLayer" parent="."]

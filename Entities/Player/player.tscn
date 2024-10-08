@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://clwh62jtlg5t8"]
+[gd_scene load_steps=26 format=3 uid="uid://clwh62jtlg5t8"]
 
 [ext_resource type="Script" path="res://Entities/Player/Script/player.gd" id="1_5phih"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_60xw4"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://btf6lpn8oxjdx" path="res://Entities/Player/UI/player_stats.tscn" id="6_w7yuo"]
 [ext_resource type="Texture2D" uid="uid://dtd1764cfq33s" path="res://Temp/LumiStoryMode.png" id="9_hen3c"]
 [ext_resource type="Texture2D" uid="uid://c5bajmv1r7knp" path="res://Temp/Guy.png" id="11_24gwf"]
+[ext_resource type="PackedScene" uid="uid://bqaxhjp4uxia2" path="res://PostProcessing/post_processing.tscn" id="13_nby1f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eby2n"]
 size = Vector2(17, 20)
@@ -45,18 +46,6 @@ resource_name = "left"
 [sub_resource type="Animation" id="Animation_7hum6"]
 resource_name = "melee"
 
-[sub_resource type="Animation" id="Animation_kiupv"]
-resource_name = "ranged"
-
-[sub_resource type="Animation" id="Animation_1kwe3"]
-resource_name = "right"
-
-[sub_resource type="Animation" id="Animation_od1ch"]
-resource_name = "Stunt"
-
-[sub_resource type="Animation" id="Animation_oxcwe"]
-resource_name = "up"
-
 [sub_resource type="Animation" id="Animation_2353w"]
 length = 0.001
 tracks/0/type = "value"
@@ -71,6 +60,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+
+[sub_resource type="Animation" id="Animation_kiupv"]
+resource_name = "ranged"
+
+[sub_resource type="Animation" id="Animation_1kwe3"]
+resource_name = "right"
+
+[sub_resource type="Animation" id="Animation_od1ch"]
+resource_name = "Stunt"
+
+[sub_resource type="Animation" id="Animation_oxcwe"]
+resource_name = "up"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wdi3n"]
 _data = {
@@ -140,7 +141,7 @@ shape = SubResource("RectangleShape2D_eby2n")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, 0)
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
 [node name="PlayerStats" parent="." instance=ExtResource("6_w7yuo")]
@@ -149,5 +150,7 @@ position_smoothing_enabled = true
 libraries = {
 "": SubResource("AnimationLibrary_wdi3n")
 }
+
+[node name="PostProcessing" parent="." instance=ExtResource("13_nby1f")]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine (FSM)/Hurt" method="handle_animation_finishes"]

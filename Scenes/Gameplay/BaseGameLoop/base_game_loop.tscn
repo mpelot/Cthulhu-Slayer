@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3u70b0nlr22v"]
 
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="1_y0qr7"]
-[ext_resource type="PackedScene" uid="uid://cabjye6mltep3" path="res://Entities/Enemy/MinionOne/cultist.tscn" id="2_7buq1"]
+[ext_resource type="PackedScene" uid="uid://cabjye6mltep3" path="res://Entities/Enemy/MinionOne/Cultist.tscn" id="2_7buq1"]
 
 [sub_resource type="Gradient" id="Gradient_gko02"]
 colors = PackedColorArray(0.344076, 0.344076, 0.344076, 1, 1, 1, 1, 1)
