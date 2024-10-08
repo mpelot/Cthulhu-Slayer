@@ -11,7 +11,7 @@ height = 1
 use_hdr = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulccy"]
-bg_color = Color(0, 0.715688, 0.404726, 1)
+bg_color = Color(0.447059, 0.27451, 0.34902, 1)
 corner_detail = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi14x"]
