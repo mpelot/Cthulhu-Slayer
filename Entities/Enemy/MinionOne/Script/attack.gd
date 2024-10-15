@@ -5,12 +5,11 @@ extends EnemyState
 var attack_distance: float = 30
 
 func enter(args = {}):
-	print("Entering the attacking zone")
+
 	attack()
 
 func attack():
 	animation_player.play("attack")
-	print("ATTACKING THE PLAYUER")
 
 func handle_animation_finished(anim_name):
 	if(anim_name != "attack"):
@@ -22,4 +21,9 @@ func handle_animation_finished(anim_name):
 
 func damage_player():
 	var damage : Damagable = Damagable.new(10, cultist)
-	player.receive_damage(damage)
+	if(distance_between_player(cultist) < 20):
+		player.receive_damage(damage)
+
+func distance_between_player(from: Node2D) -> float:
+	return (player.position - from.position).length()
+	

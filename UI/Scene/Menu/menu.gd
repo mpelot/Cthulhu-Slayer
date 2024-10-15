@@ -2,7 +2,7 @@ extends Control
 
 @onready var start: Button = $VBoxContainer2/Start as Button
 @onready var quit: Button = $VBoxContainer2/Quit as Button
-var base_game_play_path: String = "res://Scenes/Gameplay/BaseGameLoop/base_game_loop.tscn"
+var base_game_play_path: String = "res://Scenes/Cutscenes/BeforeVillage/before_village.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

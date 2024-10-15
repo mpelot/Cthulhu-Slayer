@@ -1,14 +1,17 @@
-extends CharacterBody2D
+extends Entity
 class_name Cultist
 
 @onready var state_machine: StateMachine = $StateMachine
+var health: float = 100
 
 func receive_damage(damage: Damagable):
-	print("received damage")
-	state_machine.transition_to_state("hurt", {"damage": damage.damage})
+	if(damage.from is Player):
+		health -= damage.damage
+		if(health < 0):
+			state_machine.transition_to_state("dead")
+			return
+		state_machine.transition_to_state("hurt", {"damage": damage.damage})
 	
 	
 func _process(_delta):
-	if(Input.is_action_just_pressed("Melee")):
-		var damage = Damagable.new(20, self)
-		receive_damage(damage)
+	pass

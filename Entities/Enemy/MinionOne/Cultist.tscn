@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cabjye6mltep3"]
+[gd_scene load_steps=14 format=3 uid="uid://cabjye6mltep3"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/cultist.gd" id="1_n1apt"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="2_lnrgd"]
 [ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/idle.gd" id="3_jwspe"]
 [ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/chase_player.gd" id="4_it5d6"]
 [ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/attack.gd" id="5_0vv7d"]
+[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/dead.gd" id="5_kj08s"]
 [ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/hurt.gd" id="6_0212j"]
 [ext_resource type="Texture2D" uid="uid://dtd1764cfq33s" path="res://Temp/LumiStoryMode.png" id="6_i2vio"]
 
@@ -37,6 +38,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_0ssfk"]
 resource_name = "attack"
+length = 2.0
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -44,10 +47,10 @@ tracks/0/path = NodePath("Sprite/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(-0.0666667, 0.4, 0.6, 1.2, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [1]
+"values": [1, 2, 3, 10, 0]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -56,7 +59,7 @@ tracks/1/path = NodePath("StateMachine/Attack")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0.533333),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -104,6 +107,7 @@ script = ExtResource("3_jwspe")
 script = ExtResource("4_it5d6")
 
 [node name="Dead" type="Node2D" parent="StateMachine"]
+script = ExtResource("5_kj08s")
 
 [node name="Attack" type="Node2D" parent="StateMachine"]
 script = ExtResource("5_0vv7d")
