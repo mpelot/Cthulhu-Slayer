@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3u70b0nlr22v"]
+[gd_scene load_steps=4 format=3 uid="uid://d3u70b0nlr22v"]
 
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="1_y0qr7"]
-[ext_resource type="PackedScene" path="res://UI/Scene/Pause/pause.tscn" id="2_k0y0s"]
 
 [sub_resource type="Gradient" id="Gradient_gko02"]
 colors = PackedColorArray(0.344076, 0.344076, 0.344076, 1, 1, 1, 1, 1)
@@ -26,9 +25,3 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="Entities" instance=ExtResource("1_y0qr7")]
 position = Vector2(489, 252)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 3
-
-[node name="Pause" parent="CanvasLayer" instance=ExtResource("2_k0y0s")]
-visible = false

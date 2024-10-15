@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbdahhosbo8jd"]
 
-[ext_resource type="Script" path="res://UI/Scene/Pause/pause.gd" id="1_to468"]
+[ext_resource type="Script" path="res://UI/Scene/Pause/pause.gd" id="1_0wdqy"]
 [ext_resource type="Theme" uid="uid://brcgjfbjarm58" path="res://UI/Theme/player_stat.tres" id="2_44g7l"]
 [ext_resource type="FontFile" uid="uid://cabwwc8lnsbe7" path="res://UI/Common/pixel-dead.italic.ttf" id="3_1t42e"]
 
@@ -12,7 +12,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_to468")
+script = ExtResource("1_0wdqy")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -29,10 +30,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -197.0
-offset_top = -112.0
-offset_right = 203.0
-offset_bottom = 178.0
+offset_left = -232.0
+offset_top = -185.0
+offset_right = 168.0
+offset_bottom = 105.0
 grow_horizontal = 2
 grow_vertical = 2
 
