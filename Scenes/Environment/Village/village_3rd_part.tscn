@@ -57,6 +57,117 @@ position = Vector2(-157, -472)
 tile_map_data = PackedByteArray("AAC0/wwAAAAAAAkAAAC0/w0AAAAAAAkAAAC0/w4AAAAAAAkAAADk//r/AAAQAAgAAADl//r/AAAQAAgAAADm//r/AAAPAAgAAADn//r/AAAQAAgAAADp//r/AAAPAAgAAADj//n/AAAAAAkAAADj//j/AAABAAkAAADj//f/AAAAAAkAAADr//r/AAAAAAkAAADr//n/AAAAAAkAAADr//j/AAAAAAkAAADr//f/AAAAAAkAAADr//b/AAABAAkAAADq//r/AAAPAAgAAADl//P/AAAQAAgAAADm//P/AAAPAAgAAADn//P/AAAQAAgAAADp//P/AAAPAAgAAADk//P/AAAQAAgAAADq//P/AAAQAAgAAADj//T/AAAAAAkAAADj//X/AAAAAAkAAADj//b/AAABAAkAAADr//T/AAABAAkAAAA=")
 tile_set = ExtResource("1_8wl3g")
 
+[node name="Houses" type="Node2D" parent="."]
+
+[node name="Sprite2D" parent="Houses" instance=ExtResource("4_qwbdc")]
+position = Vector2(-1336, -429)
+frame = 3
+
+[node name="Sprite2D2" parent="Houses" instance=ExtResource("4_qwbdc")]
+position = Vector2(-1297, -613)
+rotation = 3.14159
+scale = Vector2(1, -1)
+frame = 4
+
+[node name="Sprite2D5" parent="Houses" instance=ExtResource("4_qwbdc")]
+position = Vector2(-966.253, -646)
+rotation = 3.14159
+scale = Vector2(1.37896, -1)
+frame = 4
+
+[node name="Sprite2D6" parent="Houses" instance=ExtResource("4_qwbdc")]
+position = Vector2(-1193, -437)
+rotation = 3.14159
+scale = Vector2(1, -1)
+frame = 4
+
+[node name="Sprite2D7" parent="Houses" instance=ExtResource("4_qwbdc")]
+position = Vector2(-808, -652)
+frame = 4
+
+[node name="Sprite2D8" parent="Houses" instance=ExtResource("4_qwbdc")]
+position = Vector2(-698.5, -443.5)
+scale = Vector2(0.976563, 0.992188)
+frame = 4
+
+[node name="Sprite2D10" parent="Houses" instance=ExtResource("4_qwbdc")]
+position = Vector2(-526, -633)
+rotation = 3.14159
+scale = Vector2(1.21022, -0.927735)
+frame = 7
+
+[node name="Sprite2D11" parent="Houses" instance=ExtResource("4_qwbdc")]
+modulate = Color(0.630778, 0.26531, 0.469174, 1)
+position = Vector2(-272, -448)
+scale = Vector2(0.976563, 0.992188)
+frame = 5
+
+[node name="Sprite2D16" parent="Houses" instance=ExtResource("4_qwbdc")]
+modulate = Color(0.630778, 0.26531, 0.469174, 1)
+position = Vector2(-102, -433)
+scale = Vector2(0.976563, 0.992188)
+frame = 5
+
+[node name="Sprite2D17" parent="Houses" instance=ExtResource("4_qwbdc")]
+modulate = Color(0.630778, 0.26531, 0.469174, 1)
+position = Vector2(374, -531)
+scale = Vector2(0.976563, 0.992188)
+frame = 5
+
+[node name="Sprite2D18" parent="Houses" instance=ExtResource("4_qwbdc")]
+modulate = Color(0.630778, 0.26531, 0.469174, 1)
+position = Vector2(232, -422)
+scale = Vector2(0.976563, 0.992188)
+frame = 5
+
+[node name="Sprite2D19" parent="Houses" instance=ExtResource("4_qwbdc")]
+modulate = Color(0.630778, 0.26531, 0.469174, 1)
+position = Vector2(467, -607)
+scale = Vector2(0.976563, 0.992188)
+frame = 5
+
+[node name="Sprite2D20" parent="Houses" instance=ExtResource("4_qwbdc")]
+position = Vector2(52.875, -469.375)
+scale = Vector2(0.658203, 0.150391)
+frame = 5
+
+[node name="Sprite2D12" parent="Houses" instance=ExtResource("4_qwbdc")]
+position = Vector2(-420, -472)
+scale = Vector2(0.976563, 0.992188)
+frame = 3
+
+[node name="Sprite2D13" parent="Houses" instance=ExtResource("4_qwbdc")]
+position = Vector2(24, -639)
+rotation = 3.14159
+scale = Vector2(1, -1)
+frame = 3
+
+[node name="Sprite2D14" parent="Houses" instance=ExtResource("4_qwbdc")]
+position = Vector2(177, -601)
+rotation = 3.14159
+scale = Vector2(1, -1)
+hframes = 7
+frame = 3
+
+[node name="Sprite2D15" parent="Houses" instance=ExtResource("4_qwbdc")]
+position = Vector2(323.975, -601)
+hframes = 7
+frame = 3
+
+[node name="Sprite2D9" parent="Houses" instance=ExtResource("4_qwbdc")]
+position = Vector2(-882, -436.25)
+scale = Vector2(0.976563, 1.23047)
+frame = 4
+
+[node name="Sprite2D3" parent="Houses" instance=ExtResource("4_qwbdc")]
+position = Vector2(-1128.5, -627)
+scale = Vector2(1.07031, 1.07813)
+frame = 3
+
+[node name="Sprite2D4" parent="Houses" instance=ExtResource("4_qwbdc")]
+position = Vector2(-1078, -444)
+frame = 4
+
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1.5, 1)
 scroll_offset = Vector2(-157, -472)
@@ -73,106 +184,3 @@ position = Vector2(-1635, -395)
 
 [node name="Cultist" parent="." instance=ExtResource("4_vfs35")]
 position = Vector2(-1018, -424)
-
-[node name="Sprite2D" parent="." instance=ExtResource("4_qwbdc")]
-position = Vector2(-1336, -429)
-frame = 3
-
-[node name="Sprite2D2" parent="." instance=ExtResource("4_qwbdc")]
-position = Vector2(-1297, -613)
-scale = Vector2(-1, 1)
-frame = 4
-
-[node name="Sprite2D5" parent="." instance=ExtResource("4_qwbdc")]
-position = Vector2(-966.253, -646)
-scale = Vector2(-1.37896, 1)
-frame = 4
-
-[node name="Sprite2D6" parent="." instance=ExtResource("4_qwbdc")]
-position = Vector2(-1193, -437)
-scale = Vector2(-1, 1)
-frame = 4
-
-[node name="Sprite2D7" parent="." instance=ExtResource("4_qwbdc")]
-position = Vector2(-808, -652)
-frame = 4
-
-[node name="Sprite2D8" parent="." instance=ExtResource("4_qwbdc")]
-position = Vector2(-698.5, -443.5)
-scale = Vector2(0.976563, 0.992188)
-frame = 4
-
-[node name="Sprite2D10" parent="." instance=ExtResource("4_qwbdc")]
-position = Vector2(-526, -633)
-scale = Vector2(-1.21022, 0.927735)
-frame = 7
-
-[node name="Sprite2D11" parent="." instance=ExtResource("4_qwbdc")]
-modulate = Color(0.630778, 0.26531, 0.469174, 1)
-position = Vector2(-272, -448)
-scale = Vector2(0.976563, 0.992188)
-frame = 5
-
-[node name="Sprite2D16" parent="." instance=ExtResource("4_qwbdc")]
-modulate = Color(0.630778, 0.26531, 0.469174, 1)
-position = Vector2(-102, -433)
-scale = Vector2(0.976563, 0.992188)
-frame = 5
-
-[node name="Sprite2D17" parent="." instance=ExtResource("4_qwbdc")]
-modulate = Color(0.630778, 0.26531, 0.469174, 1)
-position = Vector2(374, -531)
-scale = Vector2(0.976563, 0.992188)
-frame = 5
-
-[node name="Sprite2D18" parent="." instance=ExtResource("4_qwbdc")]
-modulate = Color(0.630778, 0.26531, 0.469174, 1)
-position = Vector2(232, -422)
-scale = Vector2(0.976563, 0.992188)
-frame = 5
-
-[node name="Sprite2D19" parent="." instance=ExtResource("4_qwbdc")]
-modulate = Color(0.630778, 0.26531, 0.469174, 1)
-position = Vector2(467, -607)
-scale = Vector2(0.976563, 0.992188)
-frame = 5
-
-[node name="Sprite2D20" parent="." instance=ExtResource("4_qwbdc")]
-position = Vector2(52.875, -469.375)
-scale = Vector2(0.658203, 0.150391)
-frame = 5
-
-[node name="Sprite2D12" parent="." instance=ExtResource("4_qwbdc")]
-position = Vector2(-420, -472)
-scale = Vector2(0.976563, 0.992188)
-frame = 3
-
-[node name="Sprite2D13" parent="." instance=ExtResource("4_qwbdc")]
-position = Vector2(24, -639)
-scale = Vector2(-1, 1)
-frame = 3
-
-[node name="Sprite2D14" parent="." instance=ExtResource("4_qwbdc")]
-position = Vector2(177, -601)
-scale = Vector2(-1, 1)
-hframes = 7
-frame = 3
-
-[node name="Sprite2D15" parent="." instance=ExtResource("4_qwbdc")]
-position = Vector2(323.975, -601)
-hframes = 7
-frame = 3
-
-[node name="Sprite2D9" parent="." instance=ExtResource("4_qwbdc")]
-position = Vector2(-882, -436.25)
-scale = Vector2(0.976563, 1.23047)
-frame = 4
-
-[node name="Sprite2D3" parent="." instance=ExtResource("4_qwbdc")]
-position = Vector2(-1128.5, -627)
-scale = Vector2(1.07031, 1.07813)
-frame = 3
-
-[node name="Sprite2D4" parent="." instance=ExtResource("4_qwbdc")]
-position = Vector2(-1078, -444)
-frame = 4

@@ -73,7 +73,6 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Healthbar" type="HSlider" parent="Stat/VBoxContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_6aux0")

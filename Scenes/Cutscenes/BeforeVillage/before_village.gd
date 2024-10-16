@@ -1,6 +1,6 @@
 extends Control
 
-var next_scene : String = "res://Scenes/Environment/Village/village_draft_1.tscn"
+var next_scene : String = "res://Scenes/Environment/Village/village_1st_part.tscn"
 
 
 

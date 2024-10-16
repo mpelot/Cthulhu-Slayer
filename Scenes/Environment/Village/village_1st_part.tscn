@@ -201,6 +201,30 @@ position = Vector2(59, -18)
 [node name="Cultist18" parent="Entity/Enemies" instance=ExtResource("4_64hgq")]
 position = Vector2(20, -48)
 
+[node name="Cultist19" parent="Entity/Enemies" instance=ExtResource("4_64hgq")]
+position = Vector2(328, -8)
+
+[node name="Cultist20" parent="Entity/Enemies" instance=ExtResource("4_64hgq")]
+position = Vector2(365, -22)
+
+[node name="Cultist21" parent="Entity/Enemies" instance=ExtResource("4_64hgq")]
+position = Vector2(307, -54)
+
+[node name="Cultist22" parent="Entity/Enemies" instance=ExtResource("4_64hgq")]
+position = Vector2(509, -18)
+
+[node name="Cultist23" parent="Entity/Enemies" instance=ExtResource("4_64hgq")]
+position = Vector2(548, 29)
+
+[node name="Cultist24" parent="Entity/Enemies" instance=ExtResource("4_64hgq")]
+position = Vector2(500, 72)
+
+[node name="Cultist25" parent="Entity/Enemies" instance=ExtResource("4_64hgq")]
+position = Vector2(459, 13)
+
+[node name="Cultist26" parent="Entity/Enemies" instance=ExtResource("4_64hgq")]
+position = Vector2(587, -52)
+
 [node name="Foreground" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1.5, 1)
 repeat_size = Vector2(1000, 0)
@@ -213,6 +237,7 @@ tile_set = ExtResource("1_dl1im")
 [node name="Triggers" type="Node2D" parent="."]
 
 [node name="PassiveDoor" parent="Triggers" instance=ExtResource("5_xak5o")]
+position = Vector2(955, 20)
 
 [node name="EnemyEncounter" type="Area2D" parent="Triggers"]
 position = Vector2(-1034, 4)

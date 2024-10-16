@@ -92,6 +92,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cetrn"]
+size = Vector2(8, 14)
 
 [node name="Cultist" type="CharacterBody2D"]
 script = ExtResource("1_n1apt")
