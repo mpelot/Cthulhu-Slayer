@@ -1,11 +1,12 @@
 extends Control
 
+@onready var resume: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Resume
 @onready var pause: Control = $"."
 var menu_path: String = "res://UI/Scene/Menu/menu.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Resume.grab_focus()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
