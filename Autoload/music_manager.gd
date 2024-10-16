@@ -5,7 +5,10 @@ extends Node2D
 var current_song : AudioStream
 
 func play_song(song : AudioStream):
+	if(song == current_song):
+		return
 	current_song = song
+	print("MUSIC MANAGER: playing song " + song.resource_name)
 	animation_player.play("fade_out")
 	
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://clwh62jtlg5t8"]
+[gd_scene load_steps=39 format=3 uid="uid://clwh62jtlg5t8"]
 
 [ext_resource type="Script" path="res://Entities/Player/Script/player.gd" id="1_5phih"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_60xw4"]
@@ -17,6 +17,8 @@
 [ext_resource type="Script" path="res://Entities/Player/Script/melee_weapon.gd" id="13_enyji"]
 [ext_resource type="PackedScene" uid="uid://bqaxhjp4uxia2" path="res://PostProcessing/post_processing.tscn" id="13_nby1f"]
 [ext_resource type="Texture2D" uid="uid://d20wljlcix0fh" path="res://Entities/Player/Sprite/Guy_Final_Idle.png" id="13_xyhgg"]
+[ext_resource type="Texture2D" uid="uid://bblvvxrjiy361" path="res://Entities/Player/Sprite/Guy_Final_Run.png" id="14_02vht"]
+[ext_resource type="PackedScene" uid="uid://cbdahhosbo8jd" path="res://UI/Scene/Pause/pause.tscn" id="18_ky6qn"]
 
 [sub_resource type="Animation" id="Animation_25jca"]
 length = 0.001
@@ -80,6 +82,45 @@ _data = {
 "melee": SubResource("Animation_2aj3y")
 }
 
+[sub_resource type="Animation" id="Animation_k54em"]
+resource_name = "Run"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_1fqj5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gbxx6"]
+_data = {
+"RESET": SubResource("Animation_1fqj5"),
+"Run": SubResource("Animation_k54em")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0tjw"]
 size = Vector2(18, 20)
 
@@ -108,6 +149,21 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_rqlro"]
 resource_name = "idle"
+length = 0.9
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Idle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
 
 [sub_resource type="Animation" id="Animation_yvaph"]
 resource_name = "left"
@@ -177,6 +233,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/Idle:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_kiupv"]
@@ -265,12 +333,24 @@ visible = false
 texture_filter = 1
 texture = ExtResource("12_5073q")
 
-[node name="StandingIdle" type="Sprite2D" parent="Sprite"]
+[node name="Idle" type="Sprite2D" parent="Sprite"]
 texture_filter = 1
 position = Vector2(0, -5)
 texture = ExtResource("13_xyhgg")
 hframes = 3
 vframes = 3
+
+[node name="Run" type="Sprite2D" parent="Sprite"]
+texture_filter = 1
+position = Vector2(0, -3)
+texture = ExtResource("14_02vht")
+hframes = 3
+vframes = 2
+
+[node name="Run" type="AnimationPlayer" parent="Sprite/Run"]
+libraries = {
+"": SubResource("AnimationLibrary_gbxx6")
+}
 
 [node name="Weapon" type="Node2D" parent="."]
 
@@ -312,6 +392,10 @@ libraries = {
 }
 
 [node name="PostProcessing" parent="." instance=ExtResource("13_nby1f")]
+
+[node name="PauseScreen" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="PauseScreen" instance=ExtResource("18_ky6qn")]
 
 [connection signal="animation_finished" from="StateMachine (FSM)/Control (BM)/Skill (HSM)/Melee/AnimationPlayer" to="StateMachine (FSM)/Control (BM)/Skill (HSM)/Melee" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Weapon/Pivot/MeleeWeapon" to="Weapon/Pivot/MeleeWeapon" method="_on_body_entered"]

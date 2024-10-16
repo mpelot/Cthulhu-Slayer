@@ -29,6 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("1_ldqq2")
+volume_db = -15.16
 autoplay = true
 expand = true
 

@@ -6,15 +6,16 @@ var menu_path: String = "res://UI/Scene/Menu/menu.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	visible = false
 	$CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Resume.grab_focus()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
 
-	if Input.is_action_pressed("Pause"):
-		pause.visible = true
+	if Input.is_action_just_pressed("Pause"):
+		visible = true
+		print("PAUSING SCREEN")
 		get_tree().paused = true
 
 

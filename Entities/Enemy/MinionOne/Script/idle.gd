@@ -4,7 +4,7 @@ extends EnemyState
 var detect_distance: float = 100
 
 func enter(args = {}):
-	print("culist idling")
+	pass
 
 func update(delta):
 	if(distance_to_player(cultist.position) < detect_distance):
