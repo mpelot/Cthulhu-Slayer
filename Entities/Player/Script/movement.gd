@@ -2,7 +2,7 @@ extends Behavior
 
 @onready var player: CharacterBody2D = $"../../.."
 @onready var control_state: State = %"Control (BM)"
-@export var movement_speed: float = 100
+@export var movement_speed: float = 1000
 
 func update(delta):
 	var collision: KinematicCollision2D = move(delta)
@@ -14,6 +14,7 @@ func move(delta) -> KinematicCollision2D:
 	var y_input: float = Input.get_action_raw_strength("Down") - Input.get_action_raw_strength("Up")
 	var direction = Vector2(x_input, y_input).normalized()
 	return (player.move_and_collide(direction * movement_speed * delta))
+
 	
 #Handling the collision here
 func handle_collision(collision: KinematicCollision2D):
