@@ -1,12 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://bws2ji5ixto81"]
+[gd_scene load_steps=9 format=3 uid="uid://bws2ji5ixto81"]
 
 [ext_resource type="Script" path="res://UI/Scene/Menu/menu.gd" id="1_vj332"]
 [ext_resource type="FontFile" uid="uid://cabwwc8lnsbe7" path="res://UI/Common/pixel-dead.italic.ttf" id="2_rr3bx"]
+[ext_resource type="AudioStream" uid="uid://dxwhnjp0yli1t" path="res://UI/Music & SFX/Cthulhu possible hover button SFX.mp3" id="3_gnrev"]
+[ext_resource type="AudioStream" uid="uid://cx8gjp5ek81tx" path="res://UI/Music & SFX/Cthulhu menu change SFX.mp3" id="4_yh1vy"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_iqg46"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kh3nf"]
 content_margin_left = 20.0
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_hkqut"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_voix5"]
+content_margin_left = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5s8ln"]
+content_margin_left = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nooc3"]
 content_margin_left = 20.0
 
 [node name="Menu" type="Control"]
@@ -16,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 script = ExtResource("1_vj332")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
@@ -52,9 +61,9 @@ text = "Cthulhu
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 2
 offset_left = 40.0
-offset_top = 237.0
-offset_right = 301.0
-offset_bottom = 354.0
+offset_top = 212.0
+offset_right = 425.0
+offset_bottom = 446.0
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -68,8 +77,28 @@ theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("2_rr3bx")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/hover = SubResource("StyleBoxLine_iqg46")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kh3nf")
 text = "Start"
+flat = true
+alignment = 0
+
+[node name="Diffuculty Select" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_rr3bx")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_voix5")
+text = "Difficulty Select"
+flat = true
+alignment = 0
+
+[node name="Credits" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_rr3bx")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_5s8ln")
+text = "Credits"
 flat = true
 alignment = 0
 
@@ -79,10 +108,32 @@ focus_neighbor_bottom = NodePath("../Start")
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("2_rr3bx")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/hover = SubResource("StyleBoxLine_hkqut")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nooc3")
 text = "Quit"
 flat = true
 alignment = 0
 
+[node name="Button Hover SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gnrev")
+volume_db = -21.092
+pitch_scale = 0.75
+
+[node name="Game Start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yh1vy")
+volume_db = -14.546
+pitch_scale = 0.85
+
+[connection signal="focus_entered" from="VBoxContainer2/Start" to="." method="_on_start_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer2/Start" to="." method="_on_start_focus_exited"]
+[connection signal="mouse_entered" from="VBoxContainer2/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer2/Start" to="." method="_on_start_pressed"]
+[connection signal="focus_entered" from="VBoxContainer2/Diffuculty Select" to="." method="_on_diffuculty_select_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer2/Diffuculty Select" to="." method="_on_diffuculty_select_focus_exited"]
+[connection signal="mouse_entered" from="VBoxContainer2/Diffuculty Select" to="." method="_on_diffuculty_select_mouse_entered"]
+[connection signal="focus_entered" from="VBoxContainer2/Credits" to="." method="_on_credits_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer2/Credits" to="." method="_on_credits_focus_exited"]
+[connection signal="mouse_entered" from="VBoxContainer2/Credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="focus_entered" from="VBoxContainer2/Quit" to="." method="_on_quit_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer2/Quit" to="." method="_on_quit_focus_exited"]
+[connection signal="mouse_entered" from="VBoxContainer2/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer2/Quit" to="." method="_on_quit_pressed"]

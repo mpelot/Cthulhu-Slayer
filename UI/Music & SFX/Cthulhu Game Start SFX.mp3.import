@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://p51dglt11nbj"
+path="res://.godot/imported/Cthulhu Game Start SFX.mp3-ad5ca88e6534c244d6d9c2acb1b8d722.mp3str"
+
+[deps]
+
+source_file="res://UI/Music & SFX/Cthulhu Game Start SFX.mp3"
+dest_files=["res://.godot/imported/Cthulhu Game Start SFX.mp3-ad5ca88e6534c244d6d9c2acb1b8d722.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

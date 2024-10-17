@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cx8gjp5ek81tx"
+path="res://.godot/imported/Cthulhu menu change SFX.mp3-71aed64aa660ac05cc7acf8e4404f7da.mp3str"
+
+[deps]
+
+source_file="res://UI/Music & SFX/Cthulhu menu change SFX.mp3"
+dest_files=["res://.godot/imported/Cthulhu menu change SFX.mp3-71aed64aa660ac05cc7acf8e4404f7da.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
