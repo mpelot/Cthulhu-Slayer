@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://clwh62jtlg5t8"]
+[gd_scene load_steps=41 format=3 uid="uid://clwh62jtlg5t8"]
 
 [ext_resource type="Script" path="res://Entities/Player/Script/player.gd" id="1_5phih"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_60xw4"]
@@ -82,6 +82,21 @@ _data = {
 "melee": SubResource("Animation_2aj3y")
 }
 
+[sub_resource type="Animation" id="Animation_1fqj5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_k54em"]
 resource_name = "Run"
 length = 0.6
@@ -100,21 +115,6 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_1fqj5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gbxx6"]
 _data = {
 "RESET": SubResource("Animation_1fqj5"),
@@ -123,6 +123,12 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0tjw"]
 size = Vector2(18, 20)
+
+[sub_resource type="Gradient" id="Gradient_qoeil"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w5ike"]
+gradient = SubResource("Gradient_qoeil")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eby2n"]
 size = Vector2(17, 20)
@@ -315,6 +321,7 @@ script = ExtResource("5_hc0dp")
 [node name="Disabled" type="Node2D" parent="StateMachine (FSM)"]
 
 [node name="Sprite" type="Node2D" parent="."]
+modulate = Color(0.78, 0.6825, 0.663, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite"]
 visible = false
@@ -371,7 +378,8 @@ shape = SubResource("RectangleShape2D_l0tjw")
 
 [node name="Sprite2D" type="Sprite2D" parent="Weapon/Pivot/MeleeWeapon"]
 position = Vector2(0, 1)
-texture = ExtResource("9_hen3c")
+scale = Vector2(4.06368, -0.38)
+texture = SubResource("GradientTexture2D_w5ike")
 hframes = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

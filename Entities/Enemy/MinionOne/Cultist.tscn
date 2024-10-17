@@ -119,6 +119,7 @@ script = ExtResource("6_0212j")
 [node name="Sprite" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+texture_filter = 1
 texture = ExtResource("6_i2vio")
 hframes = 16
 frame = 1

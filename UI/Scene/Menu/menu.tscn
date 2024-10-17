@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bws2ji5ixto81"]
+[gd_scene load_steps=6 format=3 uid="uid://bws2ji5ixto81"]
 
 [ext_resource type="Script" path="res://UI/Scene/Menu/menu.gd" id="1_vj332"]
 [ext_resource type="FontFile" uid="uid://cabwwc8lnsbe7" path="res://UI/Common/pixel-dead.italic.ttf" id="2_rr3bx"]
+[ext_resource type="AudioStream" uid="uid://bbhuw3s1r3j35" path="res://Scenes/Environment/Village/OST/amb.mp3" id="3_uu15l"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_iqg46"]
 content_margin_left = 20.0
@@ -83,6 +84,11 @@ theme_override_styles/hover = SubResource("StyleBoxLine_hkqut")
 text = "Quit"
 flat = true
 alignment = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uu15l")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer2/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Quit" to="." method="_on_quit_pressed"]
