@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bws2ji5ixto81"]
 
-[ext_resource type="Script" path="res://UI/Scene/Menu/menu.gd" id="1_vj332"]
-[ext_resource type="FontFile" uid="uid://cabwwc8lnsbe7" path="res://UI/Common/pixel-dead.italic.ttf" id="2_rr3bx"]
-[ext_resource type="AudioStream" uid="uid://bgov1bnscnxrn" path="res://UI/Scene/Sfx/hover button SFX.mp3.tres" id="3_1don3"]
-[ext_resource type="AudioStream" uid="uid://bjisodaamlql7" path="res://UI/Scene/Sfx/button select SFX.mp3.tres" id="4_aiqoc"]
+[ext_resource type="Script" path="res://UI/Scene/Menu/menu.gd" id="1_54xsa"]
+[ext_resource type="FontFile" uid="uid://cabwwc8lnsbe7" path="res://pixel-dead.italic.ttf" id="2_6rxw1"]
+[ext_resource type="AudioStream" uid="uid://bgov1bnscnxrn" path="res://UI/Scene/Sfx/hover button SFX.mp3.tres" id="3_e7yp1"]
+[ext_resource type="AudioStream" uid="uid://bjisodaamlql7" path="res://UI/Scene/Sfx/button select SFX.mp3.tres" id="4_j4ra0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kh3nf"]
 content_margin_left = 20.0
@@ -25,7 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
-script = ExtResource("1_vj332")
+script = ExtResource("1_54xsa")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -53,7 +53,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 20
 theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("2_rr3bx")
+theme_override_fonts/font = ExtResource("2_6rxw1")
 theme_override_font_sizes/font_size = 80
 text = "Cthulhu 
        Slayer"
@@ -75,7 +75,7 @@ focus_neighbor_top = NodePath("../Quit")
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 30
-theme_override_fonts/font = ExtResource("2_rr3bx")
+theme_override_fonts/font = ExtResource("2_6rxw1")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_kh3nf")
 text = "Start"
@@ -85,7 +85,7 @@ alignment = 0
 [node name="Diffuculty Select" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/outline_size = 30
-theme_override_fonts/font = ExtResource("2_rr3bx")
+theme_override_fonts/font = ExtResource("2_6rxw1")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_voix5")
 text = "Difficulty Select"
@@ -95,7 +95,7 @@ alignment = 0
 [node name="Credits" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/outline_size = 30
-theme_override_fonts/font = ExtResource("2_rr3bx")
+theme_override_fonts/font = ExtResource("2_6rxw1")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_5s8ln")
 text = "Credits"
@@ -106,7 +106,7 @@ alignment = 0
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Start")
 theme_override_constants/outline_size = 30
-theme_override_fonts/font = ExtResource("2_rr3bx")
+theme_override_fonts/font = ExtResource("2_6rxw1")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_nooc3")
 text = "Quit"
@@ -114,12 +114,12 @@ flat = true
 alignment = 0
 
 [node name="Button Hover SFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_1don3")
+stream = ExtResource("3_e7yp1")
 volume_db = -21.092
 pitch_scale = 0.75
 
 [node name="Game Start" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_aiqoc")
+stream = ExtResource("4_j4ra0")
 volume_db = -14.546
 pitch_scale = 0.85
 
