@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dohec58u1vi1b"]
+
+[ext_resource type="Texture2D" uid="uid://dgsdqhr33l5kr" path="res://Scenes/Environment/Village/tilemap/village_house_corruption-Sheet.png" id="1_mt0od"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_mt0od")
+hframes = 8

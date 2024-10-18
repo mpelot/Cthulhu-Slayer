@@ -21,12 +21,18 @@ MemorySystem="*res://Autoload/memory_system.gd"
 Transition="*res://Autoload/transition.tscn"
 Global="*res://Autoload/global.gd"
 GameManager="*res://Autoload/game_manager.gd"
+MusicManager="*res://Autoload/music_manager.tscn"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [file_customization]
 
 folder_colors={
-"res://Autoload/": "gray",
+"res://Autoload/": "yellow",
 "res://Entities/": "red",
+"res://PostProcessing/": "yellow",
 "res://Scenes/": "blue",
 "res://UI/": "green"
 }

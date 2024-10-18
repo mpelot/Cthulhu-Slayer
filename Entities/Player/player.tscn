@@ -1,0 +1,410 @@
+[gd_scene load_steps=41 format=3 uid="uid://clwh62jtlg5t8"]
+
+[ext_resource type="Script" path="res://Entities/Player/Script/player.gd" id="1_5phih"]
+[ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_60xw4"]
+[ext_resource type="Script" path="res://Entities/Common/BehaviorMachine/behavior_machine.gd" id="2_kjgyc"]
+[ext_resource type="Script" path="res://Entities/Player/Script/movement.gd" id="3_0ckey"]
+[ext_resource type="Script" path="res://Entities/Common/HierarchicalMachine/hierarchy_state.gd" id="3_j5e3g"]
+[ext_resource type="Script" path="res://Entities/Player/Script/idle.gd" id="5_2uwg8"]
+[ext_resource type="Script" path="res://Entities/Player/melee.gd" id="5_cjxl6"]
+[ext_resource type="Script" path="res://Entities/Player/Script/hurt.gd" id="5_hc0dp"]
+[ext_resource type="Script" path="res://Entities/Player/Script/ranged.gd" id="6_51a3w"]
+[ext_resource type="PackedScene" uid="uid://btf6lpn8oxjdx" path="res://Entities/Player/UI/player_stats.tscn" id="6_w7yuo"]
+[ext_resource type="Texture2D" uid="uid://dtd1764cfq33s" path="res://Temp/LumiStoryMode.png" id="9_hen3c"]
+[ext_resource type="Texture2D" uid="uid://c5bajmv1r7knp" path="res://Temp/Guy.png" id="11_24gwf"]
+[ext_resource type="Script" path="res://Entities/Player/Script/pivot.gd" id="12_157xx"]
+[ext_resource type="Texture2D" uid="uid://b2w6kbxk3snpe" path="res://Entities/Player/Sprite/Guy_Final_Spin.png" id="12_5073q"]
+[ext_resource type="Script" path="res://Entities/Player/Script/melee_weapon.gd" id="13_enyji"]
+[ext_resource type="PackedScene" uid="uid://bqaxhjp4uxia2" path="res://PostProcessing/post_processing.tscn" id="13_nby1f"]
+[ext_resource type="Texture2D" uid="uid://d20wljlcix0fh" path="res://Entities/Player/Sprite/Guy_Final_Idle.png" id="13_xyhgg"]
+[ext_resource type="Texture2D" uid="uid://bblvvxrjiy361" path="res://Entities/Player/Sprite/Guy_Final_Run.png" id="14_02vht"]
+[ext_resource type="PackedScene" uid="uid://cbdahhosbo8jd" path="res://UI/Scene/Pause/pause.tscn" id="18_ky6qn"]
+
+[sub_resource type="Animation" id="Animation_25jca"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/MeleeWeapon:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/MeleeWeapon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2aj3y"]
+resource_name = "melee"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/MeleeWeapon:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/MeleeWeapon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bi3sn"]
+_data = {
+"RESET": SubResource("Animation_25jca"),
+"melee": SubResource("Animation_2aj3y")
+}
+
+[sub_resource type="Animation" id="Animation_1fqj5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_k54em"]
+resource_name = "Run"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gbxx6"]
+_data = {
+"RESET": SubResource("Animation_1fqj5"),
+"Run": SubResource("Animation_k54em")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0tjw"]
+size = Vector2(18, 20)
+
+[sub_resource type="Gradient" id="Gradient_qoeil"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w5ike"]
+gradient = SubResource("Gradient_qoeil")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eby2n"]
+size = Vector2(17, 20)
+
+[sub_resource type="Animation" id="Animation_1vty4"]
+resource_name = "down"
+
+[sub_resource type="Animation" id="Animation_bl5y3"]
+resource_name = "Hurt"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Sprite2D2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.09),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.00999999, 0.00999999, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rqlro"]
+resource_name = "idle"
+length = 0.9
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Idle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_yvaph"]
+resource_name = "left"
+
+[sub_resource type="Animation" id="Animation_7hum6"]
+resource_name = "melee"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon/Pivot/MeleeWeapon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon/Pivot/MeleeWeapon:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_2353w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Sprite2D2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon/Pivot/MeleeWeapon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon/Pivot/MeleeWeapon:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/Idle:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kiupv"]
+resource_name = "ranged"
+
+[sub_resource type="Animation" id="Animation_1kwe3"]
+resource_name = "right"
+
+[sub_resource type="Animation" id="Animation_od1ch"]
+resource_name = "Stunt"
+
+[sub_resource type="Animation" id="Animation_oxcwe"]
+resource_name = "up"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wdi3n"]
+_data = {
+"Down": SubResource("Animation_1vty4"),
+"Hurt": SubResource("Animation_bl5y3"),
+"Idle": SubResource("Animation_rqlro"),
+"Left": SubResource("Animation_yvaph"),
+"Melee": SubResource("Animation_7hum6"),
+"RESET": SubResource("Animation_2353w"),
+"Ranged": SubResource("Animation_kiupv"),
+"Right": SubResource("Animation_1kwe3"),
+"Stunt": SubResource("Animation_od1ch"),
+"Up": SubResource("Animation_oxcwe")
+}
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_5phih")
+
+[node name="StateMachine (FSM)" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_60xw4")
+initial_state = NodePath("Control (BM)")
+
+[node name="Control (BM)" type="Node2D" parent="StateMachine (FSM)"]
+unique_name_in_owner = true
+script = ExtResource("2_kjgyc")
+
+[node name="Movement" type="Node2D" parent="StateMachine (FSM)/Control (BM)"]
+script = ExtResource("3_0ckey")
+movement_speed = 50.0
+
+[node name="Skill (HSM)" type="Node2D" parent="StateMachine (FSM)/Control (BM)" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_j5e3g")
+initial_state = NodePath("Idle")
+
+[node name="Melee" type="Node2D" parent="StateMachine (FSM)/Control (BM)/Skill (HSM)"]
+script = ExtResource("5_cjxl6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StateMachine (FSM)/Control (BM)/Skill (HSM)/Melee"]
+root_node = NodePath("../../../../../Weapon")
+libraries = {
+"": SubResource("AnimationLibrary_bi3sn")
+}
+
+[node name="Ranged" type="Node2D" parent="StateMachine (FSM)/Control (BM)/Skill (HSM)"]
+script = ExtResource("6_51a3w")
+
+[node name="Idle" type="Node2D" parent="StateMachine (FSM)/Control (BM)/Skill (HSM)"]
+script = ExtResource("5_2uwg8")
+
+[node name="Hurt" type="Node2D" parent="StateMachine (FSM)"]
+script = ExtResource("5_hc0dp")
+
+[node name="Stunt" type="Node2D" parent="StateMachine (FSM)"]
+
+[node name="Disabled" type="Node2D" parent="StateMachine (FSM)"]
+
+[node name="Sprite" type="Node2D" parent="."]
+modulate = Color(0.78, 0.6825, 0.663, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+visible = false
+texture_filter = 1
+texture = ExtResource("9_hen3c")
+hframes = 16
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite"]
+visible = false
+position = Vector2(5.96046e-08, -3)
+scale = Vector2(0.088, 0.088)
+texture = ExtResource("11_24gwf")
+
+[node name="Spin" type="Sprite2D" parent="Sprite"]
+visible = false
+texture_filter = 1
+texture = ExtResource("12_5073q")
+
+[node name="Idle" type="Sprite2D" parent="Sprite"]
+texture_filter = 1
+position = Vector2(0, -5)
+texture = ExtResource("13_xyhgg")
+hframes = 3
+vframes = 3
+
+[node name="Run" type="Sprite2D" parent="Sprite"]
+texture_filter = 1
+position = Vector2(0, -3)
+texture = ExtResource("14_02vht")
+hframes = 3
+vframes = 2
+
+[node name="Run" type="AnimationPlayer" parent="Sprite/Run"]
+libraries = {
+"": SubResource("AnimationLibrary_gbxx6")
+}
+
+[node name="Weapon" type="Node2D" parent="."]
+
+[node name="Pivot" type="Node2D" parent="Weapon"]
+script = ExtResource("12_157xx")
+
+[node name="MeleeWeapon" type="Area2D" parent="Weapon/Pivot" node_paths=PackedStringArray("player")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(19, -2)
+monitoring = false
+monitorable = false
+script = ExtResource("13_enyji")
+player = NodePath("../../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/Pivot/MeleeWeapon"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_l0tjw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapon/Pivot/MeleeWeapon"]
+position = Vector2(0, 1)
+scale = Vector2(4.06368, -0.38)
+texture = SubResource("GradientTexture2D_w5ike")
+hframes = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -3)
+shape = SubResource("RectangleShape2D_eby2n")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, 0)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="PlayerStats" parent="." instance=ExtResource("6_w7yuo")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+deterministic = true
+libraries = {
+"": SubResource("AnimationLibrary_wdi3n")
+}
+
+[node name="PostProcessing" parent="." instance=ExtResource("13_nby1f")]
+
+[node name="PauseScreen" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="PauseScreen" instance=ExtResource("18_ky6qn")]
+
+[connection signal="animation_finished" from="StateMachine (FSM)/Control (BM)/Skill (HSM)/Melee/AnimationPlayer" to="StateMachine (FSM)/Control (BM)/Skill (HSM)/Melee" method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="Weapon/Pivot/MeleeWeapon" to="Weapon/Pivot/MeleeWeapon" method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine (FSM)/Hurt" method="handle_animation_finishes"]

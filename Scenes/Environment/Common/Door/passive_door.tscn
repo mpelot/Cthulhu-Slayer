@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5hkfigc6w20w"]
+
+[ext_resource type="Script" path="res://Scenes/Environment/Common/Door/passive_door.gd" id="1_m8ekh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k8g5"]
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(7.48, 2.68)
+script = ExtResource("1_m8ekh")
+next_scene = "res://Scenes/Environment/Village/village_bridge.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4k8g5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
