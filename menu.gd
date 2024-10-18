@@ -21,7 +21,8 @@ func _unhandled_key_input(event):
 		$VBoxContainer2/Start.grab_focus()
 	
 func _on_start_pressed() -> void:
-	get_tree().change_scene()
+	$"Game Start".play()
+	Global.goto_scene(base_game_play_path)
 	
 func _on_quit_pressed() -> void:
 	get_tree().quit()
