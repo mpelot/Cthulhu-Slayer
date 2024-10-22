@@ -10,7 +10,7 @@ func receive_damage(damage: Damagable):
 		if(health < 0):
 			state_machine.transition_to_state("dead")
 			return
-		state_machine.transition_to_state("hurt", {"damage": damage.damage})
+		state_machine.transition_to_state("hurt", {"damage": damage})
 	
 	
 func _process(_delta):

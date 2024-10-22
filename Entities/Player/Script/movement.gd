@@ -1,4 +1,5 @@
 extends Behavior
+class_name MovementBehavior
 
 @onready var player: CharacterBody2D = $"../../.."
 @onready var control_state: State = %"Control (BM)"
@@ -8,6 +9,8 @@ extends Behavior
 @onready var idle_sprite: Sprite2D = $"../../../Sprite/Idle"
 @onready var run_animation: AnimationPlayer = $"../../../Sprite/Run/Run"
 @onready var idle_animation: AnimationPlayer = $"../../../AnimationPlayer"
+
+var momentum: Vector2
 
 func _ready():
 	run_animation.play("Run")
@@ -22,6 +25,7 @@ func move(delta) -> KinematicCollision2D:
 	var x_input : float = Input.get_action_raw_strength("Right") - Input.get_action_raw_strength("Left")
 	var y_input: float = Input.get_action_raw_strength("Down") - Input.get_action_raw_strength("Up")
 	var direction = Vector2(x_input, y_input).normalized()
+	momentum = direction * movement_speed
 	if(direction.length() > 0.1):
 		idle_sprite.visible = false
 		run_sprite.visible = true

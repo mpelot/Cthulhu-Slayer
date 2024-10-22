@@ -1,16 +1,17 @@
-[gd_scene load_steps=41 format=3 uid="uid://clwh62jtlg5t8"]
+[gd_scene load_steps=46 format=3 uid="uid://clwh62jtlg5t8"]
 
 [ext_resource type="Script" path="res://Entities/Player/Script/player.gd" id="1_5phih"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_60xw4"]
 [ext_resource type="Script" path="res://Entities/Common/BehaviorMachine/behavior_machine.gd" id="2_kjgyc"]
 [ext_resource type="Script" path="res://Entities/Player/Script/movement.gd" id="3_0ckey"]
-[ext_resource type="Script" path="res://Entities/Common/HierarchicalMachine/hierarchy_state.gd" id="3_j5e3g"]
 [ext_resource type="Script" path="res://Entities/Player/Script/idle.gd" id="5_2uwg8"]
 [ext_resource type="Script" path="res://Entities/Player/melee.gd" id="5_cjxl6"]
 [ext_resource type="Script" path="res://Entities/Player/Script/hurt.gd" id="5_hc0dp"]
+[ext_resource type="Script" path="res://Entities/Player/skill_control.gd" id="5_n1qs0"]
 [ext_resource type="Script" path="res://Entities/Player/Script/ranged.gd" id="6_51a3w"]
 [ext_resource type="PackedScene" uid="uid://btf6lpn8oxjdx" path="res://Entities/Player/UI/player_stats.tscn" id="6_w7yuo"]
 [ext_resource type="Texture2D" uid="uid://dtd1764cfq33s" path="res://Temp/LumiStoryMode.png" id="9_hen3c"]
+[ext_resource type="Script" path="res://Entities/Player/attacking.gd" id="10_h1kxo"]
 [ext_resource type="Texture2D" uid="uid://c5bajmv1r7knp" path="res://Temp/Guy.png" id="11_24gwf"]
 [ext_resource type="Script" path="res://Entities/Player/Script/pivot.gd" id="12_157xx"]
 [ext_resource type="Texture2D" uid="uid://b2w6kbxk3snpe" path="res://Entities/Player/Sprite/Guy_Final_Spin.png" id="12_5073q"]
@@ -18,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bqaxhjp4uxia2" path="res://PostProcessing/post_processing.tscn" id="13_nby1f"]
 [ext_resource type="Texture2D" uid="uid://d20wljlcix0fh" path="res://Entities/Player/Sprite/Guy_Final_Idle.png" id="13_xyhgg"]
 [ext_resource type="Texture2D" uid="uid://bblvvxrjiy361" path="res://Entities/Player/Sprite/Guy_Final_Run.png" id="14_02vht"]
+[ext_resource type="Script" path="res://Entities/Player/player_camera.gd" id="18_712ap"]
 [ext_resource type="PackedScene" uid="uid://cbdahhosbo8jd" path="res://UI/Scene/Pause/pause.tscn" id="18_ky6qn"]
 
 [sub_resource type="Animation" id="Animation_25jca"]
@@ -122,7 +124,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0tjw"]
-size = Vector2(18, 20)
+size = Vector2(21.8726, 30)
 
 [sub_resource type="Gradient" id="Gradient_qoeil"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -132,6 +134,44 @@ gradient = SubResource("Gradient_qoeil")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eby2n"]
 size = Vector2(17, 20)
+
+[sub_resource type="Animation" id="Animation_hwjta"]
+resource_name = "shake"
+length = 0.05
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCamera:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.02, 0.03, 0.04, 0.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1.585, -3.075), Vector2(6.73, 1.505), Vector2(-5.475, -3.565), Vector2(10.705, 2.12), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x5bnk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCamera:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_exct4"]
+_data = {
+"RESET": SubResource("Animation_x5bnk"),
+"shake": SubResource("Animation_hwjta")
+}
 
 [sub_resource type="Animation" id="Animation_1vty4"]
 resource_name = "down"
@@ -292,26 +332,10 @@ script = ExtResource("2_kjgyc")
 
 [node name="Movement" type="Node2D" parent="StateMachine (FSM)/Control (BM)"]
 script = ExtResource("3_0ckey")
-movement_speed = 50.0
+movement_speed = 80.0
 
-[node name="Skill (HSM)" type="Node2D" parent="StateMachine (FSM)/Control (BM)" node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_j5e3g")
-initial_state = NodePath("Idle")
-
-[node name="Melee" type="Node2D" parent="StateMachine (FSM)/Control (BM)/Skill (HSM)"]
-script = ExtResource("5_cjxl6")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="StateMachine (FSM)/Control (BM)/Skill (HSM)/Melee"]
-root_node = NodePath("../../../../../Weapon")
-libraries = {
-"": SubResource("AnimationLibrary_bi3sn")
-}
-
-[node name="Ranged" type="Node2D" parent="StateMachine (FSM)/Control (BM)/Skill (HSM)"]
-script = ExtResource("6_51a3w")
-
-[node name="Idle" type="Node2D" parent="StateMachine (FSM)/Control (BM)/Skill (HSM)"]
-script = ExtResource("5_2uwg8")
+[node name="SkillControl" type="Node2D" parent="StateMachine (FSM)/Control (BM)"]
+script = ExtResource("5_n1qs0")
 
 [node name="Hurt" type="Node2D" parent="StateMachine (FSM)"]
 script = ExtResource("5_hc0dp")
@@ -319,6 +343,25 @@ script = ExtResource("5_hc0dp")
 [node name="Stunt" type="Node2D" parent="StateMachine (FSM)"]
 
 [node name="Disabled" type="Node2D" parent="StateMachine (FSM)"]
+
+[node name="Attacking" type="Node2D" parent="StateMachine (FSM)" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("10_h1kxo")
+initial_state = NodePath("Idle")
+
+[node name="Melee" type="Node2D" parent="StateMachine (FSM)/Attacking"]
+script = ExtResource("5_cjxl6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StateMachine (FSM)/Attacking/Melee"]
+root_node = NodePath("../../../../Weapon")
+libraries = {
+"": SubResource("AnimationLibrary_bi3sn")
+}
+
+[node name="Ranged" type="Node2D" parent="StateMachine (FSM)/Attacking"]
+script = ExtResource("6_51a3w")
+
+[node name="Idle" type="Node2D" parent="StateMachine (FSM)/Attacking"]
+script = ExtResource("5_2uwg8")
 
 [node name="Sprite" type="Node2D" parent="."]
 modulate = Color(0.78, 0.6825, 0.663, 1)
@@ -364,20 +407,21 @@ libraries = {
 [node name="Pivot" type="Node2D" parent="Weapon"]
 script = ExtResource("12_157xx")
 
-[node name="MeleeWeapon" type="Area2D" parent="Weapon/Pivot" node_paths=PackedStringArray("player")]
+[node name="MeleeWeapon" type="Area2D" parent="Weapon/Pivot" node_paths=PackedStringArray("player", "player_camera")]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(19, -2)
 monitoring = false
 monitorable = false
 script = ExtResource("13_enyji")
 player = NodePath("../../..")
+player_camera = NodePath("../../../PlayerCamera")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/Pivot/MeleeWeapon"]
-position = Vector2(-1, 0)
+position = Vector2(9.06368, -2)
 shape = SubResource("RectangleShape2D_l0tjw")
 
 [node name="Sprite2D" type="Sprite2D" parent="Weapon/Pivot/MeleeWeapon"]
-position = Vector2(0, 1)
+position = Vector2(8.12736, -1.84)
 scale = Vector2(4.06368, -0.38)
 texture = SubResource("GradientTexture2D_w5ike")
 hframes = 16
@@ -386,10 +430,16 @@ hframes = 16
 position = Vector2(0.5, -3)
 shape = SubResource("RectangleShape2D_eby2n")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1, 0)
+[node name="PlayerCamera" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+script = ExtResource("18_712ap")
+
+[node name="CameraPlayer" type="AnimationPlayer" parent="PlayerCamera"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_exct4")
+}
 
 [node name="PlayerStats" parent="." instance=ExtResource("6_w7yuo")]
 
@@ -405,6 +455,6 @@ libraries = {
 
 [node name="Pause" parent="PauseScreen" instance=ExtResource("18_ky6qn")]
 
-[connection signal="animation_finished" from="StateMachine (FSM)/Control (BM)/Skill (HSM)/Melee/AnimationPlayer" to="StateMachine (FSM)/Control (BM)/Skill (HSM)/Melee" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="StateMachine (FSM)/Attacking/Melee/AnimationPlayer" to="StateMachine (FSM)/Attacking/Melee" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Weapon/Pivot/MeleeWeapon" to="Weapon/Pivot/MeleeWeapon" method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine (FSM)/Hurt" method="handle_animation_finishes"]

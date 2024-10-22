@@ -1,10 +1,11 @@
-extends State
-
+extends Attack
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+
 func enter(_args={}):
 	# Spawn some colliding object
+	print("IS IN MELEE")
 	animation_player.play("melee")
 	#transitioned.emit("Idle")
 	
@@ -23,4 +24,5 @@ func physic_update(_delta):
 
 func _on_animation_player_animation_finished(anim_name):
 	if(anim_name == "melee"):
-		transitioned.emit(self, "Idle")
+		print("attacking finishes")
+		attack_finishes.emit(self)

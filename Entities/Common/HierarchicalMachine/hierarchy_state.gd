@@ -25,7 +25,7 @@ func _ready():
 	var parent = get_parent()
 	if(parent is StateMachine or parent is HierachyMachine):
 		is_under_state_machine = true
-		enter()
+		
 
 func enter(args = {}):
 	if(current_state != null):
