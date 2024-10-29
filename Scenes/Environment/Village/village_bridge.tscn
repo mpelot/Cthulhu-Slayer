@@ -1,12 +1,18 @@
-[gd_scene load_steps=7 format=4 uid="uid://bcyroa0mn0844"]
 
+[gd_scene load_steps=8 format=4 uid="uid://bcyroa0mn0844"]
 [ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Village/tilemap/village_draft_1.tres" id="1_4mbgr"]
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="2_njg84"]
 [ext_resource type="PackedScene" uid="uid://dohec58u1vi1b" path="res://Scenes/Environment/Village/Buildings/House.tscn" id="3_if58s"]
 [ext_resource type="PackedScene" uid="uid://b5hkfigc6w20w" path="res://Scenes/Environment/Common/Door/passive_door.tscn" id="4_x768l"]
 [ext_resource type="PackedScene" uid="uid://cabjye6mltep3" path="res://Entities/Enemy/MinionOne/Cultist.tscn" id="5_7t3b5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_itgkm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxkik"]
+size = Vector2(351, 31.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74dnm"]
+size = Vector2(350, 19)
+
 
 [node name="VillageBridge" type="Node2D"]
 
@@ -111,11 +117,25 @@ position = Vector2(545, -660)
 position = Vector2(471, -659)
 
 [node name="Player" parent="Entities" instance=ExtResource("2_njg84")]
+visible = false
 position = Vector2(0, -677)
 
-[node name="Node2D" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+[node name="Colliders" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-shape = SubResource("RectangleShape2D_itgkm")
+[node name="StaticBody2D" type="StaticBody2D" parent="Colliders"]
+
+[node name="CollisionBridge" type="CollisionShape2D" parent="Colliders/StaticBody2D"]
+position = Vector2(354.5, -625.625)
+shape = SubResource("RectangleShape2D_mxkik")
+
+[node name="CollisionBridge2" type="CollisionShape2D" parent="Colliders/StaticBody2D"]
+position = Vector2(354, -723.5)
+shape = SubResource("RectangleShape2D_74dnm")
+
+[node name="CollisionWorld" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]
+polygon = PackedVector2Array(136, -657, -15, -658, -26, -676, -35, -677, -40, -688, -46, -688, -46, -698, 135, -697, 160, -718, 162, -731, 179, -733, 557, -733, 567, -701, 678, -700, 691, -701, 689, -683, 769, -681, 771, -674, 703, -674, 695, -660, 683, -662, 679, -658, 577, -658, 569, -643, 563, -643, 555, -628, 546, -627, 537, -612, 138, -610, 136, -657, 120, -594, 187, -558, 433, -560, 591, -568, 781, -634, 814, -708, 692, -794, 408, -852, 194, -856, 54, -777, -100, -770, -109, -638, -43, -551, 64, -591, 100, -629)
+
+[node name="CollisionWell" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]
+polygon = PackedVector2Array(355, -695, 382, -695, 382, -686, 380, -676, 376, -670, 369, -669, 361, -671, 357, -677, 357, -685, 355, -685)
+
