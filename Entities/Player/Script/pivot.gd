@@ -3,23 +3,28 @@ class_name Pivot
 
 @onready var attack_sprite: Sprite2D = $Attacks
 @onready var attack_player: AnimationPlayer = $Attacks/AnimationPlayer
+@onready var weapon : Area2D = $MeleeWeapon
 
 signal attack_finished
 
 func _ready():
 	attack_player.animation_finished.connect(animation_finishes)
+	visible = false
 
 func attack():
 	visible = true
+
 	var mouse_direction: Vector2 = get_global_mouse_position() - global_position
 	var compare_direction: Vector2 = Vector2(0,-1)
 	var angle = discrete_rotation(compare_direction.angle_to(mouse_direction))
+	weapon.rotation = angle
 	print(discrete_angle(angle))	
 	set_attack_direction(discrete_angle(angle))
 	run_animation(discrete_angle(angle))
 
 func animation_finishes(anim_name):
 	visible = false
+
 	attack_finished.emit()
 
 func set_attack_direction(discrete_angle: int):

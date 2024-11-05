@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://clwh62jtlg5t8"]
+[gd_scene load_steps=54 format=3 uid="uid://clwh62jtlg5t8"]
 
 [ext_resource type="Script" path="res://Entities/Player/Script/player.gd" id="1_5phih"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_60xw4"]
@@ -22,68 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://c5bhp6qaf34wm" path="res://Entities/Player/Sprite/Guy_Final_Final (2)-Sheet.png" id="17_7btr8"]
 [ext_resource type="Script" path="res://Entities/Player/player_camera.gd" id="18_712ap"]
 [ext_resource type="PackedScene" uid="uid://cbdahhosbo8jd" path="res://UI/Scene/Pause/pause.tscn" id="18_ky6qn"]
-
-[sub_resource type="Animation" id="Animation_25jca"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/MeleeWeapon:monitoring")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/MeleeWeapon:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_2aj3y"]
-resource_name = "melee"
-length = 0.3
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/MeleeWeapon:monitoring")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/MeleeWeapon:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bi3sn"]
-_data = {
-"RESET": SubResource("Animation_25jca"),
-"melee": SubResource("Animation_2aj3y")
-}
 
 [sub_resource type="Animation" id="Animation_1fqj5"]
 length = 0.001
@@ -124,80 +62,6 @@ _data = {
 "Run": SubResource("Animation_k54em")
 }
 
-[sub_resource type="Animation" id="Animation_ffnqt"]
-resource_name = "up"
-length = 0.6
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [26, 27, 28, 29, 30]
-}
-
-[sub_resource type="Animation" id="Animation_b2rkx"]
-resource_name = "down"
-length = 0.6
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [31, 32, 33, 34, 35, 36]
-}
-
-[sub_resource type="Animation" id="Animation_vh0vs"]
-resource_name = "left"
-length = 0.6
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [14, 15, 16, 17, 18, 19]
-}
-
-[sub_resource type="Animation" id="Animation_qvqg8"]
-resource_name = "right"
-
-[sub_resource type="Animation" id="Animation_6bavv"]
-resource_name = "down_right"
-length = 0.6
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [14, 15, 16, 23, 24, 25]
-}
-
-[sub_resource type="Animation" id="Animation_4wf2p"]
-resource_name = "down_left"
-
 [sub_resource type="Animation" id="Animation_wqkkg"]
 length = 0.001
 tracks/0/type = "value"
@@ -210,15 +74,24 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [26]
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MeleeWeapon:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_wmuch"]
-resource_name = "up_left"
-
-[sub_resource type="Animation" id="Animation_wwvyh"]
-resource_name = "up_right"
-length = 0.6
+[sub_resource type="Animation" id="Animation_b2rkx"]
+resource_name = "down"
+length = 0.61
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -227,10 +100,147 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [31, 32, 33, 34, 35, 36, 31]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MeleeWeapon:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_4wf2p"]
+resource_name = "down_left"
+
+[sub_resource type="Animation" id="Animation_6bavv"]
+resource_name = "down_right"
+length = 0.61
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 23, 24, 25, 14]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MeleeWeapon:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_vh0vs"]
+resource_name = "left"
+length = 0.61
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 17, 18, 19, 14]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MeleeWeapon:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_qvqg8"]
+resource_name = "right"
+
+[sub_resource type="Animation" id="Animation_ffnqt"]
+resource_name = "up"
+length = 0.61
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [14, 15, 16, 20, 21, 22]
+"values": [26, 27, 28, 29, 30, 26]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MeleeWeapon:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_wmuch"]
+resource_name = "up_left"
+
+[sub_resource type="Animation" id="Animation_wwvyh"]
+resource_name = "up_right"
+length = 0.61
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 20, 21, 22, 14]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MeleeWeapon:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_of7ts"]
@@ -247,7 +257,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0tjw"]
-size = Vector2(21.8726, 30)
+size = Vector2(44, 28)
 
 [sub_resource type="Gradient" id="Gradient_qoeil"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -474,12 +484,6 @@ initial_state = NodePath("Idle")
 [node name="Melee" type="Node2D" parent="StateMachine (FSM)/Attacking"]
 script = ExtResource("5_cjxl6")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="StateMachine (FSM)/Attacking/Melee"]
-root_node = NodePath("../../../../Weapon")
-libraries = {
-"": SubResource("AnimationLibrary_bi3sn")
-}
-
 [node name="Ranged" type="Node2D" parent="StateMachine (FSM)/Attacking"]
 script = ExtResource("6_51a3w")
 
@@ -535,17 +539,15 @@ position = Vector2(0, -4)
 texture = ExtResource("17_7btr8")
 hframes = 7
 vframes = 6
-frame = 26
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Weapon/Pivot/Attacks"]
+deterministic = true
 libraries = {
 "": SubResource("AnimationLibrary_of7ts")
 }
 
 [node name="MeleeWeapon" type="Area2D" parent="Weapon/Pivot" node_paths=PackedStringArray("player", "player_camera")]
-visible = false
 modulate = Color(1, 1, 1, 0)
-position = Vector2(19, -2)
 monitoring = false
 monitorable = false
 script = ExtResource("13_enyji")
@@ -553,12 +555,13 @@ player = NodePath("../../..")
 player_camera = NodePath("../../../PlayerCamera")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/Pivot/MeleeWeapon"]
-position = Vector2(9.06368, -2)
+position = Vector2(0, -35)
 shape = SubResource("RectangleShape2D_l0tjw")
 
 [node name="Sprite2D" type="Sprite2D" parent="Weapon/Pivot/MeleeWeapon"]
-position = Vector2(8.12736, -1.84)
-scale = Vector2(4.06368, -0.38)
+visible = false
+position = Vector2(-1, -37)
+scale = Vector2(3.70368, -0.38)
 texture = SubResource("GradientTexture2D_w5ike")
 hframes = 16
 
@@ -592,6 +595,5 @@ libraries = {
 
 [node name="Pause" parent="PauseScreen" instance=ExtResource("18_ky6qn")]
 
-[connection signal="animation_finished" from="StateMachine (FSM)/Attacking/Melee/AnimationPlayer" to="StateMachine (FSM)/Attacking/Melee" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Weapon/Pivot/MeleeWeapon" to="Weapon/Pivot/MeleeWeapon" method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine (FSM)/Hurt" method="handle_animation_finishes"]
