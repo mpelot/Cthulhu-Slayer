@@ -16,9 +16,9 @@ func attack():
 
 	var mouse_direction: Vector2 = get_global_mouse_position() - global_position
 	var compare_direction: Vector2 = Vector2(0,-1)
+	
 	var angle = discrete_rotation(compare_direction.angle_to(mouse_direction))
 	weapon.rotation = angle
-	print(discrete_angle(angle))	
 	set_attack_direction(discrete_angle(angle))
 	run_animation(discrete_angle(angle))
 
@@ -49,5 +49,9 @@ func discrete_angle(rad: float):
 	return int(rad_to_deg(rad))
 
 func discrete_rotation(radian: float):
-	return radian - fmod(radian,PI/4)
+	var degree = rad_to_deg(radian)
+	var discrete_degree = degree 
+	var discrete_angle = snapped(radian, PI/4)
+	print("ANGLE: " + str(rad_to_deg(discrete_angle)))
+	return discrete_angle
 	

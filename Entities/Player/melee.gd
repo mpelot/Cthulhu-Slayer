@@ -1,6 +1,5 @@
 extends Attack
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var pivot: Pivot = $"../../../Weapon/Pivot"
 @onready var main_body_sprite: Node2D = $"../../../Sprite"
 

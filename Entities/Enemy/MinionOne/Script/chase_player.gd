@@ -15,3 +15,4 @@ func update(delta):
 func chase(delta):
 	var direction = cultist.position.direction_to(player.position)
 	cultist.move_and_collide(direction * movement_speed * delta)
+	cultist.move_and_slide()

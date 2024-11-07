@@ -3,7 +3,7 @@ extends HierachyMachine
 @onready var player : Player = $"../.."
 @onready var state_machine: StateMachine = $".."
 var current_velocity: Vector2
-var friction_factor: float = 200
+var friction_factor: float = 100
 var momentum: Vector2
 
 func _ready():
