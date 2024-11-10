@@ -10,6 +10,7 @@ func enter(args = {}):
 
 func attack():
 	animation_player.play("attack")
+	$"../../Cultist dagger swipe".play()
 
 func handle_animation_finished(anim_name):
 	if(anim_name != "attack"):
@@ -23,6 +24,7 @@ func damage_player():
 	var damage : Damagable = Damagable.new(10, cultist)
 	if(distance_between_player(cultist) < 20):
 		player.receive_damage(damage)
+		$"../../Cultist dagger player contact".play()
 
 func distance_between_player(from: Node2D) -> float:
 	return (player.position - from.position).length()

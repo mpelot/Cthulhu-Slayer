@@ -6,3 +6,4 @@ extends State
 func enter(args = {}):
 	cultist.modulate = Color.BLACK;
 	collider.queue_free()
+	$"../../Cultist dagger swipe".stop()

@@ -11,6 +11,8 @@ func enter(args = {}):
 func damaged():
 	print("calling out hurt")
 	animation_player.play("hurt")
+	$"../../Cultist hurt sfx".play()
+	
 
 func handle_animation_finishes(anim_name):
 	if(anim_name != "hurt"):
