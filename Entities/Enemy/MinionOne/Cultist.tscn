@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cabjye6mltep3"]
+[gd_scene load_steps=15 format=3 uid="uid://cabjye6mltep3"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/cultist.gd" id="1_n1apt"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="2_lnrgd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Entities/Enemy/MinionOne/dead.gd" id="5_kj08s"]
 [ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/hurt.gd" id="6_0212j"]
 [ext_resource type="Texture2D" uid="uid://dtd1764cfq33s" path="res://Temp/LumiStoryMode.png" id="6_i2vio"]
+[ext_resource type="Texture2D" uid="uid://4jnuxm27nqlo" path="res://Entities/Common/Sprite/Shadow.png" id="8_03sng"]
 
 [sub_resource type="Animation" id="Animation_0q1tn"]
 length = 0.001
@@ -128,6 +129,11 @@ script = ExtResource("5_0vv7d")
 script = ExtResource("6_0212j")
 
 [node name="Sprite" type="Node2D" parent="."]
+
+[node name="Shadow" type="Sprite2D" parent="Sprite"]
+texture_filter = 1
+position = Vector2(0, 6)
+texture = ExtResource("8_03sng")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite"]
 texture_filter = 1

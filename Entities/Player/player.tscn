@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://clwh62jtlg5t8"]
+[gd_scene load_steps=55 format=3 uid="uid://clwh62jtlg5t8"]
 
 [ext_resource type="Script" path="res://Entities/Player/Script/player.gd" id="1_5phih"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_60xw4"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bqaxhjp4uxia2" path="res://PostProcessing/post_processing.tscn" id="13_nby1f"]
 [ext_resource type="Texture2D" uid="uid://d20wljlcix0fh" path="res://Entities/Player/Sprite/Guy_Final_Idle.png" id="13_xyhgg"]
 [ext_resource type="Texture2D" uid="uid://bblvvxrjiy361" path="res://Entities/Player/Sprite/Guy_Final_Run.png" id="14_02vht"]
+[ext_resource type="Texture2D" uid="uid://4jnuxm27nqlo" path="res://Entities/Common/Sprite/Shadow.png" id="16_lalfj"]
 [ext_resource type="Texture2D" uid="uid://c5bhp6qaf34wm" path="res://Entities/Player/Sprite/Guy_Final_Final (2)-Sheet.png" id="17_7btr8"]
 [ext_resource type="Script" path="res://Entities/Player/player_camera.gd" id="18_712ap"]
 [ext_resource type="PackedScene" uid="uid://cbdahhosbo8jd" path="res://UI/Scene/Pause/pause.tscn" id="18_ky6qn"]
@@ -492,6 +493,11 @@ script = ExtResource("5_2uwg8")
 
 [node name="Sprite" type="Node2D" parent="."]
 
+[node name="Shadow" type="Sprite2D" parent="Sprite"]
+texture_filter = 1
+position = Vector2(0, 7)
+texture = ExtResource("16_lalfj")
+
 [node name="Sprite2D" type="Sprite2D" parent="Sprite"]
 visible = false
 texture_filter = 1
@@ -545,6 +551,11 @@ deterministic = true
 libraries = {
 "": SubResource("AnimationLibrary_of7ts")
 }
+
+[node name="Shadow2" type="Sprite2D" parent="Weapon/Pivot/Attacks"]
+texture_filter = 1
+position = Vector2(0, 11)
+texture = ExtResource("16_lalfj")
 
 [node name="MeleeWeapon" type="Area2D" parent="Weapon/Pivot" node_paths=PackedStringArray("player", "player_camera")]
 modulate = Color(1, 1, 1, 0)
