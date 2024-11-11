@@ -49,9 +49,6 @@ func discrete_angle(rad: float):
 	return int(rad_to_deg(rad))
 
 func discrete_rotation(radian: float):
-	var degree = rad_to_deg(radian)
-	var discrete_degree = degree 
 	var discrete_angle = snapped(radian, PI/4)
-	print("ANGLE: " + str(rad_to_deg(discrete_angle)))
 	return discrete_angle
 	

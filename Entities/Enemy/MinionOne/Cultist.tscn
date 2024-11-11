@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cabjye6mltep3"]
+[gd_scene load_steps=17 format=3 uid="uid://cabjye6mltep3"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/cultist.gd" id="1_n1apt"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="2_lnrgd"]
@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/attack.gd" id="5_0vv7d"]
 [ext_resource type="Script" path="res://Entities/Enemy/MinionOne/dead.gd" id="5_kj08s"]
 [ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/hurt.gd" id="6_0212j"]
-[ext_resource type="Texture2D" uid="uid://dtd1764cfq33s" path="res://Temp/LumiStoryMode.png" id="6_i2vio"]
 [ext_resource type="Texture2D" uid="uid://4jnuxm27nqlo" path="res://Entities/Common/Sprite/Shadow.png" id="8_03sng"]
+[ext_resource type="Texture2D" uid="uid://c272k3v2r72sp" path="res://Entities/Enemy/MinionOne/SpriteSheets/Cultist-Sheet.png" id="9_opcr5"]
 
 [sub_resource type="Animation" id="Animation_0q1tn"]
 length = 0.001
@@ -22,7 +22,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [6]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -39,7 +39,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_0ssfk"]
 resource_name = "attack"
-length = 2.0
+length = 1.2
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -48,10 +48,10 @@ tracks/0/path = NodePath("Sprite/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.0666667, 0.4, 0.6, 1.2, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 0.9, 1, 1.0001, 1.0002),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1, 2, 3, 10, 0]
+"values": [11, 12, 13, 14, 15, 16, 17, 18, 19, 19, 19]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -96,11 +96,48 @@ tracks/1/keys = {
 "values": []
 }
 
+[sub_resource type="Animation" id="Animation_bgqws"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_0m7jy"]
+resource_name = "chase"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [19, 20, 21]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v68rk"]
 _data = {
 "RESET": SubResource("Animation_0q1tn"),
 "attack": SubResource("Animation_0ssfk"),
-"hurt": SubResource("Animation_5xehe")
+"chase": SubResource("Animation_0m7jy"),
+"hurt": SubResource("Animation_5xehe"),
+"idle": SubResource("Animation_bgqws")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cetrn"]
@@ -138,10 +175,9 @@ texture = ExtResource("8_03sng")
 [node name="Sprite2D" type="Sprite2D" parent="Sprite"]
 texture_filter = 1
 position = Vector2(0, -3)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_i2vio")
-hframes = 16
-frame = 1
+texture = ExtResource("9_opcr5")
+hframes = 22
+frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

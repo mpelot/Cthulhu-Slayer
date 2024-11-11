@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d26rpjrtkpqjh"]
+
+[ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/Beam/beam_bunch.gd" id="1_717d8"]
+
+[node name="BeamBunch" type="Node2D"]
+script = ExtResource("1_717d8")

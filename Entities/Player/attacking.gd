@@ -3,7 +3,7 @@ extends HierachyMachine
 @onready var player : Player = $"../.."
 @onready var state_machine: StateMachine = $".."
 var current_velocity: Vector2
-var friction_factor: float = 100
+var friction_factor: float = 300
 var momentum: Vector2
 
 func _ready():
@@ -24,7 +24,7 @@ func update(delta: float):
 		return
 	current_velocity -= current_velocity.normalized() * friction_factor * delta
 	print(current_velocity)
-	player.move_and_collide(current_velocity * delta)
+	player.move_and_collide(-0.3 * current_velocity * delta)
 	
 func validate_args(args: Dictionary):
 	assert(args.has_all(["momentum", "attack"]))
@@ -34,3 +34,7 @@ func go_back_to_control(from: Node2D):
 	current_velocity = Vector2.ZERO
 	print("GOING BACK TO CONTROL")
 	state_machine.transition_to_state("Control (BM)")
+
+func knock_back():
+	current_velocity = -momentum
+	

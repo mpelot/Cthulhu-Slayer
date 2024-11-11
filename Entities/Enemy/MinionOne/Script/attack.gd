@@ -29,7 +29,7 @@ func handle_animation_finished(anim_name):
 func dash_toward_player():
 	var direction = (player.position - cultist.position).normalized()
 	var dash_tween = get_tree().create_tween()
-	var target_position = cultist.position + direction * 40
+	var target_position = cultist.position + direction * 54
 	dash_tween.tween_property(cultist, "position", target_position, 0.2)
 	dash_tween.set_ease(Tween.EASE_OUT)
 	is_attacking = true

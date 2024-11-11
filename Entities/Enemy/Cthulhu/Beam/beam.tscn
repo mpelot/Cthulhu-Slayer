@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhjpqcblgi07e"]
+
+[ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/Beam/beam.gd" id="1_wro2x"]
+[ext_resource type="Texture2D" uid="uid://bryxu0j2s7c17" path="res://Entities/Enemy/Cthulhu/Beam/BeamTest.png" id="2_b8cr7"]
+
+[node name="ActualBeam" type="Node2D"]
+scale = Vector2(20, 1)
+script = ExtResource("1_wro2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_b8cr7")
