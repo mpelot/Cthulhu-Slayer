@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://d26rpjrtkpqjh"]
+[gd_scene load_steps=4 format=3 uid="uid://d26rpjrtkpqjh"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/Beam/beam_bunch.gd" id="1_717d8"]
+[ext_resource type="Shader" path="res://Entities/Enemy/Cthulhu/Beam/beam_bunch.gdshader" id="1_w38bw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p7gvp"]
+shader = ExtResource("1_w38bw")
 
 [node name="BeamBunch" type="Node2D"]
+material = SubResource("ShaderMaterial_p7gvp")
 script = ExtResource("1_717d8")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.58213, 0.69, 0.2277, 0.6)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,20 +1,29 @@
 extends Node2D
 
-
+@onready var canvas : CanvasModulate = $CanvasModulate
 @onready var beam_prefab: Node2D = preload("res://Entities/Enemy/Cthulhu/Beam/beam.tscn").instantiate()
 var num_beam: int = 40
-
+var current_rotation = 0
+var increment: float
 
 func _ready():
-	
-	for i in range(num_beam/2 + 1):
-		var beam_rotation = i * PI/(num_beam)
-		add_beam(beam_rotation)
-		add_beam(-beam_rotation)
-		
-		
+	increment = PI/num_beam
+	$Timer.start()
+
+
+
 
 func add_beam(radian: float):
 	var beam: Node2D = beam_prefab.duplicate()
 	beam.rotate(radian)
-	add_child(beam)
+	canvas.add_child(beam)
+
+
+func _on_timer_timeout():
+	if(current_rotation >= PI/2):
+		return
+	$Timer.start()
+	add_beam(current_rotation)
+	add_beam(-current_rotation)
+	print(current_rotation)
+	current_rotation += increment
