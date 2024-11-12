@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Environment/Village/Script/village.gd" id="1_2fhoe"]
 [ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Common/environment_tileset.tres" id="1_dl1im"]
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="3_hcppl"]
-[ext_resource type="PackedScene" uid="uid://cabjye6mltep3" path="res://Entities/Enemy/MinionOne/Cultist.tscn" id="4_64hgq"]
+[ext_resource type="PackedScene" uid="uid://cabjye6mltep3" path="res://Entities/Enemy/MinionOne/cultist.tscn" id="4_64hgq"]
 [ext_resource type="PackedScene" uid="uid://dohec58u1vi1b" path="res://Scenes/Environment/Village/Buildings/House.tscn" id="4_ikmrm"]
 [ext_resource type="PackedScene" uid="uid://b5hkfigc6w20w" path="res://Scenes/Environment/Common/Door/passive_door.tscn" id="5_xak5o"]
 [ext_resource type="Script" path="res://Scenes/Environment/Village/Script/enemy_encounter.gd" id="7_sbeje"]

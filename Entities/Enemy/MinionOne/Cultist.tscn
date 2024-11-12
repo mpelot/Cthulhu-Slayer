@@ -1,14 +1,14 @@
 [gd_scene load_steps=17 format=3 uid="uid://cabjye6mltep3"]
 
-[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/cultist.gd" id="1_n1apt"]
-[ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="2_lnrgd"]
-[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/idle.gd" id="3_jwspe"]
-[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/chase_player.gd" id="4_it5d6"]
-[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/attack.gd" id="5_0vv7d"]
-[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/dead.gd" id="5_kj08s"]
-[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/hurt.gd" id="6_0212j"]
-[ext_resource type="Texture2D" uid="uid://4jnuxm27nqlo" path="res://Entities/Common/Sprite/Shadow.png" id="8_03sng"]
-[ext_resource type="Texture2D" uid="uid://c272k3v2r72sp" path="res://Entities/Enemy/MinionOne/SpriteSheets/Cultist-Sheet.png" id="9_opcr5"]
+[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/cultist.gd" id="1_kgpp6"]
+[ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="2_odvhk"]
+[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/idle.gd" id="3_s4ty6"]
+[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/chase_player.gd" id="4_d8jjy"]
+[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/dead.gd" id="5_c02ue"]
+[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/attack.gd" id="6_y8m87"]
+[ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/hurt.gd" id="7_3jhdp"]
+[ext_resource type="Texture2D" uid="uid://4jnuxm27nqlo" path="res://Entities/Common/Sprite/Shadow.png" id="8_dg7wg"]
+[ext_resource type="Texture2D" uid="uid://c272k3v2r72sp" path="res://Entities/Enemy/MinionOne/SpriteSheets/Cultist-Sheet.png" id="9_estn4"]
 
 [sub_resource type="Animation" id="Animation_0q1tn"]
 length = 0.001
@@ -144,38 +144,38 @@ _data = {
 size = Vector2(15, 21)
 
 [node name="Cultist" type="CharacterBody2D"]
-script = ExtResource("1_n1apt")
+script = ExtResource("1_kgpp6")
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("2_lnrgd")
+script = ExtResource("2_odvhk")
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node2D" parent="StateMachine"]
-script = ExtResource("3_jwspe")
+script = ExtResource("3_s4ty6")
 
 [node name="ChasePlayer" type="Node2D" parent="StateMachine"]
-script = ExtResource("4_it5d6")
+script = ExtResource("4_d8jjy")
 
 [node name="Dead" type="Node2D" parent="StateMachine"]
-script = ExtResource("5_kj08s")
+script = ExtResource("5_c02ue")
 
 [node name="Attack" type="Node2D" parent="StateMachine"]
-script = ExtResource("5_0vv7d")
+script = ExtResource("6_y8m87")
 
 [node name="Hurt" type="Node2D" parent="StateMachine"]
-script = ExtResource("6_0212j")
+script = ExtResource("7_3jhdp")
 
 [node name="Sprite" type="Node2D" parent="."]
 
 [node name="Shadow" type="Sprite2D" parent="Sprite"]
 texture_filter = 1
 position = Vector2(0, 6)
-texture = ExtResource("8_03sng")
+texture = ExtResource("8_dg7wg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite"]
 texture_filter = 1
 position = Vector2(0, -3)
-texture = ExtResource("9_opcr5")
+texture = ExtResource("9_estn4")
 hframes = 22
 frame = 6
 

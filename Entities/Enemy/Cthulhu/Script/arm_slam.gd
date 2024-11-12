@@ -17,6 +17,7 @@ func spawn_arms():
 	left_arm.position = left_socket.global_position
 	var right_arm : SlamArm = arm_slam_scene.instantiate()
 	right_arm.position = right_socket.global_position
+	right_arm.scale = Vector2(-1, 1)
 	right_arm.attack_finished.connect(handle_reset_arm)
 	get_tree().root.add_child(left_arm)
 	get_tree().root.add_child(right_arm)
