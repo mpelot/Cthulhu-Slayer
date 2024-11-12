@@ -4,10 +4,10 @@ extends EnemyState
 @onready var cultist: Cultist = $"../.."
 var attack_distance: float = 30
 var is_attacking: bool = false
-
+var player_position: Vector2
 
 func enter(args = {}):
-
+	player_position = Vector2(player.position)
 	attack()
 
 func attack():
@@ -27,7 +27,7 @@ func handle_animation_finished(anim_name):
 
 
 func dash_toward_player():
-	var direction = (player.position - cultist.position).normalized()
+	var direction = (player_position - cultist.position).normalized()
 	var dash_tween = get_tree().create_tween()
 	var target_position = cultist.position + direction * 54
 	dash_tween.tween_property(cultist, "position", target_position, 0.2)

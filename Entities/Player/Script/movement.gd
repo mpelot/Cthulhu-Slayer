@@ -11,6 +11,7 @@ class_name MovementBehavior
 @onready var idle_animation: AnimationPlayer = $"../../../AnimationPlayer"
 
 var momentum: Vector2
+var last_move_direction: Vector2
 
 func _ready():
 	run_animation.play("Run")
@@ -29,6 +30,7 @@ func move(delta) -> KinematicCollision2D:
 	if(direction.length() > 0.1):
 		idle_sprite.visible = false
 		run_sprite.visible = true
+		last_move_direction = direction
 		if(x_input < 0):
 			sprite.scale = Vector2(-1, 1)
 		else:

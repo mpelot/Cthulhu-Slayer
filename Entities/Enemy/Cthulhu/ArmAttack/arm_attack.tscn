@@ -1,5 +1,199 @@
-[gd_scene format=3 uid="uid://qnsvp65rwewu"]
+[gd_scene load_steps=9 format=3 uid="uid://qnsvp65rwewu"]
+
+[ext_resource type="Texture2D" uid="uid://b4x6p1unxdqh2" path="res://Scenes/Environment/BossRoom/Tilemap/TableLeg.png" id="1_12eph"]
+[ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ArmAttack/arm_attack.gd" id="1_souey"]
+[ext_resource type="Texture2D" uid="uid://4jnuxm27nqlo" path="res://Entities/Common/Sprite/Shadow.png" id="2_8dn26"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eae58"]
+radius = 36.1583
+height = 172.357
+
+[sub_resource type="Animation" id="Animation_6aojl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Shadow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Arm:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, -332)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Arm:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/DamageArea/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_yd7fa"]
+resource_name = "arm_slam"
+length = 6.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Shadow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8, 4.96667, 6.63333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(16, 8), Vector2(16, 8), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Arm:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.3, 1.8, 4.96667, 6.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(12, -332), Vector2(6, -130), Vector2(6, -130), Vector2(12, -332)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Arm:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.33333, 1.7, 5.5, 6.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/DamageArea/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.13333, 1.7, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 1.9, 4.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(5.83333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finish_arm_slam"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_biql0"]
+_data = {
+"RESET": SubResource("Animation_6aojl"),
+"arm_slam": SubResource("Animation_yd7fa")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_73elp"]
+radius = 26.0
+height = 220.0
 
 [node name="ArmAttack" type="CharacterBody2D"]
+script = ExtResource("1_souey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(23, 92)
+rotation = 0.497419
+shape = SubResource("CapsuleShape2D_eae58")
+disabled = true
+
+[node name="Pivot" type="Node2D" parent="."]
+position = Vector2(-9, 146)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_biql0")
+}
+
+[node name="Shadow" type="Sprite2D" parent="Pivot"]
+texture_filter = 1
+texture = ExtResource("2_8dn26")
+
+[node name="Arm" type="Sprite2D" parent="Pivot"]
+modulate = Color(0, 0, 0, 0)
+position = Vector2(12, -332)
+rotation = -0.523599
+scale = Vector2(1, -1)
+texture = ExtResource("1_12eph")
+
+[node name="DamageArea" type="Area2D" parent="Pivot"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/DamageArea"]
+position = Vector2(-2, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_73elp")
+disabled = true
+
+[connection signal="animation_finished" from="Pivot/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

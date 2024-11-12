@@ -4,8 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bryxu0j2s7c17" path="res://Entities/Enemy/Cthulhu/Beam/BeamTest.png" id="2_b8cr7"]
 
 [node name="ActualBeam" type="Node2D"]
-self_modulate = Color(1, 1, 1, 0.568627)
-scale = Vector2(20, 1)
+scale = Vector2(4, 1)
 script = ExtResource("1_wro2x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

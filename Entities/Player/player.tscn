@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://clwh62jtlg5t8"]
+[gd_scene load_steps=56 format=3 uid="uid://clwh62jtlg5t8"]
 
 [ext_resource type="Script" path="res://Entities/Player/Script/player.gd" id="1_5phih"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_60xw4"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dtd1764cfq33s" path="res://Temp/LumiStoryMode.png" id="9_hen3c"]
 [ext_resource type="Script" path="res://Entities/Player/attacking.gd" id="10_h1kxo"]
 [ext_resource type="Texture2D" uid="uid://c5bajmv1r7knp" path="res://Temp/Guy.png" id="11_24gwf"]
+[ext_resource type="Script" path="res://Entities/Player/Script/dashing.gd" id="11_dxq2s"]
 [ext_resource type="Script" path="res://Entities/Player/Script/pivot.gd" id="12_157xx"]
 [ext_resource type="Texture2D" uid="uid://b2w6kbxk3snpe" path="res://Entities/Player/Sprite/Guy_Final_Spin.png" id="12_5073q"]
 [ext_resource type="Script" path="res://Entities/Player/Script/melee_weapon.gd" id="13_enyji"]
@@ -504,6 +505,9 @@ script = ExtResource("6_51a3w")
 
 [node name="Idle" type="Node2D" parent="StateMachine (FSM)/Attacking"]
 script = ExtResource("5_2uwg8")
+
+[node name="Dashing" type="Node2D" parent="StateMachine (FSM)"]
+script = ExtResource("11_dxq2s")
 
 [node name="Sprite" type="Node2D" parent="."]
 
