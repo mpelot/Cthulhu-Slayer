@@ -15,13 +15,13 @@ func enter(args = {}):
 	var difference : float = (player.position - chess_piece.position).length()
 	
 	var move_magnitude = (difference - fmod(difference,128.0)) + 128
-	print("magnitude: " + str(move_magnitude))
+	
 	var move_direction = Vector2i(Vector2.from_angle(angle) * 2)
 	
 	var move_vector = Vector2(sign(move_direction.x), sign(move_direction.y)) * move_magnitude
 	var target_position = chess_piece.position + move_vector
 	chess_piece.set_target(target_position)
-	print("DASHING")
+
 	
 func on_dash_finished():
 	attacking_state.transitioned.emit(attacking_state, "idle")

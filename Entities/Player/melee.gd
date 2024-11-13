@@ -13,7 +13,7 @@ func _ready():
 func enter(_args={}):
 	# Spawn some colliding object
 	input_buffering_counter = input_buffering_time
-	print("IS IN MELEE")
+
 	pivot.attack()
 	main_body_sprite.visible = false
 	#transitioned.emit("Idle")
@@ -39,5 +39,5 @@ func attack_finished():
 
 func _on_animation_player_animation_finished(anim_name):
 	if(anim_name == "melee"):
-		print("attacking finishes")
+		pass
 		

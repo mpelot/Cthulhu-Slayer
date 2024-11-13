@@ -3,9 +3,11 @@ class_name Beam
 
 
 @onready var sprite : Sprite2D = $Sprite2D
-var beam_length: float = 400
+@onready var damage_timer : Timer = $Timer
+var beam_length: float = 1500
 var direction : Vector2
 var space_state
+var player: Player = null
 
 func on_start():
 	space_state = get_world_2d().direct_space_state
@@ -54,3 +56,24 @@ func readjust_size(intersection: Vector2):
 	var target_position = Vector2(0, (intersection - global_position).length()/2)
 	sprite.position = target_position
 	sprite.scale = target_size
+
+
+
+
+func _on_area_2d_body_entered(body):
+	if(body is Player):
+		player = body
+		damage_timer.start()
+
+
+func _on_timer_timeout():
+	var damage: Damagable = Damagable.new(0.5, self)
+	player.receive_damage(damage)
+	damage_timer.start()
+
+
+
+func _on_area_2d_body_exited(body):
+	if(body is Player):
+		player = null
+		damage_timer.stop()

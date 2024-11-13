@@ -5,12 +5,12 @@ extends EnemyState
 
 func enter(args = {}):
 	assert(validate_args(args), "No damage found whe enterting hurt on Cultist")
-	print("entering damage")
+
 	pushed_back(args["damage"].from)
 	damaged()
 	
 func damaged():
-	print("calling out hurt")
+
 	animation_player.play("hurt")
 
 func handle_animation_finishes(anim_name):

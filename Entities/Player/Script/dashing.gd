@@ -20,7 +20,6 @@ func validate_args(args: Dictionary):
 func update(delta):
 	time_left -= delta
 	player.move_and_collide(dash_direction * dash_speed * delta)
-	print(time_left)
 	if(time_left < 0):
 		collider.disabled = false
 		#Transition back to control

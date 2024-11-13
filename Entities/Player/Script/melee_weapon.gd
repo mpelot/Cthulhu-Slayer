@@ -18,7 +18,6 @@ func handle_activate_state(state: bool):
 
 
 func _on_body_entered(body):
-	print(body)
 	if(body is Entity):
 		player_camera.shake()
 		

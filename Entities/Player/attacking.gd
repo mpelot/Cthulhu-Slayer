@@ -10,7 +10,6 @@ func _ready():
 	super()
 	for child in get_children():
 		if(child is Attack):
-			print("The child child is attack: ",child)
 			child.attack_finishes.connect(go_back_to_control)
 
 func enter(args = {}):
@@ -23,7 +22,6 @@ func update(delta: float):
 	if(current_velocity.length() < 0.1):
 		return
 	current_velocity -= current_velocity.normalized() * friction_factor * delta
-	print(current_velocity)
 	player.move_and_collide(0.6 * current_velocity * delta)
 	
 func validate_args(args: Dictionary):
@@ -32,7 +30,7 @@ func validate_args(args: Dictionary):
 
 func go_back_to_control(from: Node2D):
 	current_velocity = Vector2.ZERO
-	print("GOING BACK TO CONTROL")
+
 	state_machine.transition_to_state("Control (BM)")
 
 func knock_back():

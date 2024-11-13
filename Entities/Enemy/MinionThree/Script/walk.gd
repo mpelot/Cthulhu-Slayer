@@ -29,7 +29,7 @@ func flip_sprite():
 
 func chase(delta):
 	flip_sprite()
-	print("MOVING CHARGER")
+
 	var direction = charger.position.direction_to(player.position)
 	charger.move_and_collide(direction * movement_speed * delta)
 	charger.move_and_slide()

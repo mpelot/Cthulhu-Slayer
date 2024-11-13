@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bj8wro6jjehv4"]
+[gd_scene load_steps=14 format=4 uid="uid://bj8wro6jjehv4"]
 
 [ext_resource type="Script" path="res://Scenes/Environment/BossRoom/Script/cthulhu_boss.gd" id="1_b3b8w"]
 [ext_resource type="AudioStream" uid="uid://qfdv1r2dpn0n" path="res://Scenes/Environment/BossRoom/OST/Cthulhu.mp3" id="2_elc2y"]
@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://4jnuxm27nqlo" path="res://Entities/Common/Sprite/Shadow.png" id="7_a2qcm"]
 [ext_resource type="PackedScene" uid="uid://c0loklv4lains" path="res://Entities/Enemy/Cthulhu/ChessPiece/cthulhu_chess.tscn" id="8_rf2gk"]
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="9_2m42o"]
-[ext_resource type="Texture2D" uid="uid://dlv8dk81ivhjg" path="res://Scenes/Environment/BossRoom/Tilemap/chess_pieces-Sheet.png" id="10_rfknh"]
 [ext_resource type="PackedScene" uid="uid://cpeow0wwcd843" path="res://Entities/Enemy/Cthulhu/cthulhu.tscn" id="11_5satw"]
+[ext_resource type="PackedScene" uid="uid://c3gjegcn3o0pm" path="res://Scenes/Environment/BossRoom/ChessPieces/Pawn/pawn.tscn" id="12_ythis"]
 
 [sub_resource type="Environment" id="Environment_sxu4r"]
 glow_enabled = true
@@ -23,10 +23,6 @@ glow_hdr_luminance_cap = 94.15
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewu16"]
 size = Vector2(1034, 68)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j711t"]
-radius = 25.0
-height = 50.0
 
 [node name="CthulhuBoss" type="Node2D"]
 script = ExtResource("1_b3b8w")
@@ -217,16 +213,16 @@ zoom = Vector2(2, 2)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Colliders"]
 position = Vector2(-710, -29)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/StaticBody2D"]
 shape = SubResource("RectangleShape2D_ewu16")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Colliders"]
 position = Vector2(-700, -1143)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/StaticBody2D2"]
 shape = SubResource("RectangleShape2D_ewu16")
@@ -234,8 +230,8 @@ shape = SubResource("RectangleShape2D_ewu16")
 [node name="StaticBody2D3" type="StaticBody2D" parent="Colliders"]
 position = Vector2(-1256, -590)
 rotation = 1.5708
-collision_layer = 2
-collision_mask = 2
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/StaticBody2D3"]
 shape = SubResource("RectangleShape2D_ewu16")
@@ -243,8 +239,8 @@ shape = SubResource("RectangleShape2D_ewu16")
 [node name="StaticBody2D4" type="StaticBody2D" parent="Colliders"]
 position = Vector2(-151, -600)
 rotation = 1.5708
-collision_layer = 2
-collision_mask = 2
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/StaticBody2D4"]
 shape = SubResource("RectangleShape2D_ewu16")
@@ -253,108 +249,23 @@ shape = SubResource("RectangleShape2D_ewu16")
 
 [node name="ChessPiece" type="Node2D" parent="EnvironmentForeground"]
 
-[node name="Sprite2D" type="Sprite2D" parent="EnvironmentForeground/ChessPiece"]
-texture_filter = 1
-position = Vector2(-644, -327)
-texture = ExtResource("10_rfknh")
-vframes = 2
+[node name="Pawn2" parent="EnvironmentForeground/ChessPiece" instance=ExtResource("12_ythis")]
+position = Vector2(-1018, -254)
 
-[node name="Sprite2D7" type="Sprite2D" parent="EnvironmentForeground/ChessPiece"]
-texture_filter = 1
-position = Vector2(-1152, -615)
-texture = ExtResource("10_rfknh")
-vframes = 2
-frame = 1
+[node name="Pawn3" parent="EnvironmentForeground/ChessPiece" instance=ExtResource("12_ythis")]
+position = Vector2(-886, -381)
 
-[node name="Sprite2D2" type="Sprite2D" parent="EnvironmentForeground/ChessPiece"]
-texture_filter = 1
-position = Vector2(-1025, -456)
-texture = ExtResource("10_rfknh")
-vframes = 2
+[node name="Pawn4" parent="EnvironmentForeground/ChessPiece" instance=ExtResource("12_ythis")]
+position = Vector2(-759, -513)
 
-[node name="Sprite2D8" type="Sprite2D" parent="EnvironmentForeground/ChessPiece"]
-texture_filter = 1
-position = Vector2(-680, -661)
-rotation = 4.71239
-texture = ExtResource("10_rfknh")
-vframes = 2
+[node name="Pawn5" parent="EnvironmentForeground/ChessPiece" instance=ExtResource("12_ythis")]
+position = Vector2(-633, -643)
 
-[node name="Sprite2D10" type="Sprite2D" parent="EnvironmentForeground/ChessPiece"]
-texture_filter = 1
-position = Vector2(-775, -950)
-rotation = 3.14159
-texture = ExtResource("10_rfknh")
-vframes = 2
-frame = 1
+[node name="Pawn6" parent="EnvironmentForeground/ChessPiece" instance=ExtResource("12_ythis")]
+position = Vector2(-507, -763)
 
-[node name="Sprite2D11" type="Sprite2D" parent="EnvironmentForeground/ChessPiece"]
-texture_filter = 1
-position = Vector2(-480, -896)
-rotation = 1.5708
-texture = ExtResource("10_rfknh")
-vframes = 2
-frame = 1
-
-[node name="Sprite2D9" type="Sprite2D" parent="EnvironmentForeground/ChessPiece"]
-texture_filter = 1
-position = Vector2(-1073, -909)
-rotation = -1.5708
-texture = ExtResource("10_rfknh")
-vframes = 2
-
-[node name="Sprite2D12" type="Sprite2D" parent="EnvironmentForeground/ChessPiece"]
-texture_filter = 1
-position = Vector2(-442, -1042)
-rotation = -1.5708
-texture = ExtResource("10_rfknh")
-vframes = 2
-
-[node name="Sprite2D13" type="Sprite2D" parent="EnvironmentForeground/ChessPiece"]
-texture_filter = 1
-position = Vector2(-960, -1042)
-rotation = 1.5708
-texture = ExtResource("10_rfknh")
-vframes = 2
-
-[node name="Sprite2D9" type="Sprite2D" parent="EnvironmentForeground/ChessPiece/Sprite2D13"]
-texture_filter = 1
-position = Vector2(-891, -880)
-texture = ExtResource("10_rfknh")
-vframes = 2
-
-[node name="Sprite2D3" type="Sprite2D" parent="EnvironmentForeground/ChessPiece"]
-texture_filter = 1
-position = Vector2(-515, -476)
-rotation = 3.14159
-texture = ExtResource("10_rfknh")
-vframes = 2
-
-[node name="Sprite2D4" type="Sprite2D" parent="EnvironmentForeground/ChessPiece"]
-texture_filter = 1
-position = Vector2(-342, -655)
-rotation = 1.5708
-texture = ExtResource("10_rfknh")
-vframes = 2
-
-[node name="Sprite2D5" type="Sprite2D" parent="EnvironmentForeground/ChessPiece"]
-texture_filter = 1
-position = Vector2(-383, -342)
-texture = ExtResource("10_rfknh")
-vframes = 2
-frame = 1
-
-[node name="Sprite2D6" type="Sprite2D" parent="EnvironmentForeground/ChessPiece"]
-texture_filter = 1
-position = Vector2(-774, -189)
-texture = ExtResource("10_rfknh")
-vframes = 2
-frame = 1
-
-[node name="StaticBody2D" type="StaticBody2D" parent="EnvironmentForeground/ChessPiece/Sprite2D6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnvironmentForeground/ChessPiece/Sprite2D6/StaticBody2D"]
-position = Vector2(2, 47)
-shape = SubResource("CapsuleShape2D_j711t")
+[node name="Pawn7" parent="EnvironmentForeground/ChessPiece" instance=ExtResource("12_ythis")]
+position = Vector2(-375, -887)
 
 [node name="Cthulhu" parent="EnvironmentForeground" node_paths=PackedStringArray("player") instance=ExtResource("11_5satw")]
 position = Vector2(-672, -279)

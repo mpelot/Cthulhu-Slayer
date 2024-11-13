@@ -14,4 +14,4 @@ func update_health_bar(health):
 	health_bar.value = health
 	if(old_health_value - health > 0):
 		animation_player.play("on_health_decrease")
-	print(health)
+	

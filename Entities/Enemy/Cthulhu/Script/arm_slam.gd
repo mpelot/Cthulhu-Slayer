@@ -19,6 +19,9 @@ func spawn_arms():
 	right_arm.position = right_socket.global_position
 	right_arm.scale = Vector2(-1, 1)
 	right_arm.attack_finished.connect(handle_reset_arm)
+	#Connect arm damaged to cthulhu health
+	left_arm.on_damaged.connect(cthulhu.on_part_damaged)
+	right_arm.on_damaged.connect(cthulhu.on_part_damaged)
 	get_tree().root.add_child(left_arm)
 	get_tree().root.add_child(right_arm)
 

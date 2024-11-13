@@ -11,7 +11,6 @@ func _ready():
 
 func set_target(target: Vector2):
 	target_position = target
-	print(target_position)
 	is_dashing = true
 	
 func _process(delta):
@@ -19,7 +18,7 @@ func _process(delta):
 		return
 	if((target_position - position).length() < 10):
 		is_dashing = false
-		print("finished dashing")
+
 		dashing_finished.emit()
 		return
 	var direction = (target_position - position).normalized()
