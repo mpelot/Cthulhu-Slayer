@@ -1,6 +1,7 @@
 #The game manager is responsible with managing global variables and functions that we will need 
 #to propagate through different scene. 
 extends Node
+
 var game_over_path: String = "res://Scenes/Cutscenes/GameOver/game_over.tscn"
 
 
@@ -28,3 +29,4 @@ func frame_freeze(time_scale: float, duration: float):
 	Engine.time_scale = time_scale
 	await get_tree().create_timer(duration * time_scale).timeout
 	Engine.time_scale = 1
+

@@ -51,4 +51,5 @@ func discrete_angle(rad: float):
 func discrete_rotation(radian: float):
 	var discrete_angle = snapped(radian, PI/4)
 	return discrete_angle
+
 	

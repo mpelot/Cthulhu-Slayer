@@ -3,6 +3,7 @@ extends EnemyState
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var cultist: Cultist = $"../.."
 var attack_distance: float = 30
+
 var is_attacking: bool = false
 var player_position: Vector2
 
@@ -13,9 +14,12 @@ func enter(args = {}):
 func attack():
 	animation_player.play("attack")
 
+
 func update(delta):
 	if(is_attacking):
 		damage_player()
+	$"../../Cultist dagger swipe".play()
+
 
 func handle_animation_finished(anim_name):
 	if(anim_name != "attack"):
@@ -24,7 +28,6 @@ func handle_animation_finished(anim_name):
 		transitioned.emit(self, "chaseplayer")
 		return
 	attack()
-
 
 func dash_toward_player():
 	var direction = (player_position - cultist.position).normalized()
@@ -41,6 +44,8 @@ func damage_player():
 	if(distance_between_player(cultist) < 20):
 		player.receive_damage(damage)
 		is_attacking = false
+		$"../../Cultist dagger player contact".play()
+
 
 func distance_between_player(from: Node2D) -> float:
 	return (player.position - from.position).length()

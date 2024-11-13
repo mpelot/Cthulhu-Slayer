@@ -8,4 +8,6 @@ func enter(args = {}):
 	cultist.modulate = Color.BLACK;
 	GameManager.health += 3
 	animation_player.play("die")
+	$"../../Cultist dagger swipe".stop()
 	collider.queue_free()
+

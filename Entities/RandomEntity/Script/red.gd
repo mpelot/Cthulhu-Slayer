@@ -10,3 +10,4 @@ func enter(args={}):
 func update(delta):
 	var movement: float = Input.get_action_raw_strength("Down")
 	entity.move_and_collide(Vector2(movement * 100, 0))
+

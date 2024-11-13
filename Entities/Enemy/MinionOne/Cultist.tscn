@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=18 format=3 uid="uid://cabjye6mltep3"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/cultist.gd" id="1_kgpp6"]
@@ -9,6 +10,11 @@
 [ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/hurt.gd" id="7_3jhdp"]
 [ext_resource type="Texture2D" uid="uid://4jnuxm27nqlo" path="res://Entities/Common/Sprite/Shadow.png" id="8_dg7wg"]
 [ext_resource type="Texture2D" uid="uid://c272k3v2r72sp" path="res://Entities/Enemy/MinionOne/SpriteSheets/Cultist-Sheet.png" id="9_estn4"]
+
+[ext_resource type="AudioStream" uid="uid://dhtlkl3gbupts" path="res://UI/Scene/Sfx/cultist dagger swing SFX.mp3" id="9_nj4ha"]
+[ext_resource type="AudioStream" uid="uid://b8onqlkikmr2h" path="res://UI/Scene/Sfx/Melee contact hit.mp3" id="10_iqond"]
+[ext_resource type="AudioStream" uid="uid://da6qsvuokmyco" path="res://UI/Scene/Sfx/cultist dagger contact.mp3" id="11_m8ryl"]
+
 
 [sub_resource type="Animation" id="Animation_0q1tn"]
 length = 0.001
@@ -23,7 +29,7 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [6]
-}
+
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -36,6 +42,7 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -52,6 +59,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_0ssfk"]
 resource_name = "attack"
 length = 1.3
+
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -60,10 +68,12 @@ tracks/0/path = NodePath("Sprite/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+
 "times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 0.8, 1, 1.1, 1.2, 1.2001, 1.2002),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [11, 12, 13, 14, 15, 16, 17, 18, 19, 19, 19]
+
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -72,6 +82,7 @@ tracks/1/path = NodePath("StateMachine/Attack")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+
 "times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -126,6 +137,7 @@ tracks/1/keys = {
 "values": [{
 "args": [],
 "method": &"queue_free"
+
 }]
 }
 
@@ -145,6 +157,7 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
+
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -173,6 +186,7 @@ tracks/0/keys = {
 "update": 1,
 "values": [5, 6, 7, 8, 9, 10, 11]
 }
+
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v68rk"]
 _data = {
@@ -223,14 +237,29 @@ texture = ExtResource("9_estn4")
 hframes = 22
 frame = 6
 
+
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_v68rk")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
 position = Vector2(0.5, -3.5)
 shape = SubResource("RectangleShape2D_cetrn")
+
+
+[node name="Cultist dagger swipe" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_nj4ha")
+
+[node name="Cultist hurt sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_iqond")
+pitch_scale = 2.14
+
+[node name="Cultist dagger player contact" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_m8ryl")
+
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Attack" method="handle_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Hurt" method="handle_animation_finishes"]

@@ -8,7 +8,6 @@ func exit():
 	pass
 
 
-
 #Called every physic frame
 func physic_update(_delta):
 	pass

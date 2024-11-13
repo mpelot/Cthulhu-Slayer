@@ -1,6 +1,7 @@
 extends EnemyState
 
 @onready var cultist: Cultist = $"../.."
+
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 @onready var sprite: Sprite2D = $"../../Sprite/Sprite2D"
 
@@ -19,6 +20,7 @@ func update(delta):
 	chase(delta)
 
 
+
 func flip_sprite():
 	var x_position_difference = (cultist.position - player.position).x
 	sprite.flip_h = x_position_difference > 0
@@ -28,3 +30,4 @@ func chase(delta):
 	var direction = cultist.position.direction_to(player.position)
 	cultist.move_and_collide(direction * movement_speed * delta)
 	cultist.move_and_slide()
+

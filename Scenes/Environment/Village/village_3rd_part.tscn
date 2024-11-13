@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=9 format=4 uid="uid://c51x2poqygsre"]
 
 [ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Common/environment_tileset.tres" id="1_8wl3g"]
@@ -16,6 +17,7 @@ size = Vector2(48, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t6dt0"]
 size = Vector2(47, 12)
+
 
 [node name="Village" type="Node2D"]
 
@@ -197,6 +199,7 @@ position = Vector2(-1635, -395)
 [node name="Cultist" parent="." instance=ExtResource("4_vfs35")]
 position = Vector2(-1018, -424)
 
+
 [node name="Collisions" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Collisions"]
@@ -291,3 +294,4 @@ shape = SubResource("RectangleShape2D_t6dt0")
 [node name="CollisionFence6" type="CollisionShape2D" parent="Collisions/StaticBody2D"]
 position = Vector2(-1018, -528)
 shape = SubResource("RectangleShape2D_t6dt0")
+
