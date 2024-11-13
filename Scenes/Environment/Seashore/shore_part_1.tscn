@@ -59,8 +59,6 @@ tile_set = ExtResource("1_bmy30")
 texture_filter = 1
 tile_set = ExtResource("1_bmy30")
 
-
-
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Player" parent="Entities" instance=ExtResource("2_i6kro")]
@@ -115,4 +113,3 @@ polygon = PackedVector2Array(-354, -645, -343, -646, -333, -651, -325, -657, -31
 
 [node name="Flesh" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]
 polygon = PackedVector2Array(-201, -753, -195, -753, -192, -756, -186, -759, -184, -785, -184, -801, -189, -808, -183, -812, -193, -815, -193, -821, -197, -822, -202, -817, -212, -815, -214, -810, -213, -775, -216, -770, -213, -765, -208, -770, -209, -755)
-
