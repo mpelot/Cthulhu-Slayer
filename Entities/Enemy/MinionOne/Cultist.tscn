@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cabjye6mltep3"]
+[gd_scene load_steps=18 format=3 uid="uid://cabjye6mltep3"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/MinionOne/Script/cultist.gd" id="1_kgpp6"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="2_odvhk"]
@@ -31,6 +31,18 @@ tracks/1/path = NodePath("Sprite/Sprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -131,11 +143,43 @@ tracks/0/keys = {
 "values": [5, 6, 7, 8, 9, 10, 11]
 }
 
+[sub_resource type="Animation" id="Animation_u6wsa"]
+resource_name = "die"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v68rk"]
 _data = {
 "RESET": SubResource("Animation_0q1tn"),
 "attack": SubResource("Animation_0ssfk"),
 "chase": SubResource("Animation_0m7jy"),
+"die": SubResource("Animation_u6wsa"),
 "hurt": SubResource("Animation_5xehe"),
 "idle": SubResource("Animation_bgqws")
 }

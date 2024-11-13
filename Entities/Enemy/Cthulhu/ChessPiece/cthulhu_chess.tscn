@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0loklv4lains"]
+[gd_scene load_steps=8 format=3 uid="uid://c0loklv4lains"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/cthulhu_chess.gd" id="1_mh2h0"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="2_32c8l"]
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/idle.gd" id="3_1fbyg"]
-[ext_resource type="Texture2D" uid="uid://4jnuxm27nqlo" path="res://Entities/Common/Sprite/Shadow.png" id="3_qffu8"]
-[ext_resource type="Texture2D" uid="uid://dtd1764cfq33s" path="res://Temp/LumiStoryMode.png" id="4_7bmxx"]
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/charging_up.gd" id="4_gha5r"]
 [ext_resource type="Script" path="res://Entities/Common/HierarchicalMachine/hierarchy_state.gd" id="5_miupb"]
+[ext_resource type="Texture2D" uid="uid://uy3i2yxgs867" path="res://Entities/Enemy/Cthulhu/ChessPiece/Sprite/TheQueen (1)-Sheet.png" id="7_r06mt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ou06l"]
 size = Vector2(12, 19)
@@ -41,13 +40,10 @@ shape = SubResource("RectangleShape2D_ou06l")
 texture_filter = 1
 position = Vector2(0, -6)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Sprite"]
-position = Vector2(0, 6)
-texture = ExtResource("3_qffu8")
-
 [node name="Sprite2D" type="Sprite2D" parent="Sprite"]
 texture_filter = 1
-texture = ExtResource("4_7bmxx")
-hframes = 16
+position = Vector2(-2, -63)
+texture = ExtResource("7_r06mt")
+hframes = 23
 
 [connection signal="timeout" from="StateMachine/Idle/Timer" to="StateMachine/Idle" method="_on_timer_timeout"]
