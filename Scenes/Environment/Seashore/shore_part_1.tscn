@@ -59,10 +59,60 @@ tile_set = ExtResource("1_bmy30")
 texture_filter = 1
 tile_set = ExtResource("1_bmy30")
 
+
+
 [node name="Entities" type="Node2D" parent="."]
+
+[node name="Player" parent="Entities" instance=ExtResource("2_i6kro")]
+position = Vector2(-616, -64)
 
 [node name="Charger" parent="Entities" instance=ExtResource("2_s6os4")]
 position = Vector2(-480, -200)
 
-[node name="Player" parent="Entities" instance=ExtResource("2_i6kro")]
-position = Vector2(-616, -56)
+[node name="Colliders" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Colliders"]
+
+[node name="Border" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]
+polygon = PackedVector2Array(-593, -56, -634, -56, -633, -92, -649, -93, -645, -103, -646, -117, -579, -114, -574, -122, -574, -365, -564, -365, -559, -371, -559, -443, -546, -445, -544, -452, -543, -572, -531, -572, -526, -580, -527, -778, -483, -780, -479, -786, -480, -860, -437, -860, -430, -866, -432, -891, -373, -891, -366, -897, -367, -941, -356, -941, -350, -946, -351, -989, -338, -988, -334, -993, -335, -1004, -260, -1005, -255, -1012, -255, -1085, -246, -1085, -238, -1090, -239, -1115, -181, -1115, -175, -1121, -176, -1179, -126, -1179, -126, -1136, -123, -1132, 46, -1130, 46, -916, 15, -916, 14, -738, -34, -739, -33, -596, -79, -593, -83, -545, -147, -544, -145, -512, -241, -513, -241, -337, -322, -337, -322, -229, -385, -226, -386, -178, -403, -178, -401, -99, -418, -99, -417, 112, -434, 112, -434, -53, -593, -56, -594, -3, -515, 66, -464, 167, -318, 94, -271, -179, -99, -296, 81, -532, 206, -827, 233, -1023, 167, -1241, -15, -1333, -326, -1286, -533, -1078, -680, -864, -693, -518, -670, -251, -707, -10, -618, 20)
+
+[node name="Rock1" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]
+position = Vector2(0, 1)
+polygon = PackedVector2Array(-444, -509, -452, -509, -456, -514, -455, -522, -449, -529, -437, -529, -431, -520, -431, -513, -436, -509)
+
+[node name="Rock2" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]
+position = Vector2(288, -159)
+polygon = PackedVector2Array(-444, -509, -452, -509, -456, -514, -455, -522, -449, -528, -437, -528, -431, -520, -431, -513, -436, -509)
+
+[node name="Rock3" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]
+position = Vector2(176, -63)
+polygon = PackedVector2Array(-444, -509, -452, -509, -456, -514, -455, -522, -449, -529, -437, -529, -431, -520, -431, -513, -436, -509)
+
+[node name="Rock4" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]
+position = Vector2(0, -95)
+polygon = PackedVector2Array(-444, -509, -452, -509, -456, -514, -456, -522, -449, -529, -437, -529, -432, -522, -431, -513, -436, -509)
+
+[node name="Rock5" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]
+position = Vector2(288, -527)
+polygon = PackedVector2Array(-444, -509, -452, -509, -456, -514, -456, -522, -449, -529, -437, -529, -431, -522, -431, -513, -436, -509)
+
+[node name="Rock6" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]
+position = Vector2(288, -367)
+polygon = PackedVector2Array(-444, -509, -452, -509, -456, -514, -456, -522, -449, -529, -437, -529, -431, -521, -431, -513, -436, -509)
+
+[node name="Rock7" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]
+position = Vector2(96, -319)
+polygon = PackedVector2Array(-444, -509, -452, -509, -456, -514, -456, -522, -449, -529, -437, -529, -431, -521, -431, -513, -436, -509)
+
+[node name="Rock8" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]
+polygon = PackedVector2Array(-118, -946, -125, -946, -135, -950, -136, -956, -134, -961, -123, -966, -110, -962, -108, -949, -110, -947)
+
+[node name="Rock9" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]
+polygon = PackedVector2Array(-21, -1000, -17, -984, -17, -980, -19, -979, -36, -980, -37, -982, -33, -1000, -23, -1002)
+
+[node name="Boat" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]
+polygon = PackedVector2Array(-354, -645, -343, -646, -333, -651, -325, -657, -319, -666, -317, -674, -316, -682, -322, -680, -326, -678, -328, -677, -334, -675, -342, -666, -351, -654)
+
+[node name="Flesh" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]
+polygon = PackedVector2Array(-201, -753, -195, -753, -192, -756, -186, -759, -184, -785, -184, -801, -189, -808, -183, -812, -193, -815, -193, -821, -197, -822, -202, -817, -212, -815, -214, -810, -213, -775, -216, -770, -213, -765, -208, -770, -209, -755)
+
