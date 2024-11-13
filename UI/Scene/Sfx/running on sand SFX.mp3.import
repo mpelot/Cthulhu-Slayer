@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cgaslx35i8gk"
+path="res://.godot/imported/running on sand SFX.mp3-0cfaeb1b6c44d1ec439c065e2423c044.mp3str"
+
+[deps]
+
+source_file="res://UI/Scene/Sfx/running on sand SFX.mp3"
+dest_files=["res://.godot/imported/running on sand SFX.mp3-0cfaeb1b6c44d1ec439c065e2423c044.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

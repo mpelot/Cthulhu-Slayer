@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blaxs4ctvq5cy"
+path="res://.godot/imported/Cthulu possible damage SFX.mp3-4fb2ed1d77cca213be5aa1d9e8984ea8.mp3str"
+
+[deps]
+
+source_file="res://UI/Scene/Sfx/Cthulu possible damage SFX.mp3"
+dest_files=["res://.godot/imported/Cthulu possible damage SFX.mp3-4fb2ed1d77cca213be5aa1d9e8984ea8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lfc2mk8yks1g"
+path="res://.godot/imported/running on grass SFX.mp3-a987c600957006a8e85a3e5fe7a2a061.mp3str"
+
+[deps]
+
+source_file="res://UI/Scene/Sfx/running on grass SFX.mp3"
+dest_files=["res://.godot/imported/running on grass SFX.mp3-a987c600957006a8e85a3e5fe7a2a061.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

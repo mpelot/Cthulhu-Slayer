@@ -11,13 +11,14 @@ func enter(args = {}):
 	damaged()
 	
 func damaged():
-    print("calling out hurt")
+	print("calling out hurt")
 	animation_player.play("hurt")
-	$"../../Cultist hurt sfx".play()
+
 
 func handle_animation_finishes(anim_name):
 	if(anim_name != "hurt"):
 		return
+
 	transitioned.emit(self, "idle")
 
 func pushed_back(from: Node2D):

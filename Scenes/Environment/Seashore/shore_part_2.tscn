@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Common/environment_tileset.tres" id="1_xw0k8"]
 [ext_resource type="PackedScene" uid="uid://bproi8aghpgiu" path="res://Entities/Enemy/MinionThree/charger.tscn" id="2_3fy3u"]
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="2_maaxx"]
-[ext_resource type="PackedScene" uid="uid://cabjye6mltep3" path="res://Entities/Enemy/MinionOne/cultist.tscn" id="3_f1h2x"]
+[ext_resource type="PackedScene" uid="uid://cabjye6mltep3" path="res://Entities/Enemy/MinionOne/Cultist.tscn" id="3_f1h2x"]
 
 [node name="ShorePart2" type="Node2D"]
 

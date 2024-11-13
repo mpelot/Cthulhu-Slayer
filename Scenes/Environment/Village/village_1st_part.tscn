@@ -1,10 +1,9 @@
 [gd_scene load_steps=9 format=4 uid="uid://cpk0a4ksrp5n8"]
 
 [ext_resource type="Script" path="res://Scenes/Environment/Village/Script/village.gd" id="1_2fhoe"]
-
 [ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Common/environment_tileset.tres" id="1_dl1im"]
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="3_hcppl"]
-[ext_resource type="PackedScene" uid="uid://cabjye6mltep3" path="res://Entities/Enemy/MinionOne/cultist.tscn" id="4_64hgq"]
+[ext_resource type="PackedScene" uid="uid://cabjye6mltep3" path="res://Entities/Enemy/MinionOne/Cultist.tscn" id="4_64hgq"]
 [ext_resource type="PackedScene" uid="uid://dohec58u1vi1b" path="res://Scenes/Environment/Village/Buildings/House.tscn" id="4_ikmrm"]
 [ext_resource type="PackedScene" uid="uid://b5hkfigc6w20w" path="res://Scenes/Environment/Common/Door/passive_door.tscn" id="5_xak5o"]
 [ext_resource type="Script" path="res://Scenes/Environment/Village/Script/enemy_encounter.gd" id="7_sbeje"]
@@ -222,7 +221,6 @@ position = Vector2(459, 13)
 [node name="Cultist26" parent="Entity/Enemies" instance=ExtResource("4_64hgq")]
 position = Vector2(587, -52)
 
-
 [node name="Player" parent="Entity" instance=ExtResource("3_hcppl")]
 modulate = Color(0.91331, 0.772534, 0.794226, 1)
 position = Vector2(-1424, 69)
@@ -249,7 +247,6 @@ script = ExtResource("7_sbeje")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/EnemyEncounter"]
 scale = Vector2(1.44283, 27.8801)
 shape = SubResource("RectangleShape2D_3jrus")
-
 
 [node name="Collisions" type="Node2D" parent="."]
 
@@ -339,6 +336,5 @@ polygon = PackedVector2Array(-138, 26, -137, 103, -42, 102, -42, 26)
 
 [node name="CollisionArch" type="CollisionPolygon2D" parent="Collisions/StaticBody2D"]
 polygon = PackedVector2Array(-967, -36, -944, -35, -940, -48, -934, -54, -926, -54, -918, -48, -914, -37, -893, -35, -892, -95, -967, -95)
-
 
 [connection signal="body_entered" from="Triggers/EnemyEncounter" to="Triggers/EnemyEncounter" method="_on_body_entered"]

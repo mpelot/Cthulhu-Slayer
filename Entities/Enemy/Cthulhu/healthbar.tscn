@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://brcgjfbjarm58" path="res://UI/Theme/player_stat.tres" id="1_63rsm"]
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/Script/healthbar.gd" id="1_eermf"]
-[ext_resource type="FontFile" uid="uid://cabwwc8lnsbe7" path="res://UI/Common/pixel-dead.italic.ttf" id="2_rs5ik"]
+[ext_resource type="FontFile" uid="uid://43rwvineyo8b" path="res://UI/Common/pixel-dead.italic.ttf" id="2_rs5ik"]
 
 [node name="Healthbar" type="CanvasLayer"]
 script = ExtResource("1_eermf")

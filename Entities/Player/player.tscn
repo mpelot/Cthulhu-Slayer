@@ -1,11 +1,9 @@
-
-[gd_scene load_steps=56 format=3 uid="uid://clwh62jtlg5t8"]
+[gd_scene load_steps=57 format=3 uid="uid://clwh62jtlg5t8"]
 
 [ext_resource type="Script" path="res://Entities/Player/Script/player.gd" id="1_5phih"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_60xw4"]
 [ext_resource type="Script" path="res://Entities/Common/BehaviorMachine/behavior_machine.gd" id="2_kjgyc"]
 [ext_resource type="Script" path="res://Entities/Player/Script/movement.gd" id="3_0ckey"]
-
 [ext_resource type="Script" path="res://Entities/Player/Script/idle.gd" id="5_2uwg8"]
 [ext_resource type="Script" path="res://Entities/Player/melee.gd" id="5_cjxl6"]
 [ext_resource type="Script" path="res://Entities/Player/Script/hurt.gd" id="5_hc0dp"]
@@ -16,22 +14,17 @@
 [ext_resource type="Script" path="res://Entities/Player/attacking.gd" id="10_h1kxo"]
 [ext_resource type="Texture2D" uid="uid://c5bajmv1r7knp" path="res://Temp/Guy.png" id="11_24gwf"]
 [ext_resource type="Script" path="res://Entities/Player/Script/dashing.gd" id="11_dxq2s"]
-
 [ext_resource type="Script" path="res://Entities/Player/Script/pivot.gd" id="12_157xx"]
 [ext_resource type="Texture2D" uid="uid://b2w6kbxk3snpe" path="res://Entities/Player/Sprite/Guy_Final_Spin.png" id="12_5073q"]
 [ext_resource type="Script" path="res://Entities/Player/Script/melee_weapon.gd" id="13_enyji"]
 [ext_resource type="PackedScene" uid="uid://bqaxhjp4uxia2" path="res://PostProcessing/post_processing.tscn" id="13_nby1f"]
 [ext_resource type="Texture2D" uid="uid://d20wljlcix0fh" path="res://Entities/Player/Sprite/Guy_Final_Idle.png" id="13_xyhgg"]
 [ext_resource type="Texture2D" uid="uid://bblvvxrjiy361" path="res://Entities/Player/Sprite/Guy_Final_Run.png" id="14_02vht"]
-
 [ext_resource type="Texture2D" uid="uid://4jnuxm27nqlo" path="res://Entities/Common/Sprite/Shadow.png" id="16_lalfj"]
 [ext_resource type="Texture2D" uid="uid://c5bhp6qaf34wm" path="res://Entities/Player/Sprite/Guy_Final_Final (2)-Sheet.png" id="17_7btr8"]
 [ext_resource type="Script" path="res://Entities/Player/player_camera.gd" id="18_712ap"]
 [ext_resource type="PackedScene" uid="uid://cbdahhosbo8jd" path="res://UI/Scene/Pause/pause.tscn" id="18_ky6qn"]
-
-[ext_resource type="AudioStream" uid="uid://cym5hourjuems" path="res://UI/Scene/Sfx/Melee Swing SFX.mp3" id="20_itgkv"]
-
-
+[ext_resource type="AudioStream" uid="uid://cj0hqfbuy27uy" path="res://UI/Scene/Sfx/Melee Swing SFX.mp3" id="20_itgkv"]
 
 [sub_resource type="Animation" id="Animation_1fqj5"]
 length = 0.001
@@ -71,7 +64,6 @@ _data = {
 "RESET": SubResource("Animation_1fqj5"),
 "Run": SubResource("Animation_k54em")
 }
-
 
 [sub_resource type="Animation" id="Animation_wqkkg"]
 length = 0.001
@@ -284,7 +276,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0tjw"]
 size = Vector2(22, 24)
 
-
 [sub_resource type="Gradient" id="Gradient_qoeil"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
@@ -293,7 +284,6 @@ gradient = SubResource("Gradient_qoeil")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eby2n"]
 size = Vector2(17, 20)
-
 
 [sub_resource type="Animation" id="Animation_x5bnk"]
 length = 0.001
@@ -352,7 +342,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 0.00999999, 0.00999999, 1), Color(1, 1, 1, 1)]
 }
-
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -365,7 +354,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
-
 
 [sub_resource type="Animation" id="Animation_rqlro"]
 resource_name = "idle"
@@ -466,7 +454,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [0]
 }
-
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
@@ -479,7 +466,6 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-
 
 [sub_resource type="Animation" id="Animation_kiupv"]
 resource_name = "ranged"
@@ -511,7 +497,6 @@ _data = {
 script = ExtResource("1_5phih")
 
 [node name="StateMachine (FSM)" type="Node2D" parent="." node_paths=PackedStringArray("initial_state") groups=["footstep_layers"]]
-
 script = ExtResource("1_60xw4")
 initial_state = NodePath("Control (BM)")
 
@@ -521,12 +506,10 @@ script = ExtResource("2_kjgyc")
 
 [node name="Movement" type="Node2D" parent="StateMachine (FSM)/Control (BM)"]
 script = ExtResource("3_0ckey")
-
 movement_speed = 80.0
 
 [node name="SkillControl" type="Node2D" parent="StateMachine (FSM)/Control (BM)"]
 script = ExtResource("5_n1qs0")
-
 
 [node name="Hurt" type="Node2D" parent="StateMachine (FSM)"]
 script = ExtResource("5_hc0dp")
@@ -534,7 +517,6 @@ script = ExtResource("5_hc0dp")
 [node name="Stunt" type="Node2D" parent="StateMachine (FSM)"]
 
 [node name="Disabled" type="Node2D" parent="StateMachine (FSM)"]
-
 
 [node name="Attacking" type="Node2D" parent="StateMachine (FSM)" node_paths=PackedStringArray("initial_state")]
 script = ExtResource("10_h1kxo")
@@ -558,7 +540,6 @@ script = ExtResource("11_dxq2s")
 texture_filter = 1
 position = Vector2(0, 7)
 texture = ExtResource("16_lalfj")
-
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite"]
 visible = false
@@ -601,7 +582,6 @@ libraries = {
 [node name="Pivot" type="Node2D" parent="Weapon"]
 script = ExtResource("12_157xx")
 
-
 [node name="Attacks" type="Sprite2D" parent="Weapon/Pivot"]
 texture_filter = 1
 position = Vector2(0, -4)
@@ -624,12 +604,10 @@ texture = ExtResource("16_lalfj")
 modulate = Color(1, 1, 1, 0)
 collision_layer = 3
 collision_mask = 3
-
 monitoring = false
 monitorable = false
 script = ExtResource("13_enyji")
 player = NodePath("../../..")
-
 player_camera = NodePath("../../../PlayerCamera")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/Pivot/MeleeWeapon"]
@@ -640,12 +618,10 @@ shape = SubResource("RectangleShape2D_l0tjw")
 visible = false
 position = Vector2(-1, -37)
 scale = Vector2(3.70368, -0.38)
-
 texture = SubResource("GradientTexture2D_w5ike")
 hframes = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
 texture_filter = 1
 position = Vector2(0.5, -3)
 shape = SubResource("RectangleShape2D_eby2n")
@@ -661,8 +637,6 @@ libraries = {
 "": SubResource("AnimationLibrary_exct4")
 }
 
-
-
 [node name="PlayerStats" parent="." instance=ExtResource("6_w7yuo")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -677,10 +651,8 @@ libraries = {
 
 [node name="Pause" parent="PauseScreen" instance=ExtResource("18_ky6qn")]
 
-
 [node name="PlayerMeleeSwing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_itgkv")
 
-[connection signal="animation_finished" from="StateMachine (FSM)/Control (BM)/Skill (HSM)/Melee/AnimationPlayer" to="StateMachine (FSM)/Control (BM)/Skill (HSM)/Melee" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Weapon/Pivot/MeleeWeapon" to="Weapon/Pivot/MeleeWeapon" method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine (FSM)/Hurt" method="handle_animation_finishes"]

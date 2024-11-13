@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://diajusu4obwr5"
+path="res://.godot/imported/Cthulhu possible Cultist SFX.mp3-b0cb97495f2858a7b18ec530288e10ac.mp3str"
+
+[deps]
+
+source_file="res://UI/Scene/Sfx/Cthulhu possible Cultist SFX.mp3"
+dest_files=["res://.godot/imported/Cthulhu possible Cultist SFX.mp3-b0cb97495f2858a7b18ec530288e10ac.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

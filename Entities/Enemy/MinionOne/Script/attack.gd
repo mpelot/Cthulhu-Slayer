@@ -9,6 +9,7 @@ var player_position: Vector2
 
 func enter(args = {}):
 	player_position = Vector2(player.position)
+	
 	attack()
 
 func attack():
@@ -18,7 +19,7 @@ func attack():
 func update(delta):
 	if(is_attacking):
 		damage_player()
-	$"../../Cultist dagger swipe".play()
+	
 
 
 func handle_animation_finished(anim_name):

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Environment/BossRoom/Script/cthulhu_boss.gd" id="1_b3b8w"]
 [ext_resource type="AudioStream" uid="uid://qfdv1r2dpn0n" path="res://Scenes/Environment/BossRoom/OST/Cthulhu.mp3" id="2_elc2y"]
-[ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Common/environment_tileset.tres" id="3_0cryv"]
+[ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Village/tilemap/village_draft_1.tres" id="3_0cryv"]
 [ext_resource type="Texture2D" uid="uid://b4x6p1unxdqh2" path="res://Scenes/Environment/BossRoom/Tilemap/TableLeg.png" id="4_7xfp0"]
 [ext_resource type="Texture2D" uid="uid://s5uxuxso0ib1" path="res://Entities/Common/Sprite/Light.png" id="5_3wmp1"]
 [ext_resource type="Texture2D" uid="uid://bo61ibil3hypl" path="res://Scenes/Environment/BossRoom/Tilemap/Door-Sheet.png" id="6_dj8nb"]

@@ -25,6 +25,7 @@ func update(delta: float):
 	player.move_and_collide(0.6 * current_velocity * delta)
 	
 func validate_args(args: Dictionary):
+	print(args)
 	assert(args.has_all(["momentum", "attack"]))
 	assert(args["momentum"] is Vector2)
 
