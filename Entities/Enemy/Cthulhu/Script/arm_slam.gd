@@ -26,8 +26,13 @@ func handle_reset_arm():
 	animation_player.play_backwards("slam")
 	cthulhu.is_following_player = true
 
+func handle_to_next_state():
+	transitioned.emit(self, "idle")
+
 func _on_animation_player_animation_finished(anim_name):
 	if(anim_name == "slam"):
 		if(is_spawning_after_animation):
 			spawn_arms()
 			is_spawning_after_animation = false
+		else:
+			handle_to_next_state()

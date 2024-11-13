@@ -5,4 +5,5 @@ extends State
 
 func enter(args = {}):
 	cultist.modulate = Color.BLACK;
+	GameManager.health += 3
 	collider.queue_free()

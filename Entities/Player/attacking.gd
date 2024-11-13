@@ -24,7 +24,7 @@ func update(delta: float):
 		return
 	current_velocity -= current_velocity.normalized() * friction_factor * delta
 	print(current_velocity)
-	player.move_and_collide(-0.3 * current_velocity * delta)
+	player.move_and_collide(0.6 * current_velocity * delta)
 	
 func validate_args(args: Dictionary):
 	assert(args.has_all(["momentum", "attack"]))

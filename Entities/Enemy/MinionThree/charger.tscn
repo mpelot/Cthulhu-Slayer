@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bproi8aghpgiu"]
+[gd_scene load_steps=19 format=3 uid="uid://bproi8aghpgiu"]
 
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_25256"]
 [ext_resource type="Script" path="res://Entities/Enemy/MinionThree/Script/charger.gd" id="1_i8xs7"]
@@ -8,6 +8,54 @@
 [ext_resource type="Script" path="res://Entities/Enemy/MinionThree/Script/walk.gd" id="3_ds74o"]
 [ext_resource type="Script" path="res://Entities/Enemy/MinionThree/Script/charge.gd" id="4_ttem8"]
 [ext_resource type="Script" path="res://Entities/Enemy/MinionThree/Script/hurt.gd" id="5_x4moy"]
+[ext_resource type="Script" path="res://Entities/Enemy/MinionThree/Script/dead.gd" id="7_cqh1f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_exlm0"]
+radius = 17.0
+
+[sub_resource type="Animation" id="Animation_kpy21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gtj3s"]
+resource_name = "before_charge"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 8, 6, 8, 6, 8]
+}
 
 [sub_resource type="Animation" id="Animation_xp74a"]
 resource_name = "charge"
@@ -49,36 +97,21 @@ tracks/0/keys = {
 "values": [6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_kpy21"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [6]
-}
-
-[sub_resource type="Animation" id="Animation_gtj3s"]
-resource_name = "before_charge"
-length = 0.5
+[sub_resource type="Animation" id="Animation_01iu7"]
+resource_name = "hurt"
+length = 0.4
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Sprite:frame")
+tracks/0/path = NodePath("Sprites/Sprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [6, 8, 6, 8, 6, 8]
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.9, 0.108, 0.108, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hlloq"]
@@ -86,6 +119,7 @@ _data = {
 "RESET": SubResource("Animation_kpy21"),
 "before_charge": SubResource("Animation_gtj3s"),
 "charge": SubResource("Animation_xp74a"),
+"hurt": SubResource("Animation_01iu7"),
 "idle": SubResource("Animation_eocu2"),
 "walk": SubResource("Animation_0n5fc")
 }
@@ -110,8 +144,18 @@ script = ExtResource("3_ds74o")
 [node name="Charge" type="Node2D" parent="StateMachine"]
 script = ExtResource("4_ttem8")
 
+[node name="Area2D" type="Area2D" parent="StateMachine/Charge"]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StateMachine/Charge/Area2D"]
+position = Vector2(-2, 3)
+shape = SubResource("CircleShape2D_exlm0")
+
 [node name="Hurt" type="Node2D" parent="StateMachine"]
 script = ExtResource("5_x4moy")
+
+[node name="Dead" type="Node2D" parent="StateMachine"]
+script = ExtResource("7_cqh1f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -134,4 +178,6 @@ frame = 6
 position = Vector2(-0.5, 4)
 shape = SubResource("RectangleShape2D_yho5b")
 
+[connection signal="body_entered" from="StateMachine/Charge/Area2D" to="StateMachine/Charge" method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Charge" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Hurt" method="_on_animation_player_animation_finished"]

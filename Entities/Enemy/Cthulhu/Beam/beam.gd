@@ -1,6 +1,7 @@
 extends Node2D
 class_name Beam
 
+
 @onready var sprite : Sprite2D = $Sprite2D
 var beam_length: float = 400
 var direction : Vector2

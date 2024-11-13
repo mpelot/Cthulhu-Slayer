@@ -2,7 +2,7 @@ extends Entity
 class_name Cthulhu
 
 @export var player : Player
-var off_set: Vector2 = Vector2(0, 128)
+var off_set: Vector2 = Vector2(0, 200)
 var is_following_player: bool = true
 
 

@@ -5,6 +5,7 @@ extends Node2D
 var num_beam: int = 120
 var current_rotation = 0
 var increment: float
+signal beam_finished
 
 func _ready():
 	increment = PI/num_beam
@@ -30,4 +31,5 @@ func _on_timer_timeout():
 	current_rotation += increment
 
 func beam_fade():
+	beam_finished.emit()
 	queue_free()

@@ -10,3 +10,9 @@ script = ExtResource("1_wro2x")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_b8cr7")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+rotation = -4.71239
+scale = Vector2(1.47, 0.22)
+energy = 9.21
+texture = ExtResource("2_b8cr7")
