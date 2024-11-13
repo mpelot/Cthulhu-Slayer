@@ -5,6 +5,7 @@ extends State
 @onready var sprite : Sprite2D = $"../../Sprites/Sprite"
 
 func enter(arg = {}):
-	sprite.modulate = Color.BLACK
+	
 	GameManager.health += 7
 	collider.queue_free()
+	animation_player.play("die")

@@ -2,7 +2,7 @@ extends EnemyState
 
 @onready var cultist: Cultist = $"../.."
 var detect_distance: float = 200
-var total_rest_time : float = 2
+var total_rest_time : float = 1
 var current_rest_time : float = 0
 
 func enter(args = {}):

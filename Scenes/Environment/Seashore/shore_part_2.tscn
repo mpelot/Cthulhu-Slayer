@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=4 uid="uid://6vo4ucmmdmwb"]
+[gd_scene load_steps=5 format=4 uid="uid://6vo4ucmmdmwb"]
 
 [ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Common/environment_tileset.tres" id="1_xw0k8"]
+[ext_resource type="PackedScene" uid="uid://bproi8aghpgiu" path="res://Entities/Enemy/MinionThree/charger.tscn" id="2_3fy3u"]
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="2_maaxx"]
+[ext_resource type="PackedScene" uid="uid://cabjye6mltep3" path="res://Entities/Enemy/MinionOne/cultist.tscn" id="3_f1h2x"]
 
 [node name="ShorePart2" type="Node2D"]
 
@@ -71,7 +73,71 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAACALT/AQAKAAwAAAADALT/AQALAAwAAAAEALT/AQAPAAwAAAAFALT/AQAPAAwAAAAGALT/AQAPAAwAAAAHALT/AQAPAAwAAAAIALT/AQAPAAwAAAAJALT/AQAPAAwAAAAKALT/AQAPAAwAAAALALT/AQAPAAwAAAAMALT/AQAPAAwAAAANALT/AQAPAAwAAAAOALT/AQAPAAwAAAAPALT/AQAPAAwAAAAQALT/AQAPAAwAAAARALT/AQAPAAwAAAASALT/AQAPAAwAAAATALT/AQAPAAwAAAAUALT/AQAPAAwAAAAVALT/AQAPAAwAAAAWALT/AQAPAAwAAAAXALT/AQAPAAwAAAAYALT/AQAPAAwAAAACALX/AQAMAAwAAAADALX/AQAOAAwAAAAEALX/AQAOAAwAAAAFALX/AQAOAAwAAAAGALX/AQAOAAwAAAAHALX/AQAOAAwAAAAIALX/AQANAAwAAAAJALX/AQAOAAwAAAAKALX/AQANAAwAAAALALX/AQAOAAwAAAAMALX/AQANAAwAAAANALX/AQANAAwAAAAOALX/AQAOAAwAAAAPALX/AQANAAwAAAAQALX/AQAOAAwAAAARALX/AQANAAwAAAASALX/AQAOAAwAAAATALX/AQANAAwAAAAUALX/AQANAAwAAAAVALX/AQANAAwAAAAWALX/AQAOAAwAAAAXALX/AQAOAAwAAAAYALX/AQANAAwAAAAYALb/AQASAAwAAAAZALT/AQAPAAwAAAAZALX/AQAOAAwAAAAaALT/AQAPAAwAAAAaALX/AQANAAwAAAAbALT/AQAPAAwAAAAbALX/AQAOAAwAAAAcALT/AQAPAAwAAAAcALX/AQANAAwAAAAdALT/AQAPAAwAAAAdALX/AQAOAAwAAAAeALT/AQAPAAwAAAAeALX/AQANAAwAAAAfALT/AQAPAAwAAAAfALX/AQAOAAwAAAAgALT/AQAPAAwAAAAgALX/AQANAAwAAAAhALT/AQAPAAwAAAAhALX/AQAOAAwAAAAiALT/AQAPAAwAAAAiALX/AQANAAwAAAAjALT/AQAPAAwAAAAjALX/AQAOAAwAAAAkALT/AQAPAAwAAAAkALX/AQANAAwAAAAlALT/AQAPAAwAAAAlALX/AQAOAAwAAAAmALT/AQAPAAwAAAAmALX/AQANAAwAAAAnALT/AQAPAAwAAAAnALX/AQAOAAwAAAAoALT/AQAPAAwAAAAoALX/AQANAAwAAAApALT/AQAPAAwAAAApALX/AQAOAAwAAAAqALT/AQAPAAwAAAAqALX/AQANAAwAAAArALT/AQAPAAwAAAArALX/AQAOAAwAAAAsALT/AQAPAAwAAAAsALX/AQANAAwAAAAtALT/AQAPAAwAAAAtALX/AQAOAAwAAAAuALT/AQAQAAwAAAAuALX/AQARAAwAAAAuALb/AQASAAwAAAA=")
 tile_set = ExtResource("1_xw0k8")
 
-[node name="Player" parent="." instance=ExtResource("2_maaxx")]
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="Entities"]
+
+[node name="Charger" parent="Entities/Enemies" instance=ExtResource("2_3fy3u")]
+position = Vector2(-472, -360)
+
+[node name="Charger4" parent="Entities/Enemies" instance=ExtResource("2_3fy3u")]
+position = Vector2(-280, -472)
+
+[node name="Charger2" parent="Entities/Enemies" instance=ExtResource("2_3fy3u")]
+position = Vector2(-96, -912)
+
+[node name="Charger7" parent="Entities/Enemies" instance=ExtResource("2_3fy3u")]
+position = Vector2(-232, -1096)
+
+[node name="Charger3" parent="Entities/Enemies" instance=ExtResource("2_3fy3u")]
+position = Vector2(-256, -944)
+
+[node name="Charger5" parent="Entities/Enemies" instance=ExtResource("2_3fy3u")]
+position = Vector2(-312, -808)
+
+[node name="Charger6" parent="Entities/Enemies" instance=ExtResource("2_3fy3u")]
+position = Vector2(-168, -1184)
+
+[node name="Cultist" parent="Entities/Enemies" instance=ExtResource("3_f1h2x")]
+position = Vector2(-408, -616)
+
+[node name="Cultist2" parent="Entities/Enemies" instance=ExtResource("3_f1h2x")]
+position = Vector2(-304, -616)
+
+[node name="Cultist12" parent="Entities/Enemies" instance=ExtResource("3_f1h2x")]
+position = Vector2(-40, -1192)
+
+[node name="Cultist13" parent="Entities/Enemies" instance=ExtResource("3_f1h2x")]
+position = Vector2(-136, -1232)
+
+[node name="Cultist11" parent="Entities/Enemies" instance=ExtResource("3_f1h2x")]
+position = Vector2(-128, -1112)
+
+[node name="Cultist3" parent="Entities/Enemies" instance=ExtResource("3_f1h2x")]
+position = Vector2(-464, -712)
+
+[node name="Cultist10" parent="Entities/Enemies" instance=ExtResource("3_f1h2x")]
+position = Vector2(-400, -800)
+
+[node name="Cultist8" parent="Entities/Enemies" instance=ExtResource("3_f1h2x")]
+position = Vector2(-496, -552)
+
+[node name="Cultist9" parent="Entities/Enemies" instance=ExtResource("3_f1h2x")]
+position = Vector2(-352, -552)
+
+[node name="Cultist4" parent="Entities/Enemies" instance=ExtResource("3_f1h2x")]
+position = Vector2(-288, -840)
+
+[node name="Cultist5" parent="Entities/Enemies" instance=ExtResource("3_f1h2x")]
+position = Vector2(-144, -816)
+
+[node name="Cultist6" parent="Entities/Enemies" instance=ExtResource("3_f1h2x")]
+position = Vector2(-192, -992)
+
+[node name="Cultist7" parent="Entities/Enemies" instance=ExtResource("3_f1h2x")]
+position = Vector2(-48, -1072)
+
+[node name="Player" parent="Entities" instance=ExtResource("2_maaxx")]
 position = Vector2(-424, -88)
 
 [node name="Node2D" type="Node2D" parent="."]

@@ -5,8 +5,8 @@ var player_position: Vector2
 @onready var charger : Charger = $"../.."
 @onready var collider: CollisionShape2D = $"../../CollisionShape2D"
 @onready var player_detect_area : Area2D = $Area2D
-var charge_distance : float = 140
-var charge_duration: float = 0.5
+var charge_distance : float = 160
+var charge_duration: float = 0.3
 var charge_counter : float = 0
 var should_charge : bool = false
 

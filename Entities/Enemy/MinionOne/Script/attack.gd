@@ -37,7 +37,7 @@ func dash_toward_player():
 	
 
 func damage_player():
-	var damage : Damagable = Damagable.new(10, cultist)
+	var damage : Damagable = Damagable.new(23, cultist)
 	if(distance_between_player(cultist) < 20):
 		player.receive_damage(damage)
 		is_attacking = false

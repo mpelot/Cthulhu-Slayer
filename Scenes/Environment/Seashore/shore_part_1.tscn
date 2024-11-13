@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=4 uid="uid://du14lk5424uvm"]
+[gd_scene load_steps=6 format=4 uid="uid://du14lk5424uvm"]
 
+[ext_resource type="Script" path="res://Scenes/Environment/Seashore/shore_part_1.gd" id="1_b6hu4"]
 [ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Common/environment_tileset.tres" id="1_bmy30"]
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="2_i6kro"]
 [ext_resource type="PackedScene" uid="uid://bproi8aghpgiu" path="res://Entities/Enemy/MinionThree/charger.tscn" id="2_s6os4"]
+[ext_resource type="PackedScene" uid="uid://cabjye6mltep3" path="res://Entities/Enemy/MinionOne/cultist.tscn" id="4_3sak5"]
 
 [node name="ShorePart1" type="Node2D"]
+script = ExtResource("1_b6hu4")
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -61,11 +64,38 @@ tile_set = ExtResource("1_bmy30")
 
 [node name="Entities" type="Node2D" parent="."]
 
+[node name="Charger" parent="Entities" instance=ExtResource("2_s6os4")]
+position = Vector2(-392, -464)
+
+[node name="Charger2" parent="Entities" instance=ExtResource("2_s6os4")]
+position = Vector2(-48, -896)
+
+[node name="Charger3" parent="Entities" instance=ExtResource("2_s6os4")]
+position = Vector2(-256, -944)
+
+[node name="Cultist" parent="Entities" instance=ExtResource("4_3sak5")]
+position = Vector2(-408, -616)
+
+[node name="Cultist2" parent="Entities" instance=ExtResource("4_3sak5")]
+position = Vector2(-168, -624)
+
+[node name="Cultist3" parent="Entities" instance=ExtResource("4_3sak5")]
+position = Vector2(-392, -752)
+
+[node name="Cultist4" parent="Entities" instance=ExtResource("4_3sak5")]
+position = Vector2(-288, -840)
+
+[node name="Cultist5" parent="Entities" instance=ExtResource("4_3sak5")]
+position = Vector2(-112, -752)
+
+[node name="Cultist6" parent="Entities" instance=ExtResource("4_3sak5")]
+position = Vector2(-192, -992)
+
+[node name="Cultist7" parent="Entities" instance=ExtResource("4_3sak5")]
+position = Vector2(-48, -1072)
+
 [node name="Player" parent="Entities" instance=ExtResource("2_i6kro")]
 position = Vector2(-616, -64)
-
-[node name="Charger" parent="Entities" instance=ExtResource("2_s6os4")]
-position = Vector2(-480, -200)
 
 [node name="Colliders" type="Node2D" parent="."]
 
