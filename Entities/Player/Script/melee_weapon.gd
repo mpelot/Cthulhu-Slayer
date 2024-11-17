@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var player : Player
+@export var player_camera: PlayerCamera
 
 var activate: bool = true:
 	set(value):
@@ -19,5 +20,7 @@ func handle_activate_state(state: bool):
 func _on_body_entered(body):
 	print(body)
 	if(body is Entity):
+		player_camera.shake()
+		GameManager.frame_freeze(0.1, 0.35)
 		var damagable : Damagable = Damagable.new(30, player)
 		body.receive_damage(damagable)
