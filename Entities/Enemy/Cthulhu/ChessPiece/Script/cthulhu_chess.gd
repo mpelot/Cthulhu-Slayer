@@ -14,15 +14,9 @@ func set_target(target: Vector2):
 	is_dashing = true
 	
 func _process(delta):
-	if(not is_dashing):
-		return
-	if((target_position - position).length() < 10):
-		is_dashing = false
+	pass
 
-		dashing_finished.emit()
-		return
-	var direction = (target_position - position).normalized()
-	var collision = move_and_collide(direction * delta * move_speed)
-
+func receive_damage(damage:Damagable):
+	pass
 
 	

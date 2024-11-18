@@ -11,7 +11,6 @@ func enter(args = {}):
 	damaged()
 	
 func damaged():
-	print("calling out hurt")
 	animation_player.play("hurt")
 
 

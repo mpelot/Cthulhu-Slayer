@@ -68,4 +68,3 @@ func check_footsteps():
 	for layer in footstep_layers:
 		if layer.has_method("play_footsteps_if_on"):
 			layer.play_footsteps_if_on(player_position, is_moving)
-

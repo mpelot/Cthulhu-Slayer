@@ -1,40 +1,69 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0loklv4lains"]
+[gd_scene load_steps=14 format=3 uid="uid://c0loklv4lains"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/cthulhu_chess.gd" id="1_mh2h0"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="2_32c8l"]
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/idle.gd" id="3_1fbyg"]
+[ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/angro.gd" id="3_oygxj"]
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/charging_up.gd" id="4_gha5r"]
+[ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/normal.gd" id="4_u7nhx"]
+[ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/retreat.gd" id="5_14gol"]
 [ext_resource type="Script" path="res://Entities/Common/HierarchicalMachine/hierarchy_state.gd" id="5_miupb"]
+[ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/move.gd" id="5_peve7"]
 [ext_resource type="Texture2D" uid="uid://uy3i2yxgs867" path="res://Entities/Enemy/Cthulhu/ChessPiece/Sprite/TheQueen (1)-Sheet.png" id="7_r06mt"]
 
+[sub_resource type="Animation" id="Animation_vnd16"]
+resource_name = "charging_up"
+length = 0.1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dtbph"]
+_data = {
+"charging_up": SubResource("Animation_vnd16")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ou06l"]
-size = Vector2(12, 19)
+size = Vector2(54, 38.5)
 
 [node name="CthulhuChess" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_mh2h0")
 
-[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="AngroStateMachine" type="Node2D" parent="."]
+script = ExtResource("2_32c8l")
+
+[node name="Angro" type="Node2D" parent="AngroStateMachine"]
+script = ExtResource("3_oygxj")
+
+[node name="Normal" type="Node2D" parent="AngroStateMachine"]
+script = ExtResource("4_u7nhx")
+
+[node name="Retreat" type="Node2D" parent="AngroStateMachine"]
+script = ExtResource("5_14gol")
+
+[node name="MovementStateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_32c8l")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node2D" parent="StateMachine"]
+[node name="Idle" type="Node2D" parent="MovementStateMachine"]
 script = ExtResource("3_1fbyg")
 
-[node name="Timer" type="Timer" parent="StateMachine/Idle"]
+[node name="Timer" type="Timer" parent="MovementStateMachine/Idle"]
+wait_time = 0.1
 
-[node name="Attack" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("initial_state")]
+[node name="Attack" type="Node2D" parent="MovementStateMachine" node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_miupb")
 initial_state = NodePath("ChargingUp")
 
-[node name="Dash" type="Node2D" parent="StateMachine/Attack"]
+[node name="Move" type="Node2D" parent="MovementStateMachine/Attack"]
+script = ExtResource("5_peve7")
 
-[node name="ChargingUp" type="Node2D" parent="StateMachine/Attack"]
+[node name="ChargingUp" type="Node2D" parent="MovementStateMachine/Attack"]
 script = ExtResource("4_gha5r")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -6.5)
-shape = SubResource("RectangleShape2D_ou06l")
+[node name="CharginUp" type="AnimationPlayer" parent="MovementStateMachine/Attack/ChargingUp"]
+libraries = {
+"": SubResource("AnimationLibrary_dtbph")
+}
 
 [node name="Sprite" type="Node2D" parent="."]
 texture_filter = 1
@@ -46,4 +75,10 @@ position = Vector2(-2, -63)
 texture = ExtResource("7_r06mt")
 hframes = 23
 
-[connection signal="timeout" from="StateMachine/Idle/Timer" to="StateMachine/Idle" method="_on_timer_timeout"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(-3, -16.75)
+shape = SubResource("RectangleShape2D_ou06l")
+
+[connection signal="timeout" from="MovementStateMachine/Idle/Timer" to="MovementStateMachine/Idle" method="_on_timer_timeout"]
+[connection signal="animation_finished" from="MovementStateMachine/Attack/ChargingUp/CharginUp" to="MovementStateMachine/Attack/ChargingUp" method="_on_chargin_up_animation_finished"]

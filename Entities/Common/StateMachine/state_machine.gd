@@ -32,7 +32,6 @@ func _physics_process(delta):
 
 func transition_to_state(new_state_name: String, args: Dictionary = {}):
 	handle_transitioned(current_state, new_state_name, args)
-	print(current_state)
 	
 func handle_transitioned(state: State, new_state_name: String, args: Dictionary = {}):
 	if(state != current_state):

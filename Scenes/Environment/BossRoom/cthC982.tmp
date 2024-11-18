@@ -199,8 +199,11 @@ texture = ExtResource("7_a2qcm")
 
 [node name="Entities" type="Node2D" parent="." groups=["Entities"]]
 
+[node name="CthulhuChess" parent="Entities" instance=ExtResource("8_rf2gk")]
+position = Vector2(-1151, -1021)
+
 [node name="Player" parent="Entities" instance=ExtResource("9_2m42o")]
-position = Vector2(-1044, -855)
+position = Vector2(-681, -112)
 
 [node name="PlayerCamera" parent="Entities/Player" index="4"]
 position = Vector2(1, -62)
@@ -263,9 +266,6 @@ position = Vector2(-507, -763)
 
 [node name="Pawn7" parent="EnvironmentForeground/ChessPiece" instance=ExtResource("12_ythis")]
 position = Vector2(-375, -887)
-
-[node name="CthulhuChess" parent="EnvironmentForeground" instance=ExtResource("8_rf2gk")]
-position = Vector2(-1151, -1021)
 
 [node name="Cthulhu" parent="EnvironmentForeground" node_paths=PackedStringArray("player") instance=ExtResource("11_5satw")]
 position = Vector2(-672, -279)

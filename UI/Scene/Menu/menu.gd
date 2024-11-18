@@ -6,7 +6,7 @@ extends Control
 @onready var quit: Button = $VBoxContainer2/Quit as Button
 
 var original_stylebox : StyleBox
-var base_game_play_path: String = "res://Scenes/Gameplay/BaseGameLoop/base_game_loop.tscn"
+var base_game_play_path: String = "res://Scenes/Cutscenes/BeforeVillage/before_village.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -81,4 +81,3 @@ func _on_quit_focus_entered() -> void:
 func _on_quit_mouse_entered() -> void:
 	$"VBoxContainer2/Quit".add_theme_stylebox_override("normal", original_stylebox)
 	$"Button Hover SFX".play()
-

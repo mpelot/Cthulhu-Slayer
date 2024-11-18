@@ -29,6 +29,7 @@ func _ready():
 
 
 func enter(args = {}):
+	current_state = initial_state
 	if(current_state != null):
 		current_state.enter(args)
 
