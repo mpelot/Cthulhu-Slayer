@@ -2,7 +2,7 @@ extends State
 
 
 @onready var timer : Timer = $Timer
-
+@onready var agro_sm : AgroStateMachine = $"../../AgroStateMachine"
 
 func enter(args = {}):
 	timer.start()
@@ -10,4 +10,8 @@ func enter(args = {}):
 
 
 func _on_timer_timeout():
-	transitioned.emit(self, "attack")
+	var agro_state: Agro = agro_sm.get_current_agro_state()
+	if(agro_state.retreat):
+		transitioned.emit(self, "retreat")
+	else:
+		transitioned.emit(self, "attack")

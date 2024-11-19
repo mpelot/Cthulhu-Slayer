@@ -15,6 +15,8 @@ func finish_arm_slam():
 	attack_finished.emit()
 
 func receive_damage(damage: Damagable):
+	if(damage.from is CthulhuChessPiece):
+		return
 	on_damaged.emit(damage)
 
 

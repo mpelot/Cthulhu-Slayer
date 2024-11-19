@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0loklv4lains"]
+[gd_scene load_steps=20 format=3 uid="uid://c0loklv4lains"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/cthulhu_chess.gd" id="1_mh2h0"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="2_32c8l"]
+[ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/angro_state_machine.gd" id="2_gkfdy"]
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/idle.gd" id="3_1fbyg"]
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/angro.gd" id="3_oygxj"]
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/charging_up.gd" id="4_gha5r"]
@@ -10,6 +11,10 @@
 [ext_resource type="Script" path="res://Entities/Common/HierarchicalMachine/hierarchy_state.gd" id="5_miupb"]
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/move.gd" id="5_peve7"]
 [ext_resource type="Texture2D" uid="uid://uy3i2yxgs867" path="res://Entities/Enemy/Cthulhu/ChessPiece/Sprite/TheQueen (1)-Sheet.png" id="7_r06mt"]
+[ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/retreat_move.gd" id="10_glbv2"]
+[ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/state_holder.gd" id="11_4h31j"]
+[ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/retreat_rest.gd" id="12_jlrpg"]
+[ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/damage_area.gd" id="15_4aq7j"]
 
 [sub_resource type="Animation" id="Animation_vnd16"]
 resource_name = "charging_up"
@@ -23,21 +28,25 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ou06l"]
 size = Vector2(54, 38.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mywog"]
+size = Vector2(56, 38)
+
 [node name="CthulhuChess" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_mh2h0")
 
-[node name="AngroStateMachine" type="Node2D" parent="."]
-script = ExtResource("2_32c8l")
+[node name="AgroStateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_gkfdy")
+initial_state = NodePath("Normal")
 
-[node name="Angro" type="Node2D" parent="AngroStateMachine"]
+[node name="Agro" type="Node2D" parent="AgroStateMachine"]
 script = ExtResource("3_oygxj")
 
-[node name="Normal" type="Node2D" parent="AngroStateMachine"]
+[node name="Normal" type="Node2D" parent="AgroStateMachine"]
 script = ExtResource("4_u7nhx")
 
-[node name="Retreat" type="Node2D" parent="AngroStateMachine"]
+[node name="Retreat" type="Node2D" parent="AgroStateMachine"]
 script = ExtResource("5_14gol")
 
 [node name="MovementStateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
@@ -48,7 +57,7 @@ initial_state = NodePath("Idle")
 script = ExtResource("3_1fbyg")
 
 [node name="Timer" type="Timer" parent="MovementStateMachine/Idle"]
-wait_time = 0.1
+wait_time = 0.25
 
 [node name="Attack" type="Node2D" parent="MovementStateMachine" node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_miupb")
@@ -65,6 +74,25 @@ libraries = {
 "": SubResource("AnimationLibrary_dtbph")
 }
 
+[node name="Retreat" type="Node2D" parent="MovementStateMachine" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_miupb")
+initial_state = NodePath("StateHolder")
+
+[node name="Move" type="Node2D" parent="MovementStateMachine/Retreat"]
+script = ExtResource("10_glbv2")
+
+[node name="StateHolder" type="Node2D" parent="MovementStateMachine/Retreat"]
+script = ExtResource("11_4h31j")
+
+[node name="Timer" type="Timer" parent="MovementStateMachine/Retreat/StateHolder"]
+wait_time = 0.4
+
+[node name="Rest" type="Node2D" parent="MovementStateMachine/Retreat"]
+script = ExtResource("12_jlrpg")
+
+[node name="Timer" type="Timer" parent="MovementStateMachine/Retreat/Rest"]
+wait_time = 4.0
+
 [node name="Sprite" type="Node2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -6)
@@ -80,5 +108,18 @@ texture_filter = 1
 position = Vector2(-3, -16.75)
 shape = SubResource("RectangleShape2D_ou06l")
 
+[node name="DamageArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+monitoring = false
+monitorable = false
+script = ExtResource("15_4aq7j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(-1, -17)
+shape = SubResource("RectangleShape2D_mywog")
+
 [connection signal="timeout" from="MovementStateMachine/Idle/Timer" to="MovementStateMachine/Idle" method="_on_timer_timeout"]
 [connection signal="animation_finished" from="MovementStateMachine/Attack/ChargingUp/CharginUp" to="MovementStateMachine/Attack/ChargingUp" method="_on_chargin_up_animation_finished"]
+[connection signal="timeout" from="MovementStateMachine/Retreat/StateHolder/Timer" to="MovementStateMachine/Retreat/StateHolder" method="_on_timer_timeout"]
+[connection signal="timeout" from="MovementStateMachine/Retreat/Rest/Timer" to="MovementStateMachine/Retreat/Rest" method="_on_timer_timeout"]
+[connection signal="body_entered" from="DamageArea" to="DamageArea" method="_on_body_entered"]

@@ -197,20 +197,6 @@ position = Vector2(0, 13)
 scale = Vector2(2, 2)
 texture = ExtResource("7_a2qcm")
 
-[node name="RetreatTarget" type="Node2D" parent="Environment"]
-
-[node name="BottomRight" type="Node2D" parent="Environment/RetreatTarget" groups=["RetreatTargets"]]
-position = Vector2(-254, -143)
-
-[node name="TopRight" type="Node2D" parent="Environment/RetreatTarget" groups=["RetreatTargets"]]
-position = Vector2(-254, -1030)
-
-[node name="TopLeft" type="Node2D" parent="Environment/RetreatTarget" groups=["RetreatTargets"]]
-position = Vector2(-1141, -1040)
-
-[node name="BottomLeft" type="Node2D" parent="Environment/RetreatTarget" groups=["RetreatTargets"]]
-position = Vector2(-1155, -143)
-
 [node name="Entities" type="Node2D" parent="." groups=["Entities"]]
 
 [node name="Player" parent="Entities" instance=ExtResource("9_2m42o")]
@@ -278,9 +264,8 @@ position = Vector2(-507, -763)
 [node name="Pawn7" parent="EnvironmentForeground/ChessPiece" instance=ExtResource("12_ythis")]
 position = Vector2(-375, -887)
 
-[node name="CthulhuChess" parent="EnvironmentForeground" node_paths=PackedStringArray("cthulhu") instance=ExtResource("8_rf2gk")]
+[node name="CthulhuChess" parent="EnvironmentForeground" instance=ExtResource("8_rf2gk")]
 position = Vector2(-1151, -1021)
-cthulhu = NodePath("../Cthulhu")
 
 [node name="Cthulhu" parent="EnvironmentForeground" node_paths=PackedStringArray("player") instance=ExtResource("11_5satw")]
 position = Vector2(-672, -279)

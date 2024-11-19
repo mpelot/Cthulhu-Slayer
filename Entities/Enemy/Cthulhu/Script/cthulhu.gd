@@ -15,6 +15,8 @@ func on_health_change(value):
 	health_bar.handle_health_change(value)
 	
 func receive_damage(damage: Damagable):
+	if(damage.from is CthulhuChessPiece):
+		return
 	health -= damage.damage * 2
 
 func on_part_damaged(damage: Damagable):

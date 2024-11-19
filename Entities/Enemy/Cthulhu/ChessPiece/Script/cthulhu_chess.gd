@@ -4,6 +4,9 @@ class_name CthulhuChessPiece
 var move_speed : float = 200
 var target_position: Vector2
 var is_dashing : bool = false
+@export var cthulhu: Cthulhu
+@onready var agro_sm : AgroStateMachine = $AgroStateMachine
+
 signal dashing_finished
 
 func _ready():
@@ -17,6 +20,9 @@ func _process(delta):
 	pass
 
 func receive_damage(damage:Damagable):
-	pass
+	if(damage.from is Player):
+		agro_sm.set_agro_state("retreat")
+		cthulhu.receive_damage(damage)
+	
 
 	

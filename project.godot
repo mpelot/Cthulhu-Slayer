@@ -41,6 +41,7 @@ folder_colors={
 
 Player="The player character"
 Entities=""
+RetreatTargets=""
 
 [input]
 

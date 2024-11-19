@@ -1,3 +1,5 @@
 extends Agro
 
-var retreat: bool = true
+
+func _ready():
+	retreat = true

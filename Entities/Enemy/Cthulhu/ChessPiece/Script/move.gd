@@ -1,5 +1,7 @@
 extends EnemyState
+class_name QueenMove
 
+@onready var damage_area : Area2D = %DamageArea
 @onready var chess: CthulhuChessPiece = $"../../.."
 @onready var parent_machine : HierachyMachine = $".."
 @onready var spot_reservation_scene : PackedScene = preload("res://Scenes/Environment/BossRoom/ChessPieces/Pawn/spot_reservation.tscn")
@@ -7,7 +9,6 @@ extends EnemyState
 var possible_directions: Array[Vector2] = [
 	Vector2(1,0), Vector2(-1,0),
 	Vector2(0,1), Vector2(0,-1),
-
 ]
 var resevation : Area2D
 var check_distance : float = 128
@@ -16,7 +17,7 @@ var check_distance : float = 128
 
 func enter(args = {}):
 	var availables = available_direction(possible_directions)
-	var move_direction = closest_distance_to_player(availables)
+	var move_direction = closest_distance_to_target(availables, player.position)
 	move(move_direction)
 
 func move(direction: Vector2):
@@ -26,6 +27,7 @@ func move(direction: Vector2):
 	tween.tween_property(chess, "position", chess.position + direction, 0.8)
 	tween.play()
 	tween.finished.connect(on_move_finished)
+	damage_area.monitoring = true
 	
 func spawn_reservation(pos: Vector2):
 	resevation = spot_reservation_scene.instantiate()
@@ -37,14 +39,15 @@ func on_move_finished():
 	parent_machine.transitioned.emit(parent_machine, "idle")
 	resevation.queue_free()
 	resevation = null
+	damage_area.monitoring = false
 
 func spawn_collider_at_destination():
 	pass
 
-func closest_distance_to_player(directions: Array[Vector2]) -> Vector2:
+func closest_distance_to_target(directions: Array[Vector2], target: Vector2) -> Vector2:
 	if(len(directions) == 0):
 		return Vector2.ZERO
-	var difference = (player.position - chess.position).normalized()
+	var difference = (target - chess.position).normalized()
 	var direction: Vector2 = directions[0]
 	var max_value : float = -direction.dot(difference)
 	for dir in directions:
