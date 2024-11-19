@@ -3,7 +3,7 @@
 extends Node
 
 var game_over_path: String = "res://Scenes/Cutscenes/GameOver/game_over.tscn"
-
+var can_pawn_move: bool = false
 
 signal on_health_change(health: float)
 var health: float = 100 :
@@ -29,4 +29,3 @@ func frame_freeze(time_scale: float, duration: float):
 	Engine.time_scale = time_scale
 	await get_tree().create_timer(duration * time_scale).timeout
 	Engine.time_scale = 1
-

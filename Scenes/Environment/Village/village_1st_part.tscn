@@ -223,7 +223,7 @@ position = Vector2(587, -52)
 
 [node name="Player" parent="Entity" instance=ExtResource("3_hcppl")]
 modulate = Color(0.91331, 0.772534, 0.794226, 1)
-position = Vector2(-1424, 69)
+position = Vector2(-2118, 78)
 
 [node name="Foreground" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1.5, 1)

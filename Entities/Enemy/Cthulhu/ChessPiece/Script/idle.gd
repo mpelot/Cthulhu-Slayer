@@ -5,7 +5,8 @@ extends State
 @onready var agro_sm : AgroStateMachine = $"../../AgroStateMachine"
 
 func enter(args = {}):
-	timer.start()
+	if(GameManager.can_pawn_move):
+		timer.start()
 	
 
 

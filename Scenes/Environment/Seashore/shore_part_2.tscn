@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://6vo4ucmmdmwb"]
+[gd_scene load_steps=6 format=4 uid="uid://6vo4ucmmdmwb"]
 
 [ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Village/tilemap/village_draft_1.tres" id="1_xw0k8"]
 [ext_resource type="PackedScene" uid="uid://bproi8aghpgiu" path="res://Entities/Enemy/MinionThree/charger.tscn" id="2_3fy3u"]
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="2_maaxx"]
 [ext_resource type="PackedScene" uid="uid://cabjye6mltep3" path="res://Entities/Enemy/MinionOne/Cultist.tscn" id="3_f1h2x"]
+[ext_resource type="PackedScene" uid="uid://b5hkfigc6w20w" path="res://Scenes/Environment/Common/Door/passive_door.tscn" id="5_mags6"]
 
 [node name="ShorePart2" type="Node2D"]
 
@@ -202,3 +203,6 @@ polygon = PackedVector2Array(-118, -946, -125, -946, -135, -950, -136, -956, -13
 [node name="Rock8" type="CollisionPolygon2D" parent="Node2D/StaticBody2D"]
 position = Vector2(-192, -32)
 polygon = PackedVector2Array(-21, -1000, -17, -984, -17, -980, -19, -979, -36, -980, -37, -982, -35.3534, -989.41, -33, -1000, -23, -1002)
+
+[node name="Area2D" parent="." instance=ExtResource("5_mags6")]
+position = Vector2(736, -1200)

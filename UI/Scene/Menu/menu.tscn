@@ -1,9 +1,8 @@
-
-
-[gd_scene load_steps=9 format=3 uid="uid://bws2ji5ixto81"]
+[gd_scene load_steps=10 format=3 uid="uid://bws2ji5ixto81"]
 
 [ext_resource type="Script" path="res://UI/Scene/Menu/menu.gd" id="1_54xsa"]
-[ext_resource type="FontFile" uid="uid://cabwwc8lnsbe7" path="res://pixel-dead.italic.ttf" id="2_6rxw1"]
+[ext_resource type="FontFile" uid="uid://43rwvineyo8b" path="res://UI/Common/pixel-dead.italic.ttf" id="2_6rxw1"]
+[ext_resource type="Texture2D" uid="uid://byi3a7qlvvyvk" path="res://Entities/Enemy/Cthulhu/Sprite/CthulhuHead.png" id="2_7mmxp"]
 [ext_resource type="AudioStream" uid="uid://bgov1bnscnxrn" path="res://UI/Scene/Sfx/hover button SFX.mp3.tres" id="3_e7yp1"]
 [ext_resource type="AudioStream" uid="uid://bjisodaamlql7" path="res://UI/Scene/Sfx/button select SFX.mp3.tres" id="4_j4ra0"]
 
@@ -17,7 +16,6 @@ content_margin_left = 20.0
 content_margin_left = 20.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nooc3"]
-
 content_margin_left = 20.0
 
 [node name="Menu" type="Control"]
@@ -27,10 +25,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
 focus_mode = 2
 script = ExtResource("1_54xsa")
-
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -41,8 +37,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.396078)
+color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+modulate = Color(0.37, 0.141093, 0.1332, 1)
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_7mmxp")
+expand_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -58,9 +69,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 20
 theme_override_constants/outline_size = 20
-
 theme_override_fonts/font = ExtResource("2_6rxw1")
-
 theme_override_font_sizes/font_size = 80
 text = "Cthulhu 
        Slayer"
@@ -68,11 +77,9 @@ text = "Cthulhu
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 2
 offset_left = 40.0
-
 offset_top = 212.0
 offset_right = 425.0
 offset_bottom = 446.0
-
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -84,15 +91,12 @@ focus_neighbor_top = NodePath("../Quit")
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 30
-
 theme_override_fonts/font = ExtResource("2_6rxw1")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_kh3nf")
-
 text = "Start"
 flat = true
 alignment = 0
-
 
 [node name="Diffuculty Select" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
@@ -114,20 +118,16 @@ text = "Credits"
 flat = true
 alignment = 0
 
-
 [node name="Quit" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Start")
 theme_override_constants/outline_size = 30
-
 theme_override_fonts/font = ExtResource("2_6rxw1")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_nooc3")
-
 text = "Quit"
 flat = true
 alignment = 0
-
 
 [node name="Button Hover SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_e7yp1")
@@ -152,5 +152,4 @@ pitch_scale = 0.85
 [connection signal="focus_entered" from="VBoxContainer2/Quit" to="." method="_on_quit_focus_entered"]
 [connection signal="focus_exited" from="VBoxContainer2/Quit" to="." method="_on_quit_focus_exited"]
 [connection signal="mouse_entered" from="VBoxContainer2/Quit" to="." method="_on_quit_mouse_entered"]
-
 [connection signal="pressed" from="VBoxContainer2/Quit" to="." method="_on_quit_pressed"]
