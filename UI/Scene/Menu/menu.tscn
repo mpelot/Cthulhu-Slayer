@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bws2ji5ixto81"]
+[gd_scene load_steps=12 format=3 uid="uid://bws2ji5ixto81"]
 
 [ext_resource type="Script" path="res://UI/Scene/Menu/menu.gd" id="1_54xsa"]
 [ext_resource type="FontFile" uid="uid://43rwvineyo8b" path="res://UI/Common/pixel-dead.italic.ttf" id="2_6rxw1"]
 [ext_resource type="Texture2D" uid="uid://byi3a7qlvvyvk" path="res://Entities/Enemy/Cthulhu/Sprite/CthulhuHead.png" id="2_7mmxp"]
 [ext_resource type="AudioStream" uid="uid://bgov1bnscnxrn" path="res://UI/Scene/Sfx/hover button SFX.mp3.tres" id="3_e7yp1"]
 [ext_resource type="AudioStream" uid="uid://bjisodaamlql7" path="res://UI/Scene/Sfx/button select SFX.mp3.tres" id="4_j4ra0"]
+[ext_resource type="Script" path="res://UI/Scene/Menu/music.gd" id="6_c2utw"]
+[ext_resource type="AudioStream" uid="uid://bt0gmw1oylb7" path="res://UI/Scene/OSTs/Intro.mp3" id="6_m7pgv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kh3nf"]
 content_margin_left = 20.0
@@ -139,6 +141,15 @@ stream = ExtResource("4_j4ra0")
 volume_db = -14.546
 pitch_scale = 0.85
 
+[node name="Music" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_c2utw")
+
+[node name="IntroBeginning" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("6_m7pgv")
+
 [connection signal="focus_entered" from="VBoxContainer2/Start" to="." method="_on_start_focus_entered"]
 [connection signal="focus_exited" from="VBoxContainer2/Start" to="." method="_on_start_focus_exited"]
 [connection signal="mouse_entered" from="VBoxContainer2/Start" to="." method="_on_start_mouse_entered"]
@@ -153,3 +164,4 @@ pitch_scale = 0.85
 [connection signal="focus_exited" from="VBoxContainer2/Quit" to="." method="_on_quit_focus_exited"]
 [connection signal="mouse_entered" from="VBoxContainer2/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer2/Quit" to="." method="_on_quit_pressed"]
+[connection signal="finished" from="Music/IntroBeginning" to="Music" method="_on_intro_beginning_finished"]

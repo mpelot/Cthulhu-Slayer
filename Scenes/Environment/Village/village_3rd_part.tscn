@@ -195,103 +195,101 @@ tile_set = ExtResource("1_8wl3g")
 modulate = Color(0.850277, 0.633039, 0.669735, 1)
 position = Vector2(-1635, -395)
 
-[node name="Enemy" type="Node2D" parent="."]
+[node name="Cultist" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-1018, -424)
+
+[node name="Cultist2" parent="." instance=ExtResource("4_vfs35")]
 position = Vector2(-1302, -475)
 
-[node name="Cultist" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(284, 51)
+[node name="Cultist3" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-1193, -515)
 
-[node name="Cultist2" parent="Enemy" instance=ExtResource("4_vfs35")]
+[node name="Cultist4" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-1213, -462)
 
-[node name="Cultist3" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(109, -40)
+[node name="Cultist5" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-1046, -555)
 
-[node name="Cultist4" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(89, 13)
+[node name="Cultist6" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-979, -463)
 
-[node name="Cultist5" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(256, -80)
+[node name="Cultist7" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-839, -464)
 
-[node name="Cultist6" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(323, 12)
+[node name="Cultist8" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-829, -566)
 
-[node name="Cultist7" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(463, 11)
+[node name="Cultist9" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-683, -513)
 
-[node name="Cultist8" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(473, -91)
+[node name="Cultist10" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-526, -542)
 
-[node name="Cultist9" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(619, -38)
+[node name="Cultist11" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-364, -570)
 
-[node name="Cultist10" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(776, -67)
+[node name="Cultist12" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-406, -535)
 
-[node name="Cultist11" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(938, -95)
+[node name="Cultist13" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-508, -450)
 
-[node name="Cultist12" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(896, -60)
+[node name="Cultist14" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-341, -526)
 
-[node name="Cultist13" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(794, 25)
+[node name="Cultist15" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-133, -546)
 
-[node name="Cultist14" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(961, -51)
+[node name="Cultist16" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-67, -481)
 
-[node name="Cultist15" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(1169, -71)
+[node name="Cultist17" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-14, -559)
 
-[node name="Cultist16" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(1235, -6)
+[node name="Cultist18" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-133, -491)
 
-[node name="Cultist17" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(1288, -84)
+[node name="Cultist19" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-200, -561)
 
-[node name="Cultist18" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(1169, -16)
+[node name="Cultist20" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-78, -575)
 
-[node name="Cultist19" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(1102, -86)
+[node name="Cultist21" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(10, -492)
 
-[node name="Cultist20" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(1224, -100)
+[node name="Cultist22" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(153, -481)
 
-[node name="Cultist21" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(1312, -17)
+[node name="Cultist23" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(114, -406)
 
-[node name="Cultist22" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(1455, -6)
+[node name="Cultist24" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(2, -436)
 
-[node name="Cultist23" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(1416, 69)
+[node name="Cultist25" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-171, -504)
 
-[node name="Cultist24" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(1304, 39)
+[node name="Cultist26" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-171, -504)
 
-[node name="Cultist25" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(1131, -29)
+[node name="Cultist27" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-374, -499)
 
-[node name="Cultist26" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(1131, -29)
+[node name="Cultist28" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-541, -493)
 
-[node name="Cultist27" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(928, -24)
+[node name="Cultist29" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-1191, -594)
 
-[node name="Cultist28" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(761, -18)
+[node name="Cultist30" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-1059, -649)
 
-[node name="Cultist29" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(111, -119)
+[node name="Cultist31" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-872, -648)
 
-[node name="Cultist30" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(243, -174)
-
-[node name="Cultist31" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(430, -173)
-
-[node name="Cultist32" parent="Enemy" instance=ExtResource("4_vfs35")]
-position = Vector2(648, -167)
+[node name="Cultist32" parent="." instance=ExtResource("4_vfs35")]
+position = Vector2(-654, -642)
 
 [node name="Collisions" type="Node2D" parent="."]
 
