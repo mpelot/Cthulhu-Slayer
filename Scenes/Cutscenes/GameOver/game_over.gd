@@ -12,6 +12,7 @@ func _ready():
 
 func _on_animation_player_animation_finished(anim_name):
 	MusicManager.pause()
+	GameManager.health = 100
 	Global.goto_scene(room_path)
 	did_goto_scene = true
 	

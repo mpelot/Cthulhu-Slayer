@@ -5,6 +5,7 @@
 
 [node name="CthulhuBoss" instance=ExtResource("1_mnyif")]
 script = ExtResource("2_mg5o2")
+next_scene = "res://Scenes/Cutscenes/Win/win.tscn"
 
 [node name="Cthulhu" parent="EnvironmentForeground" index="2"]
 is_phase_2 = true

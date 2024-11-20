@@ -32,6 +32,7 @@ func _ready():
 		$Sprites/AgroHead.visible = true
 		$Sprites/Head.visible = false
 		$HeadAnimation.play("agro")
+	$ArmAnimation.play("arm")
 
 func _process(delta):
 	if(not is_following_player):

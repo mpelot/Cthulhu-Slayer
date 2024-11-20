@@ -1,6 +1,6 @@
 [gd_scene load_steps=54 format=4 uid="uid://b8saylgdwjck8"]
 
-[ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Common/environment_tileset.tres" id="1_uk011"]
+[ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Village/tilemap/village_draft_1.tres" id="1_uk011"]
 [ext_resource type="PackedScene" uid="uid://b5hkfigc6w20w" path="res://Scenes/Environment/Common/Door/passive_door.tscn" id="2_5pjrf"]
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="2_elnoj"]
 [ext_resource type="Script" path="res://Entities/Player/Script/player.gd" id="3_v7c5v"]
