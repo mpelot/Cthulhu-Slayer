@@ -2,7 +2,7 @@ extends Entity
 class_name Charger
 
 @onready var state_machine: StateMachine = $StateMachine
-var health: float = 200
+var health: float = 100
 
 func receive_damage(damage: Damagable):
 	if(damage.from is Player):

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bhpeau0xji43d" path="res://Entities/Enemy/Cthulhu/Sprite/Cthulhu_Head_Idle-Sheet.png" id="1_k1o8r"]
 [ext_resource type="Script" path="res://Scenes/Cutscenes/PhaseTransition/phase_transition.gd" id="1_oxc2a"]
 [ext_resource type="Texture2D" uid="uid://b4x6p1unxdqh2" path="res://Scenes/Environment/BossRoom/Tilemap/TableLeg.png" id="2_1barc"]
-[ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Common/environment_tileset.tres" id="2_jy07e"]
+[ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Village/tilemap/village_draft_1.tres" id="2_jy07e"]
 [ext_resource type="Texture2D" uid="uid://uy3i2yxgs867" path="res://Entities/Enemy/Cthulhu/ChessPiece/Sprite/TheQueen (1)-Sheet.png" id="5_g66no"]
 [ext_resource type="Texture2D" uid="uid://dlv8dk81ivhjg" path="res://Scenes/Environment/BossRoom/Tilemap/chess_pieces-Sheet.png" id="6_obb0y"]
 
