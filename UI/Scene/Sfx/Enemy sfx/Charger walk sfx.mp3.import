@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxl3r4nhisivo"
+path="res://.godot/imported/Charger walk sfx.mp3-3e7ebef8e81f7fb44330c862a539a4a9.mp3str"
+
+[deps]
+
+source_file="res://UI/Scene/Sfx/Enemy sfx/Charger walk sfx.mp3"
+dest_files=["res://.godot/imported/Charger walk sfx.mp3-3e7ebef8e81f7fb44330c862a539a4a9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

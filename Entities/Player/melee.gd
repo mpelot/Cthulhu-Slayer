@@ -2,6 +2,7 @@ extends Attack
 
 @onready var pivot: Pivot = $"../../../Weapon/Pivot"
 @onready var main_body_sprite: Node2D = $"../../../Sprite"
+@onready var player_melee_swing_sfx: AudioStreamPlayer2D = $"../Player melee swing SFX"
 
 func _ready():
 	pivot.attack_finished.connect(attack_finished)
@@ -11,6 +12,7 @@ func enter(_args={}):
 	# Spawn some colliding object
 	print("IS IN MELEE")
 	pivot.attack()
+	player_melee_swing_sfx.play()
 	main_body_sprite.visible = false
 	#transitioned.emit("Idle")
 	

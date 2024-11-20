@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chdn0tnmr3xge"
+path="res://.godot/imported/Ranged Cultist attack SFX.mp3-3e9e6677555aaa5a8fc904da23bceb5a.mp3str"
+
+[deps]
+
+source_file="res://UI/Scene/Sfx/Enemy sfx/Ranged Cultist attack SFX.mp3"
+dest_files=["res://.godot/imported/Ranged Cultist attack SFX.mp3-3e9e6677555aaa5a8fc904da23bceb5a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bws2ji5ixto81"]
+[gd_scene load_steps=7 format=3 uid="uid://bws2ji5ixto81"]
 
 [ext_resource type="Script" path="res://UI/Scene/Menu/menu.gd" id="1_vj332"]
 [ext_resource type="FontFile" uid="uid://cabwwc8lnsbe7" path="res://UI/Common/pixel-dead.italic.ttf" id="2_rr3bx"]
-[ext_resource type="AudioStream" uid="uid://bbhuw3s1r3j35" path="res://Scenes/Environment/Village/OST/amb.mp3" id="3_uu15l"]
+[ext_resource type="AudioStream" uid="uid://cnh1o32ow33u" path="res://UI/Scene/Sfx/button hover sfx.mp3" id="3_5rmga"]
+[ext_resource type="AudioStream" uid="uid://bjisodaamlql7" path="res://UI/Scene/Sfx/button select SFX.mp3.tres" id="4_7nvsa"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_iqg46"]
 content_margin_left = 20.0
@@ -85,10 +86,20 @@ text = "Quit"
 flat = true
 alignment = 0
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_uu15l")
-volume_db = -20.0
+[node name="Button Hover Sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5rmga")
+volume_db = -16.382
 autoplay = true
 
+[node name="Game Start" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7nvsa")
+volume_db = -13.565
+
+[connection signal="focus_entered" from="VBoxContainer2/Start" to="." method="_on_start_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer2/Start" to="." method="_on_start_focus_exited"]
+[connection signal="mouse_entered" from="VBoxContainer2/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer2/Start" to="." method="_on_start_pressed"]
+[connection signal="focus_entered" from="VBoxContainer2/Quit" to="." method="_on_quit_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer2/Quit" to="." method="_on_quit_focus_exited"]
+[connection signal="mouse_entered" from="VBoxContainer2/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer2/Quit" to="." method="_on_quit_pressed"]
