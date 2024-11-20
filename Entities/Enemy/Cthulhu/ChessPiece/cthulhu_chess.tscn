@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c0loklv4lains"]
+[gd_scene load_steps=26 format=3 uid="uid://c0loklv4lains"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/cthulhu_chess.gd" id="1_mh2h0"]
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="2_32c8l"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/retreat.gd" id="5_14gol"]
 [ext_resource type="Script" path="res://Entities/Common/HierarchicalMachine/hierarchy_state.gd" id="5_miupb"]
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/move.gd" id="5_peve7"]
+[ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/rest.gd" id="6_jlwxh"]
 [ext_resource type="Texture2D" uid="uid://uy3i2yxgs867" path="res://Entities/Enemy/Cthulhu/ChessPiece/Sprite/TheQueen (1)-Sheet.png" id="7_r06mt"]
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/retreat_move.gd" id="10_glbv2"]
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ChessPiece/Script/state_holder.gd" id="11_4h31j"]
@@ -23,6 +24,82 @@ length = 0.1
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dtbph"]
 _data = {
 "charging_up": SubResource("Animation_vnd16")
+}
+
+[sub_resource type="Animation" id="Animation_kycyb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_4esi6"]
+resource_name = "agro"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13, 14, 15, 16]
+}
+
+[sub_resource type="Animation" id="Animation_1mfo5"]
+resource_name = "normal"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [21, 20]
+}
+
+[sub_resource type="Animation" id="Animation_jg2xt"]
+resource_name = "to_agro"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ckgop"]
+_data = {
+"RESET": SubResource("Animation_kycyb"),
+"agro": SubResource("Animation_4esi6"),
+"normal": SubResource("Animation_1mfo5"),
+"to_agro": SubResource("Animation_jg2xt")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ou06l"]
@@ -43,11 +120,20 @@ initial_state = NodePath("Normal")
 [node name="Agro" type="Node2D" parent="AgroStateMachine"]
 script = ExtResource("3_oygxj")
 
+[node name="Timer" type="Timer" parent="AgroStateMachine/Agro"]
+wait_time = 4.0
+
 [node name="Normal" type="Node2D" parent="AgroStateMachine"]
 script = ExtResource("4_u7nhx")
 
 [node name="Retreat" type="Node2D" parent="AgroStateMachine"]
 script = ExtResource("5_14gol")
+
+[node name="Timer" type="Timer" parent="AgroStateMachine/Retreat"]
+wait_time = 5.0
+
+[node name="Rest" type="Node2D" parent="AgroStateMachine"]
+script = ExtResource("6_jlwxh")
 
 [node name="MovementStateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_32c8l")
@@ -74,6 +160,8 @@ libraries = {
 "": SubResource("AnimationLibrary_dtbph")
 }
 
+[node name="Timer" type="Timer" parent="MovementStateMachine/Attack/ChargingUp"]
+
 [node name="Retreat" type="Node2D" parent="MovementStateMachine" node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_miupb")
 initial_state = NodePath("StateHolder")
@@ -91,7 +179,7 @@ wait_time = 0.4
 script = ExtResource("12_jlrpg")
 
 [node name="Timer" type="Timer" parent="MovementStateMachine/Retreat/Rest"]
-wait_time = 4.0
+wait_time = 2.0
 
 [node name="Sprite" type="Node2D" parent="."]
 texture_filter = 1
@@ -102,6 +190,11 @@ texture_filter = 1
 position = Vector2(-2, -63)
 texture = ExtResource("7_r06mt")
 hframes = 23
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+libraries = {
+"": SubResource("AnimationLibrary_ckgop")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
@@ -118,8 +211,12 @@ script = ExtResource("15_4aq7j")
 position = Vector2(-1, -17)
 shape = SubResource("RectangleShape2D_mywog")
 
+[connection signal="timeout" from="AgroStateMachine/Agro/Timer" to="AgroStateMachine/Agro" method="_on_timer_timeout"]
+[connection signal="timeout" from="AgroStateMachine/Retreat/Timer" to="AgroStateMachine/Retreat" method="_on_timer_timeout"]
 [connection signal="timeout" from="MovementStateMachine/Idle/Timer" to="MovementStateMachine/Idle" method="_on_timer_timeout"]
 [connection signal="animation_finished" from="MovementStateMachine/Attack/ChargingUp/CharginUp" to="MovementStateMachine/Attack/ChargingUp" method="_on_chargin_up_animation_finished"]
+[connection signal="timeout" from="MovementStateMachine/Attack/ChargingUp/Timer" to="MovementStateMachine/Attack/ChargingUp" method="_on_timer_timeout"]
 [connection signal="timeout" from="MovementStateMachine/Retreat/StateHolder/Timer" to="MovementStateMachine/Retreat/StateHolder" method="_on_timer_timeout"]
 [connection signal="timeout" from="MovementStateMachine/Retreat/Rest/Timer" to="MovementStateMachine/Retreat/Rest" method="_on_timer_timeout"]
+[connection signal="animation_finished" from="Sprite/AnimationPlayer" to="AgroStateMachine/Agro" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="DamageArea" to="DamageArea" method="_on_body_entered"]

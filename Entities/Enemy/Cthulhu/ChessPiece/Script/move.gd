@@ -12,6 +12,7 @@ var possible_directions: Array[Vector2] = [
 ]
 var resevation : Area2D
 var check_distance : float = 128
+var move_duration : float = 0.8
 
 @onready var space_state = get_world_2d().direct_space_state
 
@@ -24,7 +25,7 @@ func move(direction: Vector2):
 	
 	var tween: Tween = get_tree().create_tween()
 	spawn_reservation(chess.global_position + direction)
-	tween.tween_property(chess, "position", chess.position + direction, 0.8)
+	tween.tween_property(chess, "position", chess.position + direction, move_duration)
 	tween.play()
 	tween.finished.connect(on_move_finished)
 	damage_area.monitoring = true

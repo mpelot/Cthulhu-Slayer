@@ -3,7 +3,7 @@ class_name Cultist
 
 
 @onready var state_machine: StateMachine = $StateMachine
-var health: float = 100
+var health: float = 20
 
 func receive_damage(damage: Damagable):
 	if(damage.from is Player):

@@ -2,6 +2,7 @@ extends State
 
 @onready var timer: Timer =  $Timer
 @onready var agro_sm : AgroStateMachine = $"../../../AgroStateMachine"
+@onready var retreat_hsm : HierachyMachine = $".."
 
 func enter(args = {}):
 	timer.start()
@@ -14,3 +15,4 @@ func _on_timer_timeout():
 		agro_sm.set_agro_state("normal")
 	else:
 		agro_sm.set_agro_state("agro")
+	retreat_hsm.transitioned.emit(retreat_hsm, "idle")
