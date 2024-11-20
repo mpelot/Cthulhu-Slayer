@@ -4,7 +4,10 @@ extends State
 @onready var head_player : AnimationPlayer = $"../../HeadAnimation"
 
 func enter(args = {}):
-	head_player.play("idle")
+	if(cthulhu.is_phase_2):
+		head_player.play("agro")
+	else:
+		head_player.play("idle")
 	$Timer.start()
 
 func _on_timer_timeout():

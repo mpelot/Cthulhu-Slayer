@@ -1,6 +1,6 @@
 extends Control
 
-var next_scene : String = "res://Scenes/Environment/Village/village_1st_part.tscn"
+var next_scene : String = "res://Scenes/Cutscenes/WakeUp/wake_up.tscn"
 @onready var song : AudioStream = preload("res://Scenes/Environment/Village/OST/Vespertine2.mp3")
 
 func _ready():

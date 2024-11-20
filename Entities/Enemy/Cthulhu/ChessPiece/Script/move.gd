@@ -68,8 +68,6 @@ func check_direction(direction : Vector2):
 	var query = PhysicsRayQueryParameters2D.create(global_position, direction + global_position, 3)
 	query.collide_with_areas = true
 	var result : Dictionary = space_state.intersect_ray(query)
-	if(not result.is_empty()):
-		print(result)
 	return not result.is_empty()
 
 	
