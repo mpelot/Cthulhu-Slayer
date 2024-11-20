@@ -2,6 +2,7 @@ extends State
 
 @onready var player : Player = $"../.."
 @onready var collider: CollisionShape2D = $"../../CollisionShape2D"
+@onready var run_player : AnimationPlayer = $"../../Sprite/Run/Run"
 var dash_speed : float = 300
 var dash_duration: float = 0.1
 var dash_direction : Vector2 
@@ -13,6 +14,7 @@ func enter(args = {}):
 	time_left = dash_duration
 	dash_direction = args["direction"]
 	collider.disabled = true
+	run_player.play("dash")
 	
 func validate_args(args: Dictionary):
 	assert(args.has_all(["direction"]))
@@ -24,4 +26,6 @@ func update(delta):
 		collider.disabled = false
 		#Transition back to control
 		transitioned.emit(self, "Control (BM)")
-		
+
+func exit():
+	run_player.play("Run")	

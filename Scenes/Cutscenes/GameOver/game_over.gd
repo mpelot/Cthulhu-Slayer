@@ -3,13 +3,15 @@ extends Control
 var time_left: float = 2
 var room_path: String = "res://Scenes/Cutscenes/WakeUp/wake_up.tscn"
 var did_goto_scene: bool = false
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
 
-func _process(delta):
-	if(did_goto_scene):
-		return
-	time_left -= delta
-	if(time_left < 0):
-		MusicManager.pause()
-		Global.goto_scene(room_path)
-		did_goto_scene = true
+
+	
+func _ready():
+	animation_player.play("die")
+
+func _on_animation_player_animation_finished(anim_name):
+	MusicManager.pause()
+	Global.goto_scene(room_path)
+	did_goto_scene = true
 	
