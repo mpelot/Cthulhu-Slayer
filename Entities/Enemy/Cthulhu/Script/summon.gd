@@ -31,6 +31,3 @@ func on_enemy_die():
 
 func update(delta):
 	transitioned.emit(self, "idle")
-
-func _process(delta):
-	print(current_enemies_len)

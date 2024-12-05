@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://qnsvp65rwewu"]
+[gd_scene load_steps=10 format=3 uid="uid://qnsvp65rwewu"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/ArmAttack/arm_attack.gd" id="1_souey"]
 [ext_resource type="Texture2D" uid="uid://4jnuxm27nqlo" path="res://Entities/Common/Sprite/Shadow.png" id="2_8dn26"]
+[ext_resource type="Texture2D" uid="uid://dc8eklto4i5aj" path="res://Entities/Enemy/Cthulhu/Sprite/Cthulhu Arm (1).png" id="3_5ukt3"]
 [ext_resource type="Texture2D" uid="uid://bvni4nllilp66" path="res://Entities/Enemy/Cthulhu/Sprite/TentaAttack.png" id="3_flkf3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eae58"]
@@ -160,6 +161,7 @@ radius = 26.0
 height = 132.0
 
 [node name="ArmAttack" type="CharacterBody2D"]
+texture_filter = 1
 script = ExtResource("1_souey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -185,10 +187,11 @@ texture = ExtResource("2_8dn26")
 [node name="Arm" type="Sprite2D" parent="Pivot"]
 modulate = Color(0, 0, 0, 0)
 position = Vector2(12, -332)
-rotation = -0.879646
-hframes = 3
+texture = ExtResource("3_5ukt3")
+offset = Vector2(-50, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot/Arm"]
+visible = false
 position = Vector2(-16.8882, -39.2401)
 rotation = 1.09781
 scale = Vector2(0.115, 0.115)

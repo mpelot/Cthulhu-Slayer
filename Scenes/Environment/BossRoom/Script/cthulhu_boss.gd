@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var OST: AudioStream
-@export var next_scene: String = "res://Scenes/Cutscenes/PhaseTransition/phase_transition.tscn"
+@export var next_scene: String
 
 func _ready():
 	MusicManager.play_song(OST)
