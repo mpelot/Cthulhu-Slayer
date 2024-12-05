@@ -1,17 +1,14 @@
+[gd_scene load_steps=12 format=4 uid="uid://bcyroa0mn0844"]
 
-[gd_scene load_steps=16 format=4 uid="uid://bcyroa0mn0844"]
-
-[ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Village/tilemap/village_draft_1.tres" id="1_4mbgr"]
+[ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Common/environment_tileset.tres" id="1_4mbgr"]
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="2_njg84"]
-[ext_resource type="PackedScene" uid="uid://dohec58u1vi1b" path="res://Scenes/Environment/Village/Buildings/House.tscn" id="3_if58s"]
-[ext_resource type="PackedScene" uid="uid://b5hkfigc6w20w" path="res://Scenes/Environment/Common/Door/passive_door.tscn" id="4_x768l"]
-[ext_resource type="PackedScene" uid="uid://cabjye6mltep3" path="res://Entities/Enemy/MinionOne/Cultist.tscn" id="5_7t3b5"]
-
 [ext_resource type="Script" path="res://Scenes/Environment/Village/Grass.gd" id="2_r0o2m"]
 [ext_resource type="Script" path="res://Scenes/Environment/Village/Bridge.gd" id="3_gcsy2"]
+[ext_resource type="PackedScene" uid="uid://dohec58u1vi1b" path="res://Scenes/Environment/Village/Buildings/House.tscn" id="3_if58s"]
 [ext_resource type="AudioStream" uid="uid://djvjomp8nd30k" path="res://UI/Scene/Sfx/Environment sfx/running on stone revamped.mp3" id="4_belsf"]
+[ext_resource type="PackedScene" uid="uid://b5hkfigc6w20w" path="res://Scenes/Environment/Common/Door/passive_door.tscn" id="4_x768l"]
+[ext_resource type="PackedScene" uid="uid://cabjye6mltep3" path="res://Entities/Enemy/MinionOne/Cultist.tscn" id="5_7t3b5"]
 [ext_resource type="AudioStream" uid="uid://bdgfitu88y7or" path="res://UI/Scene/Sfx/Environment sfx/running on grass revamped sfx.mp3" id="5_a35iy"]
-
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxkik"]
 size = Vector2(351, 31.25)
@@ -144,7 +141,7 @@ position = Vector2(354.5, -625.625)
 shape = SubResource("RectangleShape2D_mxkik")
 
 [node name="CollisionBridge2" type="CollisionShape2D" parent="Colliders/StaticBody2D"]
-position = Vector2(354, -723.5)
+position = Vector2(356, -736)
 shape = SubResource("RectangleShape2D_74dnm")
 
 [node name="CollisionWorld" type="CollisionPolygon2D" parent="Colliders/StaticBody2D"]

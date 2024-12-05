@@ -19,4 +19,3 @@ func receive_damage(damage: Damagable):
 	if(damage.from is Pawn):
 		die.emit()
 		state_machine.transition_to_state("dead")
-

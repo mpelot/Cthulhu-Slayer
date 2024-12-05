@@ -30,9 +30,7 @@ func _process(delta):
 	previous_position = player.global_position
 	prev_position = player.global_position
 	
-func _process(delta):
-	check_footsteps()
-	prev_position = player.global_position
+
 
 func update(delta):
 	var collision: KinematicCollision2D = move(delta)

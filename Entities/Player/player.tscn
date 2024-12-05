@@ -1,4 +1,3 @@
-
 [gd_scene load_steps=58 format=3 uid="uid://clwh62jtlg5t8"]
 
 [ext_resource type="Script" path="res://Entities/Player/Script/player.gd" id="1_5phih"]
@@ -15,7 +14,6 @@
 [ext_resource type="Script" path="res://Entities/Player/attacking.gd" id="10_h1kxo"]
 [ext_resource type="Texture2D" uid="uid://c5bajmv1r7knp" path="res://Temp/Guy.png" id="11_24gwf"]
 [ext_resource type="Script" path="res://Entities/Player/Script/dashing.gd" id="11_dxq2s"]
-[ext_resource type="AudioStream" uid="uid://deswktki4tl2s" path="res://UI/Scene/Sfx/Melee Swing SFX.mp3" id="11_hpdb4"]
 [ext_resource type="Script" path="res://Entities/Player/Script/pivot.gd" id="12_157xx"]
 [ext_resource type="Texture2D" uid="uid://b2w6kbxk3snpe" path="res://Entities/Player/Sprite/Guy_Final_Spin.png" id="12_5073q"]
 [ext_resource type="Script" path="res://Entities/Player/Script/melee_weapon.gd" id="13_enyji"]
@@ -27,7 +25,6 @@
 [ext_resource type="Script" path="res://Entities/Player/player_camera.gd" id="18_712ap"]
 [ext_resource type="PackedScene" uid="uid://cbdahhosbo8jd" path="res://UI/Scene/Pause/pause.tscn" id="18_ky6qn"]
 [ext_resource type="AudioStream" uid="uid://cj0hqfbuy27uy" path="res://UI/Scene/Sfx/Melee Swing SFX.mp3" id="20_itgkv"]
-
 
 [sub_resource type="Animation" id="Animation_1fqj5"]
 length = 0.001
@@ -518,7 +515,6 @@ _data = {
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_5phih")
 
-
 [node name="StateMachine (FSM)" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_60xw4")
 initial_state = NodePath("Control (BM)")
@@ -554,6 +550,10 @@ script = ExtResource("6_51a3w")
 [node name="Idle" type="Node2D" parent="StateMachine (FSM)/Attacking"]
 script = ExtResource("5_2uwg8")
 
+[node name="Player melee swing SFX" type="AudioStreamPlayer2D" parent="StateMachine (FSM)/Attacking"]
+stream = ExtResource("20_itgkv")
+volume_db = -12.661
+pitch_scale = 0.62
 
 [node name="Dashing" type="Node2D" parent="StateMachine (FSM)"]
 script = ExtResource("11_dxq2s")
@@ -564,14 +564,6 @@ script = ExtResource("11_dxq2s")
 texture_filter = 1
 position = Vector2(0, 7)
 texture = ExtResource("16_lalfj")
-
-[node name="Player melee swing SFX" type="AudioStreamPlayer2D" parent="StateMachine (FSM)/Attacking"]
-stream = ExtResource("11_hpdb4")
-volume_db = -12.661
-pitch_scale = 0.62
-
-[node name="Sprite" type="Node2D" parent="."]
-
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite"]
 visible = false
@@ -609,6 +601,8 @@ libraries = {
 "": SubResource("AnimationLibrary_gbxx6")
 }
 
+[node name="Sprite2" type="Node2D" parent="."]
+
 [node name="Weapon" type="Node2D" parent="."]
 
 [node name="Pivot" type="Node2D" parent="Weapon"]
@@ -634,7 +628,6 @@ texture = ExtResource("16_lalfj")
 
 [node name="MeleeWeapon" type="Area2D" parent="Weapon/Pivot" node_paths=PackedStringArray("player", "player_camera")]
 modulate = Color(1, 1, 1, 0)
-
 collision_layer = 7
 collision_mask = 7
 monitoring = false
@@ -683,7 +676,6 @@ libraries = {
 [node name="PauseScreen" type="CanvasLayer" parent="."]
 
 [node name="Pause" parent="PauseScreen" instance=ExtResource("18_ky6qn")]
-
 
 [node name="PlayerMeleeSwing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_itgkv")
