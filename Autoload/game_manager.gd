@@ -5,6 +5,7 @@ extends Node
 var game_over_path: String = "res://Scenes/Cutscenes/GameOver/game_over.tscn"
 var can_pawn_move: bool = false
 
+
 signal on_health_change(health: float)
 var health: float = 100 :
 	get:

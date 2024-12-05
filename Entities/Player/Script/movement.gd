@@ -17,6 +17,9 @@ var last_move_direction: Vector2
 @onready var footstep_layers = get_tree().get_nodes_in_group("footstep_layers")
 
 
+var prev_position:Vector2
+
+
 func _ready():
 	run_animation.play("Run")
 	idle_animation.play("Idle")
@@ -25,7 +28,11 @@ func _ready():
 func _process(delta):
 	check_footsteps()
 	previous_position = player.global_position
-
+	prev_position = player.global_position
+	
+func _process(delta):
+	check_footsteps()
+	prev_position = player.global_position
 
 func update(delta):
 	var collision: KinematicCollision2D = move(delta)
@@ -53,6 +60,7 @@ func move(delta) -> KinematicCollision2D:
 		run_sprite.visible = false
 	return (player.move_and_collide(direction * movement_speed * delta))
 
+
 #Handling the collision here
 func handle_collision(collision: KinematicCollision2D):
 	if(collision == null):
@@ -62,9 +70,10 @@ func handle_collision(collision: KinematicCollision2D):
 		control_state.transitioned.emit(control_state, {"damage": collider.damage})
 	
 
+
 func check_footsteps():
 	var player_position = player.global_position
-	var is_moving = player_position != previous_position
+	var is_moving = player_position != prev_position
 	for layer in footstep_layers:
 		if layer.has_method("play_footsteps_if_on"):
 			layer.play_footsteps_if_on(player_position, is_moving)

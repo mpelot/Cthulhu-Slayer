@@ -2,6 +2,7 @@ extends EnemyState
 
 @onready var cultist: Cultist = $"../.."
 
+
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 @onready var sprite: Sprite2D = $"../../Sprite/Sprite2D"
 
@@ -11,6 +12,7 @@ var movement_speed: float = 50
 
 func enter(args = {}):
 	animation_player.play("chase")
+
 
 func update(delta):
 	if(distance_to_player(cultist.position) > forget_distance):

@@ -10,3 +10,4 @@ func enter(args = {}):
 	animation_player.play("die")
 	$"../../Cultist dagger swipe".stop()
 	collider.queue_free()
+

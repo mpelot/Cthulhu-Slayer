@@ -285,5 +285,7 @@ texture = ExtResource("2_r6guq")
 3:9/0 = 0
 
 [resource]
+custom_data_layer_0/name = ""
+custom_data_layer_0/type = 0
 sources/0 = SubResource("TileSetAtlasSource_wpkln")
 sources/1 = SubResource("TileSetAtlasSource_tcuxt")

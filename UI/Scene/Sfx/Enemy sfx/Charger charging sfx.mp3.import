@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://fs5gkgivyg60"
+path="res://.godot/imported/Charger charging sfx.mp3-64902779521913b96e884f9c47dcd7d9.mp3str"
+
+[deps]
+
+source_file="res://UI/Scene/Sfx/Enemy sfx/Charger charging sfx.mp3"
+dest_files=["res://.godot/imported/Charger charging sfx.mp3-64902779521913b96e884f9c47dcd7d9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

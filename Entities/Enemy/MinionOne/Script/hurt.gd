@@ -1,8 +1,8 @@
 extends EnemyState
 
 
-@onready var cultist : Cultist = $"../.."
 
+@onready var cultist : Cultist = $"../.."
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
 func enter(args = {}):
@@ -12,6 +12,7 @@ func enter(args = {}):
 	
 func damaged():
 	animation_player.play("hurt")
+	$"../../Cultist hurt sfx".play()
 
 
 func handle_animation_finishes(anim_name):

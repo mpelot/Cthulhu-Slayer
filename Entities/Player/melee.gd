@@ -1,11 +1,10 @@
-
 extends Attack
 
 @onready var pivot: Pivot = $"../../../Weapon/Pivot"
 @onready var main_body_sprite: Node2D = $"../../../Sprite"
-@onready var player_melee: AudioStreamPlayer2D =  $"../../../PlayerMeleeSwing"
 var input_buffering_counter: float = 0.4
 var input_buffering_time: float = 0.1
+@onready var player_melee_swing_sfx: AudioStreamPlayer2D = $"../Player melee swing SFX"
 
 func _ready():
 	pivot.attack_finished.connect(attack_finished)
@@ -14,10 +13,9 @@ func _ready():
 func enter(_args={}):
 	# Spawn some colliding object
 	input_buffering_counter = input_buffering_time
-	player_melee.play()
 	pivot.attack()
+	player_melee_swing_sfx.play()
 	main_body_sprite.visible = false
-
 	#transitioned.emit("Idle")
 	
 func exit():
