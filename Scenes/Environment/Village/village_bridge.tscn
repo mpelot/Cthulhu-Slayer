@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=4 uid="uid://bcyroa0mn0844"]
 
-[ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Common/environment_tileset.tres" id="1_4mbgr"]
+[ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Village/tilemap/village_draft_1.tres" id="1_4mbgr"]
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="2_njg84"]
 [ext_resource type="Script" path="res://Scenes/Environment/Village/Grass.gd" id="2_r0o2m"]
 [ext_resource type="Script" path="res://Scenes/Environment/Village/Bridge.gd" id="3_gcsy2"]

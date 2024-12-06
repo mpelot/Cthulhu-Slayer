@@ -2,8 +2,8 @@ extends Control
 
 @onready var start: Button = $VBoxContainer2/Start as Button
 @onready var quit: Button = $VBoxContainer2/Quit as Button
-@onready var button_hover_sfx: AudioStreamPlayer2D = $"Button Hover Sfx"
-@onready var game_start: AudioStreamPlayer2D = $"Game Start"
+@onready var button_hover_sfx: AudioStreamPlayer = $"Button Hover SFX"
+@onready var game_start: AudioStreamPlayer = $"Game Start"
 
 
 var original_stylebox : StyleBox
@@ -85,4 +85,3 @@ func _on_quit_mouse_entered() -> void:
 	
 #func _on_credits_mouse_entered() -> void:
 	#$"Button Hover SFX".play()
-
