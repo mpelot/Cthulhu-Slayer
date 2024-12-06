@@ -6,6 +6,7 @@ var current_song : AudioStream
 
 func play_song(song : AudioStream):
 	if(song == current_song):
+		print("Song is the current song")
 		return
 	current_song = song
 	print("MUSIC MANAGER: playing song " + song.resource_name)

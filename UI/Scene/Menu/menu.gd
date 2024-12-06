@@ -14,6 +14,7 @@ var base_game_play_path: String = "res://Scenes/Cutscenes/BeforeVillage/before_v
 func _ready() -> void:
 	original_stylebox = $VBoxContainer2/Start.get_theme_stylebox("normal").duplicate()
 	original_stylebox = $VBoxContainer2/Quit.get_theme_stylebox("normal").duplicate()
+	
 	handle_connecting_signals()
 
 func _unhandled_key_input(event):

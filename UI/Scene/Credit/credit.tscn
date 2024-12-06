@@ -1,0 +1,442 @@
+[gd_scene load_steps=12 format=3 uid="uid://dk5owaudys22q"]
+
+[ext_resource type="Theme" uid="uid://brcgjfbjarm58" path="res://UI/Theme/player_stat.tres" id="1_dpt7u"]
+[ext_resource type="Script" path="res://UI/Scene/Credit/credit.gd" id="1_qbvw3"]
+[ext_resource type="Texture2D" uid="uid://byi3a7qlvvyvk" path="res://Entities/Enemy/Cthulhu/Sprite/CthulhuHead.png" id="1_s0qtx"]
+[ext_resource type="FontFile" uid="uid://cabwwc8lnsbe7" path="res://UI/Common/pixel-dead.italic.ttf" id="2_smtqm"]
+[ext_resource type="Texture2D" uid="uid://bhpeau0xji43d" path="res://Entities/Enemy/Cthulhu/Sprite/Cthulhu_Head_Idle-Sheet.png" id="3_odcib"]
+
+[sub_resource type="Animation" id="Animation_svw18"]
+resource_name = "head"
+length = 3.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 21, 19, 18, 16]
+}
+
+[sub_resource type="Animation" id="Animation_gwkwf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qsnpv"]
+_data = {
+"RESET": SubResource("Animation_gwkwf"),
+"head": SubResource("Animation_svw18")
+}
+
+[sub_resource type="Animation" id="Animation_bky22"]
+resource_name = "main"
+length = 48.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.46667, 4, 5.6, 11.3333, 12.8667, 14.4667, 19.3333, 20.8667, 22.4667, 27.4667, 29, 30.6, 36, 37.5333, 39.1333, 44, 45.5333, 47.1333, 52.1333, 53.6667, 55.2667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits/GameTitle:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits/Writter:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4, 13),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Credits/Programmer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 13, 21),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Credits/Artist:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 21, 29),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Credits/Musican:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 29, 37.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Credits/Mentions:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 37.5, 45.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_wvsqq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits/GameTitle:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits/Writter:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Credits/Programmer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Credits/Artist:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Credits/Musican:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Credits/Mentions:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i4d68"]
+_data = {
+"RESET": SubResource("Animation_wvsqq"),
+"main": SubResource("Animation_bky22")
+}
+
+[node name="Credit" type="Control" node_paths=PackedStringArray("credits")]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qbvw3")
+credits = [NodePath("Credits/GameTitle"), NodePath("Credits/Writter"), NodePath("Credits/Programmer"), NodePath("Credits/Artist"), NodePath("Credits/Musican"), NodePath("Credits/Mentions")]
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -252.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+modulate = Color(0.114522, 0.0247117, 0.0224207, 1)
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_s0qtx")
+expand_mode = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer"]
+modulate = Color(0.368627, 0.141176, 0.133333, 1)
+position = Vector2(578, 546)
+scale = Vector2(5, 5)
+texture = ExtResource("3_odcib")
+hframes = 32
+
+[node name="HeadPlayer" type="AnimationPlayer" parent="MarginContainer/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_qsnpv")
+}
+speed_scale = 0.5
+
+[node name="Credits" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameTitle" type="HBoxContainer" parent="Credits"]
+layout_mode = 2
+alignment = 1
+
+[node name="PageOne" type="VBoxContainer" parent="Credits/GameTitle"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Credits/GameTitle/PageOne"]
+layout_mode = 2
+theme = ExtResource("1_dpt7u")
+theme_override_fonts/font = ExtResource("2_smtqm")
+theme_override_font_sizes/font_size = 30
+text = "Cthulhu Slayer"
+
+[node name="Writter" type="HBoxContainer" parent="Credits"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="PageOne" type="VBoxContainer" parent="Credits/Writter"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/Writter/PageOne"]
+layout_mode = 2
+theme = ExtResource("1_dpt7u")
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("2_smtqm")
+theme_override_font_sizes/font_size = 23
+text = "Loc L. - Team Lead
+Aidan S. - Writter"
+horizontal_alignment = 1
+
+[node name="Programmer" type="HBoxContainer" parent="Credits"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="PageOne" type="VBoxContainer" parent="Credits/Programmer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="Credits/Programmer/PageOne"]
+layout_mode = 2
+theme = ExtResource("1_dpt7u")
+theme_override_fonts/font = ExtResource("2_smtqm")
+theme_override_font_sizes/font_size = 30
+text = "Programmers"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/Programmer/PageOne"]
+layout_mode = 2
+theme = ExtResource("1_dpt7u")
+theme_override_fonts/font = ExtResource("2_smtqm")
+theme_override_font_sizes/font_size = 23
+text = "Loc L.
+Tamara S.
+Jeff M.
+George W.
+Ferrol B.
+"
+horizontal_alignment = 1
+
+[node name="Artist" type="HBoxContainer" parent="Credits"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="PageTwo" type="VBoxContainer" parent="Credits/Artist"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="Credits/Artist/PageTwo"]
+layout_mode = 2
+theme = ExtResource("1_dpt7u")
+theme_override_fonts/font = ExtResource("2_smtqm")
+theme_override_font_sizes/font_size = 30
+text = "Artists"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/Artist/PageTwo"]
+layout_mode = 2
+theme = ExtResource("1_dpt7u")
+theme_override_fonts/font = ExtResource("2_smtqm")
+theme_override_font_sizes/font_size = 23
+text = "Aidan S.
+Loc L.
+Max P."
+horizontal_alignment = 1
+
+[node name="Musican" type="HBoxContainer" parent="Credits"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="PageTwo" type="VBoxContainer" parent="Credits/Musican"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="Credits/Musican/PageTwo"]
+layout_mode = 2
+theme = ExtResource("1_dpt7u")
+theme_override_fonts/font = ExtResource("2_smtqm")
+theme_override_font_sizes/font_size = 30
+text = "Musicians"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/Musican/PageTwo"]
+layout_mode = 2
+theme = ExtResource("1_dpt7u")
+theme_override_fonts/font = ExtResource("2_smtqm")
+theme_override_font_sizes/font_size = 23
+text = "Mason M.
+Joseph R.
+Louis F.
+Jake S."
+horizontal_alignment = 1
+
+[node name="Mentions" type="HBoxContainer" parent="Credits"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="PageTwo" type="VBoxContainer" parent="Credits/Mentions"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="Credits/Mentions/PageTwo"]
+layout_mode = 2
+theme = ExtResource("1_dpt7u")
+theme_override_constants/line_spacing = 3
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("2_smtqm")
+theme_override_font_sizes/font_size = 30
+text = "Hall of Fame"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/Mentions/PageTwo"]
+layout_mode = 2
+theme = ExtResource("1_dpt7u")
+theme_override_fonts/font = ExtResource("2_smtqm")
+theme_override_font_sizes/font_size = 23
+text = "Anselm Wisdo
+Andy Tran
+Aisan S."
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_i4d68")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

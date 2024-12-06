@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://g72dtsumcxpv"]
+
+[ext_resource type="PackedScene" uid="uid://b16kcdv5pclx1" path="res://Scenes/Cutscenes/WakeUp/wake_up.tscn" id="1_cqntl"]
+
+[node name="WakeUp" instance=ExtResource("1_cqntl")]
+next_scene = "C:/Users/orilo/OneDrive/Documents/GitHub/Cthulhu-Slayer/UI/Scene/Menu/menu.tscn"
