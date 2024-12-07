@@ -7,7 +7,7 @@ class_name Cthulhu
 @onready var health_bar : CthulhuHealthBar = $Healthbar
 var off_set: Vector2 = Vector2(0, 200)
 var is_following_player: bool = true
-var health: float = 5000:
+var health: float = 2500:
 	set(value):
 		on_health_change(value)
 		health = value
@@ -21,6 +21,7 @@ func receive_damage(damage: Damagable):
 		return
 	health -= damage.damage * 2
 	if(health < 0):
+		is_phase_2 = false
 		Global.goto_scene(next_scene)
 
 func on_part_damaged(damage: Damagable):

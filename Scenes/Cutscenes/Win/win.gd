@@ -7,4 +7,4 @@ func _ready():
 
 
 func _on_animation_player_animation_finished(anim_name):
-	Global.goto_scene("res://UI/Scene/Menu/menu.tscn")
+	Global.goto_scene("res://UI/Scene/Credit/credit.tscn")

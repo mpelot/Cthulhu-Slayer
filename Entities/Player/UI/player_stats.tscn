@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://btf6lpn8oxjdx"]
+[gd_scene load_steps=7 format=3 uid="uid://btf6lpn8oxjdx"]
 
 [ext_resource type="Script" path="res://Entities/Player/UI/Script/player_stats.gd" id="1_a1te8"]
 [ext_resource type="Theme" uid="uid://brcgjfbjarm58" path="res://UI/Theme/player_stat.tres" id="2_6aux0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpov3"]
+bg_color = Color(0.127565, 0.569908, 0.339643, 1)
 
 [sub_resource type="Animation" id="Animation_4q8rr"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Stat/VBoxContainer/HBoxContainer/MarginContainer2:modulate")
+tracks/0/path = NodePath("Stat/HBoxContainer/VBoxContainer/MarginContainer2:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -25,7 +28,7 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Stat/VBoxContainer/HBoxContainer/MarginContainer2:modulate")
+tracks/0/path = NodePath("Stat/HBoxContainer/VBoxContainer/MarginContainer2:modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -52,18 +55,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Stat"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Stat/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Stat"]
 layout_mode = 2
+offset_right = 1152.0
 
-[node name="MarginContainer2" type="MarginContainer" parent="Stat/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Stat/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = -15
+
+[node name="MarginContainer2" type="MarginContainer" parent="Stat/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
@@ -71,7 +72,7 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Healthbar" type="HSlider" parent="Stat/VBoxContainer/HBoxContainer/MarginContainer2"]
+[node name="Healthbar" type="HSlider" parent="Stat/HBoxContainer/VBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -80,7 +81,27 @@ value = 100.0
 editable = false
 scrollable = false
 
-[node name="MarginContainer" type="MarginContainer" parent="Stat/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="Stat/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 10
+
+[node name="StaminaBar" type="HSlider" parent="Stat/HBoxContainer/VBoxContainer/MarginContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_6aux0")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_xpov3")
+max_value = 1.0
+step = 0.1
+value = 1.0
+editable = false
+scrollable = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Stat/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 

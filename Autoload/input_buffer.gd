@@ -31,7 +31,7 @@ func _input(event: InputEvent) -> void:
 	for action in REGISTERED_ACTIONS:
 		if(Input.is_action_just_pressed(action)):
 			keyboard_timestamps[action] = Time.get_ticks_msec()
-	print(keyboard_timestamps)
+
 	
 
 # Returns whether any of the keyboard keys or joypad buttons in the given action were pressed within the buffer window.
