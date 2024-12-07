@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://c51x2poqygsre"]
 
-[ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Village/tilemap/village_draft_1.tres" id="1_8wl3g"]
+[ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Common/environment_tileset.tres" id="1_8wl3g"]
 [ext_resource type="Script" path="res://Scenes/Environment/Village/ground.gd" id="2_2wp08"]
 [ext_resource type="Script" path="res://Scenes/Environment/Village/Grass.gd" id="2_6oni1"]
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="3_na3tq"]
@@ -207,7 +207,6 @@ tile_map_data = PackedByteArray("AACs/wgAAAARAAkAAACs/wkAAAARAAkAAACs/woAAAARAAk
 tile_set = ExtResource("1_8wl3g")
 
 [node name="Player" parent="." instance=ExtResource("3_na3tq")]
-modulate = Color(0.850277, 0.633039, 0.669735, 1)
 position = Vector2(-1635, -395)
 
 [node name="Cultist" parent="." instance=ExtResource("4_vfs35")]

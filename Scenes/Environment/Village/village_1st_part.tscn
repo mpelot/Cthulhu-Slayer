@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://cpk0a4ksrp5n8"]
 
 [ext_resource type="Script" path="res://Scenes/Environment/Village/Script/village.gd" id="1_2fhoe"]
-[ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Village/tilemap/village_draft_1.tres" id="1_dl1im"]
+[ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Common/environment_tileset.tres" id="1_dl1im"]
 [ext_resource type="PackedScene" uid="uid://clwh62jtlg5t8" path="res://Entities/Player/player.tscn" id="3_hcppl"]
 [ext_resource type="Script" path="res://Scenes/Environment/Village/Grass.gd" id="3_t4f56"]
 [ext_resource type="Script" path="res://Scenes/Environment/Village/Ground.gd" id="3_uknve"]
@@ -237,7 +237,6 @@ position = Vector2(459, 13)
 position = Vector2(587, -52)
 
 [node name="Player" parent="Entity" instance=ExtResource("3_hcppl")]
-modulate = Color(0.91331, 0.772534, 0.794226, 1)
 position = Vector2(-2118, 78)
 
 [node name="Foreground" type="Parallax2D" parent="."]

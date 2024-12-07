@@ -5,9 +5,10 @@ class_name Cthulhu
 @export var player : Player
 @export var is_phase_2: bool = false
 @onready var health_bar : CthulhuHealthBar = $Healthbar
+@onready var on_hurt_audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 var off_set: Vector2 = Vector2(0, 200)
 var is_following_player: bool = true
-var health: float = 2500:
+var health: float = 4000:
 	set(value):
 		on_health_change(value)
 		health = value
@@ -19,6 +20,7 @@ func on_health_change(value):
 func receive_damage(damage: Damagable):
 	if(damage.from is CthulhuChessPiece):
 		return
+	on_hurt_audio.play()
 	health -= damage.damage * 2
 	if(health < 0):
 		is_phase_2 = false

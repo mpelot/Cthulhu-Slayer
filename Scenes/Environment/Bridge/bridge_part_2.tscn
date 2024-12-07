@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://b8saylgdwjck8"]
+[gd_scene load_steps=52 format=4 uid="uid://b8saylgdwjck8"]
 
 [ext_resource type="TileSet" uid="uid://ctuhxmafd0bor" path="res://Scenes/Environment/Common/environment_tileset.tres" id="1_uk011"]
 [ext_resource type="PackedScene" uid="uid://b5hkfigc6w20w" path="res://Scenes/Environment/Common/Door/passive_door.tscn" id="2_5pjrf"]
@@ -7,13 +7,11 @@
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="4_j8wey"]
 [ext_resource type="Script" path="res://Entities/Common/BehaviorMachine/behavior_machine.gd" id="5_7ends"]
 [ext_resource type="Script" path="res://Entities/Player/Script/movement.gd" id="6_6gtif"]
-[ext_resource type="Script" path="res://Entities/Player/skill_control.gd" id="7_6hvbd"]
 [ext_resource type="Script" path="res://Entities/Player/Script/hurt.gd" id="8_2fud0"]
 [ext_resource type="Script" path="res://Entities/Player/attacking.gd" id="9_kv4fh"]
 [ext_resource type="Script" path="res://Entities/Player/melee.gd" id="10_b1lp5"]
 [ext_resource type="Script" path="res://Entities/Player/Script/ranged.gd" id="11_nx0b4"]
 [ext_resource type="Script" path="res://Entities/Player/Script/idle.gd" id="12_q6dnq"]
-[ext_resource type="Script" path="res://Entities/Player/Script/dashing.gd" id="13_3v3jx"]
 [ext_resource type="Texture2D" uid="uid://4jnuxm27nqlo" path="res://Entities/Common/Sprite/Shadow.png" id="14_cpi6h"]
 [ext_resource type="Texture2D" uid="uid://dtd1764cfq33s" path="res://Temp/LumiStoryMode.png" id="15_p15f8"]
 [ext_resource type="Texture2D" uid="uid://c5bajmv1r7knp" path="res://Temp/Guy.png" id="16_p78ub"]
@@ -514,9 +512,6 @@ script = ExtResource("5_7ends")
 script = ExtResource("6_6gtif")
 movement_speed = -80.0
 
-[node name="SkillControl" type="Node2D" parent="Entities/Invert/Player2/StateMachine (FSM)/Control (BM)"]
-script = ExtResource("7_6hvbd")
-
 [node name="Hurt" type="Node2D" parent="Entities/Invert/Player2/StateMachine (FSM)"]
 script = ExtResource("8_2fud0")
 
@@ -536,9 +531,6 @@ script = ExtResource("11_nx0b4")
 
 [node name="Idle" type="Node2D" parent="Entities/Invert/Player2/StateMachine (FSM)/Attacking"]
 script = ExtResource("12_q6dnq")
-
-[node name="Dashing" type="Node2D" parent="Entities/Invert/Player2/StateMachine (FSM)"]
-script = ExtResource("13_3v3jx")
 
 [node name="Sprite" type="Node2D" parent="Entities/Invert/Player2"]
 
@@ -655,9 +647,6 @@ script = ExtResource("5_7ends")
 script = ExtResource("6_6gtif")
 movement_speed = -80.0
 
-[node name="SkillControl" type="Node2D" parent="Entities/Invert/Player3/StateMachine (FSM)/Control (BM)"]
-script = ExtResource("7_6hvbd")
-
 [node name="Hurt" type="Node2D" parent="Entities/Invert/Player3/StateMachine (FSM)"]
 script = ExtResource("8_2fud0")
 
@@ -677,9 +666,6 @@ script = ExtResource("11_nx0b4")
 
 [node name="Idle" type="Node2D" parent="Entities/Invert/Player3/StateMachine (FSM)/Attacking"]
 script = ExtResource("12_q6dnq")
-
-[node name="Dashing" type="Node2D" parent="Entities/Invert/Player3/StateMachine (FSM)"]
-script = ExtResource("13_3v3jx")
 
 [node name="Sprite" type="Node2D" parent="Entities/Invert/Player3"]
 

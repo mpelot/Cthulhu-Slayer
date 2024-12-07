@@ -2,11 +2,13 @@ extends Entity
 class_name Charger
 
 @onready var state_machine: StateMachine = $StateMachine
+@onready var hurt_audio : AudioStreamPlayer2D = $AudioStreamPlayer2D
 var health: float = 100
 
 func receive_damage(damage: Damagable):
 	if(damage.from is Player):
 		health -= damage.damage
+		hurt_audio.play()
 		if(health < 0):
 			state_machine.transition_to_state("dead")
 			die.emit()

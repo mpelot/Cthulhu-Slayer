@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bproi8aghpgiu"]
+[gd_scene load_steps=21 format=3 uid="uid://bproi8aghpgiu"]
 
 [ext_resource type="Script" path="res://Entities/Common/StateMachine/state_machine.gd" id="1_25256"]
 [ext_resource type="Script" path="res://Entities/Enemy/MinionThree/Script/charger.gd" id="1_i8xs7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Entities/Enemy/MinionThree/Script/charge.gd" id="4_ttem8"]
 [ext_resource type="Script" path="res://Entities/Enemy/MinionThree/Script/hurt.gd" id="5_x4moy"]
 [ext_resource type="Script" path="res://Entities/Enemy/MinionThree/Script/dead.gd" id="7_cqh1f"]
+[ext_resource type="AudioStream" uid="uid://yrhodie2p8mk" path="res://UI/Scene/Sfx/Enemy sfx/cultist dagger contact.mp3" id="10_21q58"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_exlm0"]
 radius = 17.0
@@ -221,6 +222,10 @@ frame = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 4)
 shape = SubResource("RectangleShape2D_yho5b")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_21q58")
+pitch_scale = 1.34
 
 [connection signal="body_entered" from="StateMachine/Charge/Area2D" to="StateMachine/Charge" method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Charge" method="_on_animation_player_animation_finished"]

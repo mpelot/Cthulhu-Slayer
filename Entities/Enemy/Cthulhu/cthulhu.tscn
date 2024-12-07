@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cpeow0wwcd843"]
+[gd_scene load_steps=26 format=3 uid="uid://cpeow0wwcd843"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/Cthulhu/Script/cthulhu.gd" id="1_70qqm"]
 [ext_resource type="Texture2D" uid="uid://ba1nhi3a7kass" path="res://Entities/Enemy/Cthulhu/Sprite/Cthulhu Arm-Sheet.png" id="2_8mpuq"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://byi3a7qlvvyvk" path="res://Entities/Enemy/Cthulhu/Sprite/CthulhuHead.png" id="10_xe4c7"]
 [ext_resource type="PackedScene" uid="uid://fs40lc64h0n5" path="res://Entities/Enemy/Cthulhu/healthbar.tscn" id="12_2tgkl"]
 [ext_resource type="Texture2D" uid="uid://s5uxuxso0ib1" path="res://Entities/Common/Sprite/Light.png" id="12_wskrv"]
+[ext_resource type="AudioStream" uid="uid://yrhodie2p8mk" path="res://UI/Scene/Sfx/Enemy sfx/cultist dagger contact.mp3" id="14_yaul4"]
 
 [sub_resource type="Animation" id="Animation_t15r4"]
 length = 0.001
@@ -368,6 +369,10 @@ libraries = {
 "": SubResource("AnimationLibrary_w8do6")
 }
 speed_scale = 0.8
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_yaul4")
+pitch_scale = 0.87
 
 [connection signal="timeout" from="StateMachine/Idle/Timer" to="StateMachine/Idle" method="_on_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/ArmSlam" method="_on_animation_player_animation_finished"]
