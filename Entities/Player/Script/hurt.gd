@@ -7,6 +7,7 @@ func enter(args = {}):
 	handle_damage(args["damage"])
 	
 func handle_damage(damage: float):
+	GameManager.frame_freeze(0.3, 0.6)
 	GameManager.health -= damage
 	animation_player.play("Hurt")
 

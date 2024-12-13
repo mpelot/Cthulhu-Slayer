@@ -44,5 +44,5 @@ func handle_charge_finished():
 func _on_area_2d_body_entered(body):
 	if(body is Player):
 		var damagable : Damagable = Damagable.new(25, charger)
-		GameManager.frame_freeze(0.1, 0.35)
+		
 		body.receive_damage(damagable)
